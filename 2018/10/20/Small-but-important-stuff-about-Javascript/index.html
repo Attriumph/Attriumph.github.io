@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Small but important stuff about Javascript | Lingquan|Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="if (key in object) VS if (object.hasOwnProperty(key)) in will also return true if key gets found somewhere in the prototype chain, whereas Object.hasOwnProperty (like the name already tells us), will">
+<meta name="keywords" content="Front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Small but important stuff about Javascript">
+<meta property="og:url" content="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/index.html">
+<meta property="og:site_name" content="Lingquan|Blog">
+<meta property="og:description" content="if (key in object) VS if (object.hasOwnProperty(key)) in will also return true if key gets found somewhere in the prototype chain, whereas Object.hasOwnProperty (like the name already tells us), will">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-21T00:15:44.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Small but important stuff about Javascript">
+<meta name="twitter:description" content="if (key in object) VS if (object.hasOwnProperty(key)) in will also return true if key gets found somewhere in the prototype chain, whereas Object.hasOwnProperty (like the name already tells us), will">
+  
+    <link rel="alternate" href="/atom.xml" title="Lingquan|Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lingquan|Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Small-but-important-stuff-about-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/" class="article-date">
+  <time datetime="2018-10-21T00:14:48.000Z" itemprop="datePublished">2018-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Small but important stuff about Javascript
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="if-key-in-object-VS-if-object-hasOwnProperty-key"><a href="#if-key-in-object-VS-if-object-hasOwnProperty-key" class="headerlink" title="if (key in object) VS if (object.hasOwnProperty(key))"></a>if (key in object) VS if (object.hasOwnProperty(key))</h3><ul>
+<li>in will also return true if key gets found somewhere in the prototype chain,</li>
+<li>whereas Object.hasOwnProperty (like the name already tells us), will only return true if key is available on that object directly (its “owns” the property).<h3 id="expression-in-js"><a href="#expression-in-js" class="headerlink" title="!!(expression) in js"></a>!!(expression) in js</h3></li>
+<li>it convert expression into boolean<h3 id="Ways-to-judge-if-two-object-are-same"><a href="#Ways-to-judge-if-two-object-are-same" class="headerlink" title="Ways to judge if two object are same"></a>Ways to judge if two object are same</h3></li>
+<li><code>_.isEqual(obj1, obj2)</code> method of lodash.js and underscore.js<br><a href="https://stackoverflow.com/questions/13632999/if-key-in-object-or-ifobject-hasownpropertykey" target="_blank" rel="noopener">from here</a><h3 id="undefined-and-null"><a href="#undefined-and-null" class="headerlink" title="undefined and null"></a>undefined and null</h3></li>
+<li>The undefined value behaves as false when used in a boolean context;The undefined value converts to NaN when used in numeric context.</li>
+<li>When you evaluate a null variable, the null value behaves as 0 in numeric contexts and as false in boolean contexts</li>
+<li>variables that are hoisted return a value of undefined. So even if you declare and initialize after you use or refer to this variable, it still returns undefined<h3 id="function-scope-vs-block-scope"><a href="#function-scope-vs-block-scope" class="headerlink" title="function scope vs block scope"></a>function scope vs block scope</h3></li>
+<li>block scope is delimited by a pair of curly brackets</li>
+<li>function scope is delimited by function</li>
+<li><p>In web pages, the global object is window</p>
+<h3 id="falsy-values"><a href="#falsy-values" class="headerlink" title="falsy values"></a>falsy values</h3><p> The following values evaluate to false (also known as Falsy values):</p>
+</li>
+<li><p>false</p>
+</li>
+<li>undefined</li>
+<li>null</li>
+<li>0</li>
+<li>NaN</li>
+<li>the empty string (“”)</li>
+</ul>
+<p>All other values, including all objects, evaluate to true when passed to a conditional statement.</p>
+<ul>
+<li>Do not confuse the primitive boolean values true and false with the true and false values of the Boolean object. For example:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (b) <span class="comment">// this condition evaluates to true</span></span><br><span class="line"><span class="keyword">if</span> (b == <span class="literal">true</span>) <span class="comment">// this condition evaluates to false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Data-type-conversion"><a href="#Data-type-conversion" class="headerlink" title="Data type conversion"></a>Data type conversion</h3><ul>
+<li>In expressions involving numeric and string values with the <strong>+ operator</strong>, JavaScript converts numeric values to strings</li>
+<li>n statements involving other operators, JavaScript does not convert numeric values to strings.</li>
+<li>convert strings to numbers: parseInt() and parseFloat()<h3 id="Object-Literals"><a href="#Object-Literals" class="headerlink" title="Object Literals"></a>Object Literals</h3></li>
+<li>Object property names can be any string, including the empty string. If the property name would not be a valid JavaScript identifier or number, it must be enclosed in quotes. Property names that are not valid identifiers also cannot be accessed as a dot (.) property, but can be accessed and set with the array-like notation(“[]”).</li>
+<li>identifier are a sequence of characters<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">a</span>: <span class="string">'alpha'</span>, <span class="number">2</span>: <span class="string">'two'</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(foo.a);    <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="number">2</span>]);   <span class="comment">// two</span></span><br><span class="line"><span class="comment">//console.log(foo.2);  // SyntaxError: missing ) after argument list</span></span><br><span class="line"><span class="comment">//console.log(foo[a]); // ReferenceError: a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">'a'</span>]); <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">'2'</span>]); <span class="comment">// two</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="arguments-objects"><a href="#arguments-objects" class="headerlink" title="arguments objects"></a>arguments objects</h3><ul>
+<li>it is a array-like object</li>
+<li>Using the arguments object, you can call a function with more arguments than it is formally declared to accept. This is often useful if you don’t know in advance how many arguments will be passed to the function.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myConcat</span>(<span class="params">separator</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> result = <span class="string">''</span>; <span class="comment">// initialize list</span></span><br><span class="line">   <span class="keyword">var</span> i;</span><br><span class="line">   <span class="comment">// iterate through arguments</span></span><br><span class="line">   <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">      result += <span class="built_in">arguments</span>[i] + separator;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You can pass any number of arguments to this function, and it concatenates each argument into a string "list":</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// returns "red, orange, blue, "</span></span><br><span class="line">myConcat(<span class="string">', '</span>, <span class="string">'red'</span>, <span class="string">'orange'</span>, <span class="string">'blue'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// returns "elephant; giraffe; lion; cheetah; "</span></span><br><span class="line">myConcat(<span class="string">'; '</span>, <span class="string">'elephant'</span>, <span class="string">'giraffe'</span>, <span class="string">'lion'</span>, <span class="string">'cheetah'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener">From MDN</a></p>
+<h3 id="Arrow-function"><a href="#Arrow-function" class="headerlink" title="Arrow function"></a>Arrow function</h3><ul>
+<li>does not have its own this, arguments, super</li>
+<li>An arrow function does not have its own this; the this value of the enclosing execution context is used(箭头函数捕捉闭包上下文的this值).</li>
+<li>在箭头函数出现之前，每一个新函数都重新定义了自己的 this 值</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/" data-id="cjni4fuxh000390ulgplxx2iv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/18/Javascript-Summary/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Javascript Summary</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/">Small but important stuff about Javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/18/Javascript-Summary/">Javascript Summary</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/18/HTML-CSS-Summary/">HTML/CSS Summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Lingquan Han<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
