@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Inheritance in Javascript | Lingquan|Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Inheritance in JavaScriptJavaScript is an object-based language based on prototypes, rather than being class-based.some sentence need to keep in mind  Every object has a proto object property (except">
+<meta name="keywords" content="Front-end">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inheritance in Javascript">
+<meta property="og:url" content="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/index.html">
+<meta property="og:site_name" content="Lingquan|Blog">
+<meta property="og:description" content="Inheritance in JavaScriptJavaScript is an object-based language based on prototypes, rather than being class-based.some sentence need to keep in mind  Every object has a proto object property (except">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/Attriumph/Interview-Problem-Summary/blob/master/Front-end%20Interview/images/hierachy1.png">
+<meta property="og:updated_time" content="2018-10-22T05:48:47.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Inheritance in Javascript">
+<meta name="twitter:description" content="Inheritance in JavaScriptJavaScript is an object-based language based on prototypes, rather than being class-based.some sentence need to keep in mind  Every object has a proto object property (except">
+<meta name="twitter:image" content="https://github.com/Attriumph/Interview-Problem-Summary/blob/master/Front-end%20Interview/images/hierachy1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Lingquan|Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Lingquan|Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Keep Learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Inheritance-in-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/21/Inheritance-in-Javascript/" class="article-date">
+  <time datetime="2018-10-22T05:42:45.000Z" itemprop="datePublished">2018-10-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Inheritance in Javascript
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Inheritance-in-JavaScript"><a href="#Inheritance-in-JavaScript" class="headerlink" title="Inheritance in JavaScript"></a>Inheritance in JavaScript</h1><p>JavaScript is an object-based language based on prototypes, rather than being class-based.<br>some sentence need to keep in mind</p>
+<ul>
+<li>Every object has a <strong>proto</strong> object property (except Object);</li>
+<li>every function has a prototype object property.</li>
+<li>Because an object has a single associated prototype, JavaScript cannot dynamically inherit from more than one prototype chain.</li>
+<li>In JavaScript, you can have a constructor function call more than one other constructor function within it. This gives the illusion of multiple inheritance.</li>
+</ul>
+<h3 id="1-based-on-example-of-MDN"><a href="#1-based-on-example-of-MDN" class="headerlink" title="1. based on example of MDN"></a>1. based on example of MDN</h3><div style="text-align: center;"><br>  <img src="https://github.com/Attriumph/Interview-Problem-Summary/blob/master/Front-end%20Interview/images/hierachy1.png" width="40%"><br></div>
+
+<ul>
+<li>Two ways to implement inheritance based on MDN documents<ol>
+<li>use Object.create(): three steps</li>
+<li>use new Father: 1 step, but have limitations<br>see code below:</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Employee</span>(<span class="params">name, dept</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">this</span>.dept = dept || <span class="string">'general'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// the first way to inherit a prototype</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Manager</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Employee.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.reports = [];</span><br><span class="line">&#125;</span><br><span class="line">Manager.prototype = <span class="built_in">Object</span>.create(Employee.prototype);</span><br><span class="line">Manager.prototype.constructor = Manager;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">WorkerBee</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Employee.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.projects = [];</span><br><span class="line">&#125;</span><br><span class="line">WorkerBee.prototype = <span class="built_in">Object</span>.create(Employee.prototype);</span><br><span class="line">WorkerBee.prototype.constructor = WorkerBee;</span><br><span class="line"></span><br><span class="line"><span class="comment">// anther qucik way to inherit</span></span><br><span class="line"><span class="comment">// but in this case:</span></span><br><span class="line"><span class="comment">// If we want to change the value of an object property at run time and have the new value be inherited by all descendants of the object, you cannot define the property in the object's constructor function. Instead, you add it to the constructor's associated prototype.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">WorkerBee</span>(<span class="params">projs</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">this</span>.projects = projs || [];</span><br><span class="line">&#125;</span><br><span class="line">WorkerBee.prototype = <span class="keyword">new</span> Employee;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Engineer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   WorkerBee.call(<span class="keyword">this</span>);</span><br><span class="line">   <span class="keyword">this</span>.dept = <span class="string">'engineering'</span>;</span><br><span class="line">   <span class="keyword">this</span>.machine = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br><span class="line">Engineer.prototype = <span class="built_in">Object</span>.create(WorkerBee.prototype)</span><br><span class="line">Engineer.prototype.constructor = Engineer;</span><br><span class="line"></span><br><span class="line"><span class="comment">//have the constructor add more properties by directly calling the constructor function for an object higher in the prototype chain</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Engineer</span>(<span class="params">name, projs, mach</span>) </span>&#123;</span><br><span class="line">  WorkerBee.call(<span class="keyword">this</span>, name, <span class="string">'engineering'</span>, projs);</span><br><span class="line">  <span class="keyword">this</span>.machine = mach || <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-based-on-liaoxuefeng"><a href="#2-based-on-liaoxuefeng" class="headerlink" title="2. based on liaoxuefeng"></a>2. based on liaoxuefeng</h3><ul>
+<li><p>a universal way to implement inheritance in javaScript before ES6</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unnamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现原型继承链:</span></span><br><span class="line">inherits(PrimaryStudent, Student);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定其他方法到PrimaryStudent原型:</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>after ES6, we use the following codes</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    hello() &#123;</span><br><span class="line">        alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimaryStudent</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, grade) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name); <span class="comment">// 记得用super调用父类的构造方法!</span></span><br><span class="line">        <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    myGrade() &#123;</span><br><span class="line">        alert(<span class="string">'I am at grade '</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/" data-id="cjnjvs1gc0000voulg844ck2t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Small but important stuff about Javascript</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/21/Inheritance-in-Javascript/">Inheritance in Javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/">Small but important stuff about Javascript</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/18/Javascript-Summary/">Javascript Summary</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/18/HTML-CSS-Summary/">HTML/CSS Summary</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Lingquan Han<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
