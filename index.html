@@ -66,6 +66,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Implement-a-Queue-by-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/22/Implement-a-Queue-by-Javascript/" class="article-date">
+  <time datetime="2018-10-23T03:30:58.000Z" itemprop="datePublished">2018-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/22/Implement-a-Queue-by-Javascript/">Implement a Queue by Javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="How-to-Implement-a-Queue-by-Javascript"><a href="#How-to-Implement-a-Queue-by-Javascript" class="headerlink" title="How to Implement a Queue by Javascript"></a>How to Implement a Queue by Javascript</h2><p>We got two methods:</p>
+<ol>
+<li>use array and shift method for dequeue</li>
+<li>use object and two pointers, see code below<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>._storage = &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>._oldIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>._newIndex = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  enqueue(ele) &#123;</span><br><span class="line">    <span class="keyword">this</span>._storage[<span class="keyword">this</span>._newIndex] = ele;</span><br><span class="line">    <span class="keyword">this</span>._newIndex += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  dequeue() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._oldIndex !== <span class="keyword">this</span>._newIndex) &#123;</span><br><span class="line">      <span class="keyword">let</span> dequeueData = <span class="keyword">this</span>._storage[<span class="keyword">this</span>._oldIndex];</span><br><span class="line">      <span class="keyword">delete</span> <span class="keyword">this</span>._storage[<span class="keyword">this</span>._oldIndex];</span><br><span class="line">      <span class="keyword">this</span>._oldIndex += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> dequeueData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  size() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._newIndex - <span class="keyword">this</span>._oldIndex;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size() === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line">queue.enqueue(<span class="number">10</span>);</span><br><span class="line">queue.enqueue(<span class="number">11</span>);</span><br><span class="line">queue.enqueue(<span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(queue.dequeue())</span><br><span class="line"><span class="built_in">console</span>.log(queue)</span><br><span class="line"><span class="built_in">console</span>.log(queue.isEmpty())</span><br><span class="line"><span class="built_in">console</span>.log(queue.size())</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/22/Implement-a-Queue-by-Javascript/" data-id="cjnl6e7h90001jcul93g6lzjd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Inheritance-in-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/21/Inheritance-in-Javascript/" class="article-date">
@@ -117,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/" data-id="cjnjvs1gc0000voulg844ck2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/" data-id="cjnl6e7hd0003jculfq8tjfsd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -200,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/" data-id="cjnjvs1gy0006vouluoaq6p3j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/" data-id="cjnl6e7hh0005jculwhnxhvv9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -457,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/Javascript-Summary/" data-id="cjnjvs1gz0007voul6fjaqvyw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/Javascript-Summary/" data-id="cjnl6e7h30000jculx8kybirc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -590,7 +635,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/HTML-CSS-Summary/" data-id="cjnjvs1gi0001voul19zwb2wk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/HTML-CSS-Summary/" data-id="cjnl6e7hf0004jculpnpx4fdy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -615,7 +660,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
     </div>
   </div>
 
@@ -625,7 +670,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Front-end/" style="font-size: 10px;">Front-end</a>
+      <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Front-end/" style="font-size: 20px;">Front-end</a>
     </div>
   </div>
 
@@ -645,6 +690,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/22/Implement-a-Queue-by-Javascript/">Implement a Queue by Javascript</a>
+          </li>
         
           <li>
             <a href="/2018/10/21/Inheritance-in-Javascript/">Inheritance in Javascript</a>
