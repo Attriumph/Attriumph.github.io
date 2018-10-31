@@ -1,925 +1,970 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="">
+    <!-- title -->
 
-  
-  <title>Lingquan|Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lingquan|Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Lingquan|Blog">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lingquan|Blog">
-  
-    <link rel="alternate" href="/atom.xml" title="Lingquan|Blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Lingquan Han">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Lingquan Han">
+    
+    <meta name="keywords" content="Lingquan,front-end">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Lingquan&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Lingquan|Blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Keep Learning</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+    
+        <body class="home-body">
+    
+    
+<header class="header index-header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>Lingquan | Blog</a>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Ways-to-improve-web-performance" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/30/Ways-to-improve-web-performance/" class="article-date">
-  <time datetime="2018-10-31T04:54:44.000Z" itemprop="datePublished">2018-10-30</time>
-</a>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
     
-  </div>
-  <div class="article-inner">
+    <!-- 主页  -->
     
     
-      <header class="article-header">
+    <!-- 文章页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Lingquan | Blog
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                it's better to burn out than to fade away
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/30/Ways-to-improve-web-performance/">Ways to improve web performance</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Yahoo-Ways-to-improve-website-performance"><a href="#Yahoo-Ways-to-improve-website-performance" class="headerlink" title="Yahoo Ways to improve website performance"></a>Yahoo Ways to improve website performance</h2><ul>
-<li><p>Minimize HTTP Requests</p>
-<p>Sites are mainly slow because of too many (or too large) HTTP requests. We can eliminate unnecessary request;</p>
-<ol>
-<li>combined files: js to a file, css to a file</li>
-<li>CSS sprites: CSS Sprites are the preferred method for reducing the number of image requests. Combine your background images into a single image and use the CSS background-image and background-position properties to display the desired image segment.</li>
-</ol>
-</li>
-<li><p>Use a Content Delivery Network</p>
-<p>A CDN is essentially many optimized servers around the world that deliver web content to users based on their geographic location. This means big performance improvements for site users. Because, say, if a person accessing your site in India, they will be retrieving web content from a server nearby</p>
-</li>
-<li><p>Optimize Images:</p>
-<p>image sizes make a huge difference to site speed. The larger content/images, the slower the site. we could:</p>
-<ol>
-<li>Changing the resolution: reducing the “quality” of the image (and thereby the file size)</li>
-<li>Compressing the picture: increasing the efficiency of image data storage</li>
-<li>Cropping the picture: when cropping, you are cutting out unneeded areas and thus making the image smaller in size</li>
-</ol>
-</li>
-<li><p>Put Scripts at the Bottom:</p>
-<p>Javascript files can load after the rest of your page. The simplest solution is to place your external Javascript files at the bottom of your page, just before the close of your body tag. Now more of your site can load before your scripts. Another method that allows even more control is to use the defer or async attributes when placing external .js files on your site.</p>
-<ol>
-<li>Async tags load the scripts while the rest of the page loads, but this means scripts can be loaded out of order. Basically, lighter files load first. This might be fine for some scripts, but can be disastrous for others.</li>
-<li>The defer attribute loads your scripts after your content has finished loading. It also runs the scripts in order. Just make sure your scripts run so late without breaking your site.</li>
-</ol>
-</li>
-<li><p>Add an Expires or a Cache-Control Header</p>
-<p>Web page designs are getting richer and richer, which means more scripts, stylesheets, images, and Flash in the page. A first-time visitor to your page may have to make several HTTP requests, but by using the Expires header you make those components cacheable. This avoids unnecessary HTTP requests on subsequent page views. Expires headers are most often used with images, but they should be used on all components including scripts, stylesheets, and Flash components.</p>
-</li>
-<li><p>Gzip Components</p>
-<p>Compression reduces response times by reducing the size of the HTTP response. Gzipping generally reduces the response size by about 70%.</p>
-</li>
-<li><p>Put Stylesheets at the Top:</p>
-<p>This is because putting stylesheets in the HEAD allows the page to render progressively.</p>
-</li>
-<li>Avoid CSS Expressions</li>
-<li><p>Use GET for AJAX Requests:</p>
-<p>Ajax is that it provides instantaneous feedback to the user because it requests information asynchronously from the backend web server</p>
-</li>
-<li><p>Make JavaScript and CSS External:</p>
-<p>Using external files in the real world generally produces faster pages because the JavaScript and CSS files are cached by the browser. JavaScript and CSS that are inlined in HTML documents get downloaded every time the HTML document is requested. This reduces the number of HTTP requests that are needed, but increases the size of the HTML document. On the other hand, if the JavaScript and CSS are in external files cached by the browser, the size of the HTML document is reduced without increasing the number of HTTP requests.</p>
-</li>
-<li><p>Use get to ajax request:</p>
-<p> POST is implemented in the browsers as a two-step process: sending the headers first, then sending data. So it’s best to use GET, which only takes one TCP packet to send (unless you have a lot of cookies).</p>
-</li>
-<li><p>No 404s:</p>
-<p> HTTP requests are expensive so making an HTTP request and getting a useless response (i.e. 404 Not Found) is totally unnecessary and will slow down the user experience without any benefit.</p>
-</li>
-<li><p>Reduce Cookie Size:</p>
-<p>HTTP cookies are used for a variety of reasons such as authentication and personalization. Information about cookies is exchanged in the HTTP headers between web servers and browsers. It’s important to keep the size of cookies as low as possible to minimize the impact on the user’s response time.</p>
-</li>
-<li>Reduce DNS Lookups</li>
-<li>Minify JavaScript and CSS</li>
-<li>Avoid Redirects</li>
-<li>Remove Duplicate Scripts</li>
-<li>Configure Etags</li>
-<li>Make Ajax Cacheable</li>
-<li>Post-load Components</li>
-<li>Preload Components</li>
-<li>Reduce the Number of DOM Elements</li>
-<li>Minimize the Number of iframes</li>
-<li>Minimize DOM Access</li>
-<li>Optimize CSS Sprites</li>
-<li>Don’t Scale Images in HTML</li>
-<li>Make favicon.ico Small and Cacheable</li>
-<li>Avoid Empty Image src</li>
-</ul>
-
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/30/Ways-to-improve-web-performance/" data-id="cjnwov9pv000aiwulkdzxj7ts" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Performance/">Web Performance</a></li></ul>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
 
-    </footer>
-  </div>
-  
-</article>
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
 
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
 
-  
-    <article id="post-HTML-DOM-Key-Concepts" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/26/HTML-DOM-Key-Concepts/" class="article-date">
-  <time datetime="2018-10-27T04:49:26.000Z" itemprop="datePublished">2018-10-26</time>
-</a>
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
     
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/26/HTML-DOM-Key-Concepts/">HTML DOM Key Concepts</a>
-    </h1>
-  
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/30/Ways-to-improve-web-performance/" >
+            
+                <span>Ways to improve web performance</span>
+        </a>
+        <div class="abstract-content">
+            Yahoo Ways to improve website performance
+Minimize HTTP Requests
+Sites are mainly slow because of too many (or too large) HTTP requests. We can eliminate unnecessary request;
 
-      </header>
+combined files: js to a file, css to a file
+CSS sprites: CSS Sprites are the preferred method for reducing the number of ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="classlist-of-dom-node"><a href="#classlist-of-dom-node" class="headerlink" title="classlist of dom node"></a>classlist of dom node</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">selector, className</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> elm = <span class="built_in">document</span>.querySelector(selector);</span><br><span class="line">   <span class="keyword">if</span> (elm)&#123;</span><br><span class="line">      elm.classList.add(className);</span><br><span class="line">      <span class="comment">//elm.classList.remove(className);</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="innerHTML-innerText，-textContent"><a href="#innerHTML-innerText，-textContent" class="headerlink" title="innerHTML, innerText， textContent"></a>innerHTML, innerText， textContent</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">"test"</span>&gt;    This element    contains &lt;span&gt;an inner span&lt;<span class="regexp">/span&gt;. &lt;/</span>p&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>The values of these properties of the “test” paragraph will be:</li>
-<li>innerText: “This element contains an inner span.”  : Just the text, trimmed and space-collapsed.</li>
-<li>innerHtml: “ This element     contains <span>an inner span</span>. “   All spacing and inner element tags.</li>
-<li>textContent: “ This element     contains an inner span. “  Spacing, but no tags.</li>
-</ul>
-<h2 id="Repaint-vs-Reflow"><a href="#Repaint-vs-Reflow" class="headerlink" title="Repaint vs Reflow"></a>Repaint vs Reflow</h2><ul>
-<li>reflow: flow of the elements in the page is changed due to change size or position</li>
-<li>repaint: It happens when you change the look of an element without changing the size and shape. This doesn’t cause reflow as geometry of the element didn’t changed. eg, change visibility</li>
-</ul>
-<h2 id="CreateDocumentFragment"><a href="#CreateDocumentFragment" class="headerlink" title="CreateDocumentFragment"></a>CreateDocumentFragment</h2><ul>
-<li>documentFragment a lightweight or minimal part of a DOM or a subtree of a DOM tree.</li>
-<li>It is very helpful for improving performance when you are manipulating a part of DOM for multiple times.</li>
-</ul>
-<h2 id="Tranverse-Dom-tree"><a href="#Tranverse-Dom-tree" class="headerlink" title="Tranverse Dom tree"></a>Tranverse Dom tree</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 广度优先遍历</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bfs</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> queue = [root];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(queue.length) &#123;</span><br><span class="line">      <span class="keyword">let</span> curNode = queue.shift();</span><br><span class="line">      <span class="built_in">console</span>.log(curNode);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(!curNode.children.length) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="built_in">Array</span>.from(curNode.children).map(<span class="function">(<span class="params">child</span>) =&gt;</span> queue.push(child));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深度优先遍历</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">dfs</span>(<span class="params">root</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> child = root.firstElementChild;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(child) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(child);</span><br><span class="line">      dfs(child);</span><br><span class="line">      child = child.nextElementSibling;  </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="DOM-API"><a href="#DOM-API" class="headerlink" title="DOM API"></a>DOM API</h3><ul>
-<li><p>addEventListener &amp; removeEventListener</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Attach an event handler to the document</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"mousemove"</span>, myFunction);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Remove the event handler from the document</span></span><br><span class="line"><span class="built_in">document</span>.removeEventListener(<span class="string">"mousemove"</span>, myFunction);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>createAttribute() &amp; setAttributeNode()</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> h1 = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"H1"</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> att = <span class="built_in">document</span>.createAttribute(<span class="string">"class"</span>);</span><br><span class="line">    att.value = <span class="string">"democlass"</span>;</span><br><span class="line">    h1.setAttributeNode(att);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>createElement() &amp; intersetBefore() &amp; appendChild()</p>
-</li>
-<li>querySelector &amp; querySelectorAll()</li>
-</ul>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Web Performance">Web Performance</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/26/HTML-DOM-Key-Concepts/" >
+            
+                <span>HTML DOM Key Concepts</span>
+        </a>
+        <div class="abstract-content">
+            classlist of dom node1234567function addClass(selector, className)&#123;   var elm = document.querySelector(selector);   if (elm)&#123;      elm.classList.add(className);      //elm.classList.remove(className);   &#125;&#125;
+innerHTML, innerText， textContent1&lt;p id="test"&gt;    This element  ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/22/Implement-a-Queue-by-Javascript/" >
+            
+                <span>Implement a Queue by Javascript</span>
+        </a>
+        <div class="abstract-content">
+            How to Implement a Queue by JavascriptWe got two methods:
 
-      
+use array and shift method for dequeue
+use object and two pointers, see code below12345678910111213141516171819202122232425262728293031class Queue &#123;  constructor() &#123;    this._storage = &#123;&#125;;    this._oldIndex = 0;    thi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Data Structure">Data Structure</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/21/Inheritance-in-Javascript/" >
+            
+                <span>Inheritance in Javascript</span>
+        </a>
+        <div class="abstract-content">
+            Inheritance in JavaScriptJavaScript is an object-based language based on prototypes, rather than being class-based.some sentence need to keep in mind
+
+Every object has a proto object property (except Object);
+every function has a prototype object property.
+Because an object has a single associate...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/20/Small-but-important-stuff-about-Javascript/" >
+            
+                <span>Small but important stuff about Javascript</span>
+        </a>
+        <div class="abstract-content">
+            if (key in object) VS if (object.hasOwnProperty(key))
+in will also return true if key gets found somewhere in the prototype chain,
+whereas Object.hasOwnProperty (like the name already tells us), will only return true if key is available on that object directly (its “owns” the property).!!(express...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/18/Javascript-Summary/" >
+            
+                <span>Javascript Summary</span>
+        </a>
+        <div class="abstract-content">
+            forEach() VS map() VS (for..in) VS (for…of)
+Both they will  call a provided function on each element in given array. However, the forEach() method doesn’t return anything (undefined), the map() method will return a new Array of  the same size.
+forEach() can be used by map, set and array, map just...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/18/HTML-CSS-Summary/" >
+            
+                <span>HTML/CSS Summary</span>
+        </a>
+        <div class="abstract-content">
+            HTMLHTML SemanticSemantic HTML is HTML that introduces meaning to the web page rather than just presentation. For example, a  tag indicates that the enclosed text is a paragraph. This is both semantic and presentational, because people know what paragraphs are and browsers know how to display the...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= /avatar/Misaka.jpg >
+    <div class="profile-name">Lingquan Han</div>
+    
+    <div class="profile-signature">
+        Keep Learning
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/26/HTML-DOM-Key-Concepts/" data-id="cjnwov9p80003iwul3proa8a9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Implement-a-Queue-by-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/22/Implement-a-Queue-by-Javascript/" class="article-date">
-  <time datetime="2018-10-23T03:30:58.000Z" itemprop="datePublished">2018-10-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
+    <div class="profile-social">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/22/Implement-a-Queue-by-Javascript/">Implement a Queue by Javascript</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="How-to-Implement-a-Queue-by-Javascript"><a href="#How-to-Implement-a-Queue-by-Javascript" class="headerlink" title="How to Implement a Queue by Javascript"></a>How to Implement a Queue by Javascript</h2><p>We got two methods:</p>
-<ol>
-<li>use array and shift method for dequeue</li>
-<li>use object and two pointers, see code below<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>._storage = &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>._oldIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>._newIndex = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  enqueue(ele) &#123;</span><br><span class="line">    <span class="keyword">this</span>._storage[<span class="keyword">this</span>._newIndex] = ele;</span><br><span class="line">    <span class="keyword">this</span>._newIndex += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  dequeue() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._oldIndex !== <span class="keyword">this</span>._newIndex) &#123;</span><br><span class="line">      <span class="keyword">let</span> dequeueData = <span class="keyword">this</span>._storage[<span class="keyword">this</span>._oldIndex];</span><br><span class="line">      <span class="keyword">delete</span> <span class="keyword">this</span>._storage[<span class="keyword">this</span>._oldIndex];</span><br><span class="line">      <span class="keyword">this</span>._oldIndex += <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> dequeueData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  size() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._newIndex - <span class="keyword">this</span>._oldIndex;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isEmpty() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size() === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> queue = <span class="keyword">new</span> Queue();</span><br><span class="line">queue.enqueue(<span class="number">10</span>);</span><br><span class="line">queue.enqueue(<span class="number">11</span>);</span><br><span class="line">queue.enqueue(<span class="number">12</span>);</span><br><span class="line"><span class="built_in">console</span>.log(queue.dequeue())</span><br><span class="line"><span class="built_in">console</span>.log(queue)</span><br><span class="line"><span class="built_in">console</span>.log(queue.isEmpty())</span><br><span class="line"><span class="built_in">console</span>.log(queue.size())</span><br></pre></td></tr></table></figure>
+        
+            
+                <a href="mailto:lingquanhan@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Attriumph" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="//www.linkedin.com/in/lingquanhan/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
+            
+        
+    
+        
+            
+                <a href="//www.facebook.com/Lingquan.Han" class="iconfont-archer facebook" target="_blank" title=facebook></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/22/Implement-a-Queue-by-Javascript/" data-id="cjnwov9oz0001iwulda69knvh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Inheritance-in-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/21/Inheritance-in-Javascript/" class="article-date">
-  <time datetime="2018-10-22T05:42:45.000Z" itemprop="datePublished">2018-10-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //caomingkai.github.io target="_black">friendA</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= / target="_black">friendB</a>
+                    </span>
+                
+            
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/21/Inheritance-in-Javascript/">Inheritance in Javascript</a>
-    </h1>
-  
-
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Inheritance-in-JavaScript"><a href="#Inheritance-in-JavaScript" class="headerlink" title="Inheritance in JavaScript"></a>Inheritance in JavaScript</h1><p>JavaScript is an object-based language based on prototypes, rather than being class-based.<br>some sentence need to keep in mind</p>
-<ul>
-<li>Every object has a <strong>proto</strong> object property (except Object);</li>
-<li>every function has a prototype object property.</li>
-<li>Because an object has a single associated prototype, JavaScript cannot dynamically inherit from more than one prototype chain.</li>
-<li>In JavaScript, you can have a constructor function call more than one other constructor function within it. This gives the illusion of multiple inheritance.</li>
-</ul>
-<h3 id="1-based-on-example-of-MDN"><a href="#1-based-on-example-of-MDN" class="headerlink" title="1. based on example of MDN"></a>1. based on example of MDN</h3><div style="text-align: center;"><br>  <img src="../_images/hierachy1.png" width="40%"><br></div>
+        
+            
+                <a href="mailto:lingquanhan@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Attriumph" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="//www.linkedin.com/in/lingquanhan/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
+            
+        
+    
+        
+            
+                <a href="//www.facebook.com/Lingquan.Han" class="iconfont-archer facebook" target="_blank" title=facebook></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-<ul>
-<li>Two ways to implement inheritance based on MDN documents<ol>
-<li>use Object.create(): three steps</li>
-<li>use new Father: 1 step, but have limitations<br>see code below:</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Employee</span>(<span class="params">name, dept</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">this</span>.dept = dept || <span class="string">'general'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// the first way to inherit a prototype</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Manager</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Employee.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.reports = [];</span><br><span class="line">&#125;</span><br><span class="line">Manager.prototype = <span class="built_in">Object</span>.create(Employee.prototype);</span><br><span class="line">Manager.prototype.constructor = Manager;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">WorkerBee</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Employee.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.projects = [];</span><br><span class="line">&#125;</span><br><span class="line">WorkerBee.prototype = <span class="built_in">Object</span>.create(Employee.prototype);</span><br><span class="line">WorkerBee.prototype.constructor = WorkerBee;</span><br><span class="line"></span><br><span class="line"><span class="comment">// anther qucik way to inherit</span></span><br><span class="line"><span class="comment">// but in this case:</span></span><br><span class="line"><span class="comment">// If we want to change the value of an object property at run time and have the new value be inherited by all descendants of the object, you cannot define the property in the object's constructor function. Instead, you add it to the constructor's associated prototype.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">WorkerBee</span>(<span class="params">projs</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">this</span>.projects = projs || [];</span><br><span class="line">&#125;</span><br><span class="line">WorkerBee.prototype = <span class="keyword">new</span> Employee;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Engineer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   WorkerBee.call(<span class="keyword">this</span>);</span><br><span class="line">   <span class="keyword">this</span>.dept = <span class="string">'engineering'</span>;</span><br><span class="line">   <span class="keyword">this</span>.machine = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br><span class="line">Engineer.prototype = <span class="built_in">Object</span>.create(WorkerBee.prototype)</span><br><span class="line">Engineer.prototype.constructor = Engineer;</span><br><span class="line"></span><br><span class="line"><span class="comment">//have the constructor add more properties by directly calling the constructor function for an object higher in the prototype chain</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Engineer</span>(<span class="params">name, projs, mach</span>) </span>&#123;</span><br><span class="line">  WorkerBee.call(<span class="keyword">this</span>, name, <span class="string">'engineering'</span>, projs);</span><br><span class="line">  <span class="keyword">this</span>.machine = mach || <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-based-on-liaoxuefeng"><a href="#2-based-on-liaoxuefeng" class="headerlink" title="2. based on liaoxuefeng"></a>2. based on liaoxuefeng</h3><ul>
-<li><p>a universal way to implement inheritance in javaScript before ES6</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unnamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现原型继承链:</span></span><br><span class="line">inherits(PrimaryStudent, Student);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定其他方法到PrimaryStudent原型:</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>after ES6, we use the following codes</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    hello() &#123;</span><br><span class="line">        alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimaryStudent</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, grade) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name); <span class="comment">// 记得用super调用父类的构造方法!</span></span><br><span class="line">        <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    myGrade() &#123;</span><br><span class="line">        alert(<span class="string">'I am at grade '</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/" data-id="cjnwov9pd0004iwulw2nlhf9j" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Small-but-important-stuff-about-Javascript" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/" class="article-date">
-  <time datetime="2018-10-21T00:14:48.000Z" itemprop="datePublished">2018-10-20</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/20/Small-but-important-stuff-about-Javascript/">Small but important stuff about Javascript</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="if-key-in-object-VS-if-object-hasOwnProperty-key"><a href="#if-key-in-object-VS-if-object-hasOwnProperty-key" class="headerlink" title="if (key in object) VS if (object.hasOwnProperty(key))"></a>if (key in object) VS if (object.hasOwnProperty(key))</h3><ul>
-<li>in will also return true if key gets found somewhere in the prototype chain,</li>
-<li>whereas Object.hasOwnProperty (like the name already tells us), will only return true if key is available on that object directly (its “owns” the property).<h3 id="expression-in-js"><a href="#expression-in-js" class="headerlink" title="!!(expression) in js"></a>!!(expression) in js</h3></li>
-<li>it convert expression into boolean<h3 id="Ways-to-judge-if-two-object-are-same"><a href="#Ways-to-judge-if-two-object-are-same" class="headerlink" title="Ways to judge if two object are same"></a>Ways to judge if two object are same</h3></li>
-<li><code>_.isEqual(obj1, obj2)</code> method of lodash.js and underscore.js<br><a href="https://stackoverflow.com/questions/13632999/if-key-in-object-or-ifobject-hasownpropertykey" target="_blank" rel="noopener">from here</a><h3 id="undefined-and-null"><a href="#undefined-and-null" class="headerlink" title="undefined and null"></a>undefined and null</h3></li>
-<li>The undefined value behaves as false when used in a boolean context;The undefined value converts to NaN when used in numeric context.</li>
-<li>When you evaluate a null variable, the null value behaves as 0 in numeric contexts and as false in boolean contexts</li>
-<li>variables that are hoisted return a value of undefined. So even if you declare and initialize after you use or refer to this variable, it still returns undefined<h3 id="function-scope-vs-block-scope"><a href="#function-scope-vs-block-scope" class="headerlink" title="function scope vs block scope"></a>function scope vs block scope</h3></li>
-<li>block scope is delimited by a pair of curly brackets</li>
-<li>function scope is delimited by function</li>
-<li><p>In web pages, the global object is window</p>
-<h3 id="falsy-values"><a href="#falsy-values" class="headerlink" title="falsy values"></a>falsy values</h3><p> The following values evaluate to false (also known as Falsy values):</p>
-</li>
-<li><p>false</p>
-</li>
-<li>undefined</li>
-<li>null</li>
-<li>0</li>
-<li>NaN</li>
-<li>the empty string (“”)</li>
-</ul>
-<p>All other values, including all objects, evaluate to true when passed to a conditional statement.</p>
-<ul>
-<li>Do not confuse the primitive boolean values true and false with the true and false values of the Boolean object. For example:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (b) <span class="comment">// this condition evaluates to true</span></span><br><span class="line"><span class="keyword">if</span> (b == <span class="literal">true</span>) <span class="comment">// this condition evaluates to false</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Data-type-conversion"><a href="#Data-type-conversion" class="headerlink" title="Data type conversion"></a>Data type conversion</h3><ul>
-<li>In expressions involving numeric and string values with the <strong>+ operator</strong>, JavaScript converts numeric values to strings</li>
-<li>n statements involving other operators, JavaScript does not convert numeric values to strings.</li>
-<li>convert strings to numbers: parseInt() and parseFloat()<h3 id="Object-Literals"><a href="#Object-Literals" class="headerlink" title="Object Literals"></a>Object Literals</h3></li>
-<li>Object property names can be any string, including the empty string. If the property name would not be a valid JavaScript identifier or number, it must be enclosed in quotes. Property names that are not valid identifiers also cannot be accessed as a dot (.) property, but can be accessed and set with the array-like notation(“[]”).</li>
-<li>identifier are a sequence of characters<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;<span class="attr">a</span>: <span class="string">'alpha'</span>, <span class="number">2</span>: <span class="string">'two'</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(foo.a);    <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="number">2</span>]);   <span class="comment">// two</span></span><br><span class="line"><span class="comment">//console.log(foo.2);  // SyntaxError: missing ) after argument list</span></span><br><span class="line"><span class="comment">//console.log(foo[a]); // ReferenceError: a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">'a'</span>]); <span class="comment">// alpha</span></span><br><span class="line"><span class="built_in">console</span>.log(foo[<span class="string">'2'</span>]); <span class="comment">// two</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="arguments-objects"><a href="#arguments-objects" class="headerlink" title="arguments objects"></a>arguments objects</h3><ul>
-<li>it is a array-like object</li>
-<li>Using the arguments object, you can call a function with more arguments than it is formally declared to accept. This is often useful if you don’t know in advance how many arguments will be passed to the function.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myConcat</span>(<span class="params">separator</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> result = <span class="string">''</span>; <span class="comment">// initialize list</span></span><br><span class="line">   <span class="keyword">var</span> i;</span><br><span class="line">   <span class="comment">// iterate through arguments</span></span><br><span class="line">   <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">      result += <span class="built_in">arguments</span>[i] + separator;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// You can pass any number of arguments to this function, and it concatenates each argument into a string "list":</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// returns "red, orange, blue, "</span></span><br><span class="line">myConcat(<span class="string">', '</span>, <span class="string">'red'</span>, <span class="string">'orange'</span>, <span class="string">'blue'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// returns "elephant; giraffe; lion; cheetah; "</span></span><br><span class="line">myConcat(<span class="string">'; '</span>, <span class="string">'elephant'</span>, <span class="string">'giraffe'</span>, <span class="string">'lion'</span>, <span class="string">'cheetah'</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener">From MDN</a></p>
-<h3 id="Arrow-function"><a href="#Arrow-function" class="headerlink" title="Arrow function"></a>Arrow function</h3><ul>
-<li>does not have its own this, arguments, super</li>
-<li>An arrow function does not have its own this; the this value of the enclosing execution context is used(箭头函数捕捉闭包上下文的this值).</li>
-<li>在箭头函数出现之前，每一个新函数都重新定义了自己的 this 值</li>
-</ul>
-
-      
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/" data-id="cjnwov9ph0005iwul17jwpah6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Javascript-Summary" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/18/Javascript-Summary/" class="article-date">
-  <time datetime="2018-10-19T00:52:51.000Z" itemprop="datePublished">2018-10-18</time>
-</a>
+    <!-- 不蒜子  -->
     
-  </div>
-  <div class="article-inner">
+    <div class="busuanzi-container">
     
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/18/Javascript-Summary/">Javascript Summary</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="forEach-VS-map-VS-for-in-VS-for…of"><a href="#forEach-VS-map-VS-for-in-VS-for…of" class="headerlink" title="forEach() VS map() VS (for..in) VS (for…of)"></a>forEach() VS map() VS (for..in) VS (for…of)</h2><ol>
-<li>Both they will  call a provided function on each element in given array. However, the forEach() method doesn’t return anything (undefined), the map() method will return a new Array of  the same size.</li>
-<li>forEach() can be used by map, set and array, map just be used by array</li>
-</ol>
-<h2 id="What-is-a-Closure"><a href="#What-is-a-Closure" class="headerlink" title="What is a Closure?"></a>What is a Closure?</h2><ul>
-<li>A closure is an inner function that has access to the outer function’s variables.</li>
-<li>Why use it?<ol>
-<li>A closure lets us associate some data (the environment) with a function that operates on that data.</li>
-<li>for object data privacy, This has obvious parallels to object oriented programming, where objects allow us to associate some data (the object’s properties) with one or more methods.</li>
-</ol>
-</li>
-<li>sample code:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lazy_sum</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> x + y;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = lazy_sum([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]); <span class="comment">// function sum()</span></span><br><span class="line">f(); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="variable-hoisting–-just-for-no-strict-mode"><a href="#variable-hoisting–-just-for-no-strict-mode" class="headerlink" title="variable hoisting– just for no strict mode"></a>variable hoisting– just for no strict mode</h2><ul>
-<li>A variable declared by ‘var’, can be accessed before its declaration</li>
-<li>Only the declaration hoisted, not the assignment!</li>
-<li>So it is hoisted with a value as ‘undefined’.</li>
-</ul>
-<h2 id="key-features-of-ES6"><a href="#key-features-of-ES6" class="headerlink" title="key features of ES6"></a>key features of ES6</h2><ul>
-<li>block scoping with let keyword</li>
-<li>default parameters</li>
-<li><p>rest parameters: a prefix of three dots (…).  The rest parameter allows us to represent an indefinite number of arguments as an array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,b,...args</span>) </span>&#123;</span><br><span class="line">   <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Spread Operator: consists three dots (…). The spread operator allows us to spread out elements of an array or a string.</p>
-</li>
-<li><p>Object Literal: The object literal is one of the most popular patterns for creating objects in JavaScript because of its simplicity.</p>
-<ol>
-<li>computed property name</li>
-<li>ES6 allows you to eliminate the duplication when a property of an object is same as the local variable name by including the name without a colon and value.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">createMachine</span>(<span class="params">name, status</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        name,</span><br><span class="line">        status</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>ES6 introduced a new construct for…of that creates a loop iterating over an iterable object such as an Array, a Map, a Set, or an object that implements the iterator.</p>
-</li>
-<li>destructing assignment: that allows us to take an object or an array and destructure it into individual variables.</li>
-<li>Template Literals: a template literal uses backticks , it has the following features:<ol>
-<li>Multiline string: a string that can span multiple lines.</li>
-<li>String formatting: the ability to substitute part of the string for the values of a variable or an expression.</li>
-<li>HTML escaping: the ability to transform a string so that it is safe to include in HTML.</li>
-</ol>
-</li>
-<li>ES6 modules: export variables, functions, classes from a module and reuse them in other modules.  </li>
-<li><p>introduce class and also extends and super key words</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(type) &#123;</span><br><span class="line">        <span class="keyword">this</span>.type = type;</span><br><span class="line">      &#125;</span><br><span class="line">      identify() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(type);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Symbol: ES6 added the Symbol as a new primitive type.</p>
-</li>
-<li>Promise</li>
-<li>Generator</li>
-<li>Iterator</li>
-<li>Map and Set</li>
-<li>Arrow function: Until arrow functions, every new function defined its own this value (based on how function was called)<ul>
-<li>An arrow function does not have its own this; the this value of the enclosing lexical context is used i.e. Arrow functions follow the normal variable lookup rules. So while searching for this  which is not present in current scope they end up finding this from its enclosing scope .</li>
-<li>Since arrow functions do not have their own this, the methods call() or apply() can only pass in parameters. thisArg is ignored.<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">more details about arrow function</a><br><a href="http://www.javascripttutorial.net/es6/" target="_blank" rel="noopener">more details about es6 see here</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="What-is-Promise"><a href="#What-is-Promise" class="headerlink" title="What is Promise?"></a>What is Promise?</h2><p>Since JavaScript is single-thread language, so we need a lot of asynchronous functions. However, sometime we got a bunch of ugly nested code for asynchronous operation. Therefore, we introduce Promise to solve this problem.</p>
-<ul>
-<li>A Promise object serves as a link between the executor(resolve, reject) and the consuming functions, which needs the result or error of executor.resolve and reject are built-in functions in JS</li>
-<li>In executor, we do the asynchronous action. After it is done, we will call the consuming functions.</li>
-<li>When the promise is created, this executor function runs automatically. Since it contains the producing code, that will eventually produce a result(consuming function will use the result)</li>
-<li><p>The resulting promise object has internal properties: state(pending, fulfilled and rejected) and result</p>
-</li>
-<li><p>also, we could use ‘.then’ after a promise, so we can control the sequence of a series of asynchronous action</p>
-</li>
-<li>also, we have promise.all() and promise.race()<h3 id="Promise-useage-example"><a href="#Promise-useage-example" class="headerlink" title="Promise useage example"></a>Promise useage example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    script.src = src;</span><br><span class="line"></span><br><span class="line">    script.onload = <span class="function"><span class="params">()</span> =&gt;</span> resolve(script);</span><br><span class="line">    script.onerror = <span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Script load error: "</span> + src));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.head.append(script);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> promise = loadScript(<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"</span>);</span><br><span class="line"></span><br><span class="line">promise.then(</span><br><span class="line">  script =&gt; alert(<span class="string">`<span class="subst">$&#123;script.src&#125;</span> is loaded!`</span>),</span><br><span class="line">  error =&gt; alert(<span class="string">`Error: <span class="subst">$&#123;error.message&#125;</span>`</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">promise.then(<span class="function"><span class="params">script</span> =&gt;</span> alert(<span class="string">'One more handler to do something else!'</span>));</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="https://javascript.info/promise-basics" target="_blank" rel="noopener">more details here</a></p>
-<h2 id="What-is-generator"><a href="#What-is-generator" class="headerlink" title="What is generator?"></a>What is generator?</h2><ul>
-<li>got bunch of nested code when dealing with many asynchronous functions, better then Promise</li>
-<li>generator can be viewed as a special function in ES6, which allows us to control the process of the function</li>
-<li>generator could pause its own process by yield inside and restart it from outside</li>
-<li>we create a generator object to control its process, the generator object is also a iterator object</li>
-</ul>
-<h2 id="Callback"><a href="#Callback" class="headerlink" title="Callback"></a>Callback</h2><p>A callback is a function to be executed after something happended, which is:</p>
-<ol>
-<li>passed as an argument to another function</li>
-<li>is invoked after some kind of event</li>
-<li>once its parent function completes, the function passed as an argument is then called</li>
-<li>not only for ansychronous operations</li>
-</ol>
-<h2 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h2><ul>
-<li><p>see the following code</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> (<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  observer.next(<span class="number">1</span>);</span><br><span class="line">  observer.next(<span class="number">2</span>);</span><br><span class="line">  observer.next(<span class="number">3</span>);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    observer.next(<span class="number">4</span>);</span><br><span class="line">    observer.complete();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'just before subscribe'</span>);</span><br><span class="line">observable.subscribe(&#123;</span><br><span class="line">  next: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'got value '</span> + x),</span><br><span class="line">  error: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'something wrong occurred: '</span> + err),</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'done'</span>),</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'just after subscribe'</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Which executes as such on the console:</p>
-<blockquote>
-<p>just before subscribe<br>  got value 1<br>  got value 2<br>  got value 3<br>  just after subscribe<br>  got value 4<br>  done</p>
-</blockquote>
-</li>
-<li><p>observable is not just from ayschronous operations  </p>
-</li>
-<li>observable is a function, which can be observed by observer</li>
-<li>observer is a object, which has three callback: next, error, complete</li>
-<li>how to subscribe the observable?<pre><code>observable.subsribe(observer)
-</code></pre></li>
-<li>how to manage the relationships between observable and observer? – subscription<pre><code>var subscription1 = observable.subscribe(observer1);
-</code></pre></li>
-<li>how to unsubscribe?  — subscription1.unsubscribe();</li>
-<li>Subscribing to an Observable is analogous to calling a Function.</li>
-<li>two Observable subscribes trigger two separate side effects. As opposed to EventEmitters which share the side effects and have eager execution regardless of the existence of subscribers, Observables have no shared execution and are lazy.</li>
-<li>observable will not automatically run, which is opposed to promise.</li>
-</ul>
-<h2 id="Event-loop-and-message-Queue"><a href="#Event-loop-and-message-Queue" class="headerlink" title="Event loop and message Queue"></a>Event loop and message Queue</h2><ul>
-<li>JavaScript use event loop and message queue to notify the accomplishment of ayschronous operations</li>
-<li>A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function which gets called in order to handle the message.</li>
-<li>At some point during the event loop, the Js runtime starts handling the messages on the queue, starting with the oldest one. To do so, the message is removed from the queue and its corresponding function is called with the message as an input parameter.<br><a href="https://segmentfault.com/a/1190000004322358" target="_blank" rel="noopener">More details about event loop, message queue, ansychronous and synchronous</a></li>
-</ul>
-<h2 id="Callback-vs-Promises"><a href="#Callback-vs-Promises" class="headerlink" title="Callback vs Promises"></a>Callback vs Promises</h2><ul>
-<li>we must know what to do with the result before loadScript is called. Also, There can be only one callback.</li>
-<li>Promises allow us to do things in the natural order. First, we get our promise object, and .then we write what to do with the result.<br>also, We can call .then on a Promise as many times as we want.</li>
-</ul>
-<h2 id="fetch-VS-AJAX"><a href="#fetch-VS-AJAX" class="headerlink" title="fetch() VS AJAX"></a>fetch() VS AJAX</h2><h2 id="apply-call-bind"><a href="#apply-call-bind" class="headerlink" title="apply(), call(), bind()"></a>apply(), call(), bind()</h2><ul>
-<li>Both these functions are used to bind ‘this’ to functions. JavaScript function has their owner.</li>
-<li>The only difference between apply and call is parameters for them. The call() method takes arguments separately. The apply() method takes arguments as an array.</li>
-<li>bind() will create new function, it will not execute immediately, but call and bind will</li>
-</ul>
-<h2 id="Object-VS-array"><a href="#Object-VS-array" class="headerlink" title="Object VS array"></a>Object VS array</h2><ol>
-<li>array has order, object does not have order</li>
-<li>when delete or add element in array, typically, it will be more expensive</li>
-</ol>
-<h2 id="Map-vs-Object"><a href="#Map-vs-Object" class="headerlink" title="Map vs Object"></a>Map vs Object</h2><ol>
-<li>Key field: in Object, the keys MUST be simple types — either integer or string or symbols.<br>But in Map it can be any data type (an object, an array, etc…).</li>
-<li>Element order: in Map, original order of elements (pairs) is preserved(so iterable), while in Object, it isn’t.</li>
-<li>Inheritance: Map is an instance of Object</li>
-<li>compared with object, map has a lot of convenient method for data operation, such as size(), remove element, forEach</li>
-</ol>
-<h2 id="Array-VS-set"><a href="#Array-VS-set" class="headerlink" title="Array VS set"></a>Array VS set</h2><ol>
-<li>set does not have duplicates, so when we need non-duplicate, we better use set</li>
-<li>array is better  when we need quick access to element by index and do heavy modification<h2 id="The-way-to-judge-the-data-type-in-js"><a href="#The-way-to-judge-the-data-type-in-js" class="headerlink" title="The way to judge the data type in js"></a>The way to judge the data type in js</h2></li>
-<li>Object.prototype.toString.call(), return [Object，type]</li>
-<li>jquery.type();</li>
-</ol>
-<h2 id="splice-vs-slice"><a href="#splice-vs-slice" class="headerlink" title="splice() vs slice()"></a>splice() vs slice()</h2><ol>
-<li>The splice() method adds/removes items to/from an array, and returns the removed item(s).</li>
-<li>slice() of array work likes subString() of string</li>
-</ol>
-<h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><p> A prototype is an internal object from which other objects inherit properties. Its main purpose is to allow multiple instances of an object to share a common property.</p>
-<h2 id="Class-inheritance-VS-prototype-inheritance"><a href="#Class-inheritance-VS-prototype-inheritance" class="headerlink" title="Class inheritance VS prototype inheritance"></a>Class inheritance VS prototype inheritance</h2><p> Class Inheritance:</p>
-<ul>
-<li>instances inherit from classes and create sub-class relationships.</li>
-<li>Instances are typically instantiated via constructor functions with the new keyword.  </li>
-<li>ES6 syntax extending classes is much easier to understand.</li>
-<li>There are two new keywords: extends and super.</li>
-<li>The extends keyword sets up the inheritance relationship between the parent and child classes.</li>
-<li>The super keyword invokes the constructor on the parent class.<br>Prototypal Inheritance:</li>
-<li>instances inherit directly from other objects.</li>
-<li>Instances are typically created via factory functions or Object.create().</li>
-<li>Instances may be composed from many different objects, allowing for easy selective inheritance. We all know that JavaScript doesn’t supports multiple inheritance. But there’s a way to “mimic multiple inheritance” in prototype-based languages. But it cannot be done in class-based languages which does not support multiple inheritance.</li>
-<li>before ES6, we use the following code to inherit a object</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unnamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现原型继承链:</span></span><br><span class="line">inherits(PrimaryStudent, Student);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定其他方法到PrimaryStudent原型:</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>after ES6, we use the following codes<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    hello() &#123;</span><br><span class="line">        alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimaryStudent</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, grade) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name); <span class="comment">// 记得用super调用父类的构造方法!</span></span><br><span class="line">        <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    myGrade() &#123;</span><br><span class="line">        alert(<span class="string">'I am at grade '</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Debounce-amp-Throttling"><a href="#Debounce-amp-Throttling" class="headerlink" title="Debounce &amp; Throttling"></a>Debounce &amp; Throttling</h2><ul>
-<li>Debounce: For events like keydown, scroll, we don’t want to trigger event in the middle of it, but only want to trigger after user pause! (ie. we only care the final result)</li>
-<li>Throttling: For events like mouseover, we don’t want to trigger event every for every single move, but only want to trigger it every 200ms if such event happens (ie. we only care sample results)</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Debounce</span></span><br><span class="line"><span class="keyword">let</span> textarea = <span class="built_in">document</span>.querySelector(<span class="string">"textarea"</span>);</span><br><span class="line">  <span class="keyword">let</span> timeout;</span><br><span class="line">  textarea.addEventListener(<span class="string">"input"</span>, () =&gt; &#123;</span><br><span class="line">    clearTimeout(timeout);  </span><br><span class="line">    timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"Typed!"</span>); &#125;, <span class="number">500</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Throttling</span></span><br><span class="line">  <span class="keyword">let</span> scheduled = <span class="literal">true</span>;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">"mousemove"</span>, event =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (scheduled) &#123;</span><br><span class="line">      <span class="built_in">document</span>.body.textContent = <span class="string">`Mouse at <span class="subst">$&#123;event.pageX&#125;</span>, <span class="subst">$&#123;event.pageY&#125;</span>`</span>;</span><br><span class="line">      scheduled = <span class="literal">false</span>;</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; scheduled = <span class="literal">true</span>; &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p><a href="https://caomingkai.github.io/" target="_blank" rel="noopener">From here</a></p>
-<h2 id="Talk-about-‘this’"><a href="#Talk-about-‘this’" class="headerlink" title="Talk about ‘this’"></a>Talk about ‘this’</h2><ul>
-<li>Since JavaScript does not have real class (everything is object),  so functions do not know who is their owner. When a object call a function, it should tell the function that I am the current owner of you  and you should use my properties to execute. This is what this does.</li>
-<li>The this reference ALWAYS refers to (and holds the value of) an object—a singular object—and it is usually used inside a function or a method</li>
-<li>two special condition is constructor and arrow function</li>
-<li>this in arrow function is lexical scoping</li>
-<li>for constructor, this refers the new object</li>
-</ul>
-<h2 id="CommonJS-AMD-RequireJS-ES6-Modules"><a href="#CommonJS-AMD-RequireJS-ES6-Modules" class="headerlink" title="CommonJS, AMD, RequireJS, ES6 Modules"></a>CommonJS, AMD, RequireJS, ES6 Modules</h2><p>All of them are talking about javascript modules.<br>JavaScript Modules refer to a small units of independent, reusable code. They have distinct functionality, allowing them to be added, removed without disrupting the system.</p>
-<ul>
-<li>CommonJS uses the keywords require and exports. require is a function used to import functions from another module. exports is an object where any function put into it will get exported.(we could use nodeJS implmentation)</li>
-<li>Asynchronous Module Definition (AMD): AMD was born since CommonJS wasn’t suited for the browsers early on. As the name implies, it supports asynchronous module loading.</li>
-<li>RequireJS：implements the AMD API. It loads the plain JavaScript files as well as modules by using plain script tags. It includes an optimizing tool which can be run while deploying our code for better performance.</li>
-</ul>
-<h2 id="Common-Js-functions"><a href="#Common-Js-functions" class="headerlink" title="Common Js functions"></a>Common Js functions</h2><ul>
-<li>Array<ul>
-<li>Array.isArray(arr)</li>
-<li>arr.join(“.”)</li>
-<li>push()/pop()</li>
-<li>shift()/unshift()</li>
-<li>reverse()</li>
-<li>sort()</li>
-<li>arr.concat(): arr.concat(“test1”, [“test2”]) return a new arr</li>
-<li>slice():  return a new Array</li>
-<li>splice(): modify the original Array</li>
-<li>indexOf()</li>
-<li>every() / some()</li>
-<li>filter()/ map()/ forEach()</li>
-<li>reduce()</li>
-<li>find():the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.</li>
-</ul>
-</li>
-<li>String<ul>
-<li>charAt()</li>
-<li>indexOf()</li>
-<li>match()</li>
-<li>search()</li>
-<li>replace(): return a new string</li>
-<li>split()</li>
-<li>concat()</li>
-<li>slice()/substring()</li>
-<li>trim()</li>
-<li>escape(string)/unescape(string)</li>
-<li>encodeURI(string)/decodeURI(string)<br><a href="http://realtcg.com/2017/05/13/JavaScript%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93-%E4%B8%80/" target="_blank" rel="noopener">From here</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="Some-details-for-Js"><a href="#Some-details-for-Js" class="headerlink" title="Some details for Js"></a>Some details for Js</h2><h3 id="obj-property-vs-obj-property"><a href="#obj-property-vs-obj-property" class="headerlink" title="obj.property vs obj[property]"></a>obj.property vs obj[property]</h3><ul>
-<li>when property is a varible, must be obj[property]<h3 id="if-key-in-object-VS-if-object-hasOwnProperty-key"><a href="#if-key-in-object-VS-if-object-hasOwnProperty-key" class="headerlink" title="if (key in object) VS if (object.hasOwnProperty(key))"></a>if (key in object) VS if (object.hasOwnProperty(key))</h3></li>
-<li>in will also return true if key gets found somewhere in the prototype chain,</li>
-<li>whereas Object.hasOwnProperty (like the name already tells us), will only return true if key is available on that object directly (its “owns” the property).<h3 id="expression-in-js"><a href="#expression-in-js" class="headerlink" title="!!(expression) in js"></a>!!(expression) in js</h3></li>
-<li>it convert expression into boolean<h3 id="Ways-to-judge-if-two-object-are-same"><a href="#Ways-to-judge-if-two-object-are-same" class="headerlink" title="Ways to judge if two object are same"></a>Ways to judge if two object are same</h3></li>
-<li><code>_.isEqual(obj1, obj2)</code> method of lodash.js and underscore.js<br><a href="https://stackoverflow.com/questions/13632999/if-key-in-object-or-ifobject-hasownpropertykey" target="_blank" rel="noopener">from here</a></li>
-</ul>
-
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/Javascript-Summary/" data-id="cjnwov9pn0008iwul2txy4wh1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML-CSS-Summary" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/18/HTML-CSS-Summary/" class="article-date">
-  <time datetime="2018-10-19T00:35:04.000Z" itemprop="datePublished">2018-10-18</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/18/HTML-CSS-Summary/">HTML/CSS Summary</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="HTML-Semantic"><a href="#HTML-Semantic" class="headerlink" title="HTML Semantic"></a>HTML Semantic</h2><p>Semantic HTML is HTML that introduces meaning to the web page rather than just presentation. For example, a </p><p> tag indicates that the enclosed text is a paragraph. This is both semantic and presentational, because people know what paragraphs are and browsers know how to display them. In HTML4, tags like &lt; b &gt; and &lt; i &gt; are not semantic, because they define only how the text should look (bold or italic) and do not provide any additional meaning.<br>Examples of semantic HTML tags include the header tags ‘&lt; h1 &gt; through &lt; h6 &gt;, &lt; blockquote &gt;, &lt; code &gt; and &lt; em &gt;’. There are many more semantic HTML tags.</p>
-<h3 id="Why-Semantic-HTML-is-Important"><a href="#Why-Semantic-HTML-is-Important" class="headerlink" title="Why Semantic HTML is Important"></a>Why Semantic HTML is Important</h3><ol>
-<li>semantic code aids accessibility. Specially, many people whose eyes are not good rely on speech browsers to read pages to them. These programs cannot interpret pages very well unless they are clearly explained.</li>
-<li>Help Search engines to better understand pages.  Search engine need to understand what your content is about when rank you properly on search engines. Semantic code tends to improve your placement on search engines, as it is easier for the “search engine spiders” to understand.</li>
-<li>It’s easier to read and edit, which saves time and money during maintenance.</li>
-</ol>
-<h2 id="What-is-Iframe"><a href="#What-is-Iframe" class="headerlink" title="What is Iframe?"></a>What is Iframe?</h2><ul>
-<li>An IFrame (Inline Frame) is an HTML document embedded inside another HTML document on a website.</li>
-<li>The IFrame HTML element is often used to insert content from another source, such as an advertisement, into a Web page.<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://www.w3schools.com"</span>&gt;</span>不支持 iframe 的浏览器<span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Meta-tag"><a href="#Meta-tag" class="headerlink" title="Meta tag"></a>Meta tag</h2><ul>
-<li>The tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.</li>
-<li>Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.</li>
-<li>The metadata can be used by browsers (how to display content or reload page), search engines (keywords), or other web services.</li>
-</ul>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="CSS-preprocessor"><a href="#CSS-preprocessor" class="headerlink" title="CSS preprocessor"></a>CSS preprocessor</h2><p>CSS preprocessors take code written in the preprocessed language and then convert that code into the same old css. 3 of the more popular css preprocessors are Sass(用过), LESS, and Stylus</p>
-<h3 id="CSS-preprocessor-Pros-and-cons"><a href="#CSS-preprocessor-Pros-and-cons" class="headerlink" title="CSS preprocessor Pros and cons:"></a>CSS preprocessor Pros and cons:</h3><ul>
-<li>Pros:<ol>
-<li>Nested syntax</li>
-<li>Ability to define variables</li>
-<li>Ability to define mixins</li>
-<li>Mathematical functions</li>
-<li>Operational functions (such as “lighten” and “darken”)</li>
-<li>Joining of multiple files</li>
-</ol>
-</li>
-<li><p>Cons:</p>
-<ol>
-<li><p>Debugging is harder</p>
-<ul>
-<li>Due to having a compilation step, the browser is not interpreting the source files, meaning the CSS line numbers are now irrelevant when trying to debug. This makes debugging a lot harder.</li>
-</ul>
-</li>
-<li><p>Maintainance</p>
-</li>
-<li><p>Compilation time slows down development</p>
-<ul>
-<li>Compilation times can be painfully slow, even when using the fastest techniques on a cutting edge machine.</li>
-</ul>
-</li>
-<li>Performance is compromised<ul>
-<li>Source files may be small, but the generated CSS could be huge. And it’s the generated CSS that counts.</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="pt-px-em-rem"><a href="#pt-px-em-rem" class="headerlink" title="pt, px, em, rem"></a>pt, px, em, rem</h2><ul>
-<li>pt are absolute length, 1 pt = 1/72 inch</li>
-<li>px are relative length, different resolution is different length</li>
-<li>em is also relative length, which depends its parents length</li>
-<li>rem is also relative length, which depends root length of HTML</li>
-</ul>
-<h3 id="CSS3-to-make-shape"><a href="#CSS3-to-make-shape" class="headerlink" title="CSS3 to make shape"></a>CSS3 to make shape</h3><ul>
-<li>use transform(traslate, rotate)</li>
-<li><p>use border</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="selector-id">#triangle-up</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">100px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.jqhtml.com/8045.html" target="_blank" rel="noopener">See more details here</a></p>
-</li>
-</ul>
-<h2 id="SASS-basic-concepts"><a href="#SASS-basic-concepts" class="headerlink" title="SASS basic concepts"></a>SASS basic concepts</h2><ol>
-<li>Variables: Variables in SASS start with $ sign</li>
-<li>Nesting: CSS lacks visual hierarchy while working with child selectors. You have to write selectors and their combinations in separate lines. Nesting provides a visual hierarchy as in the HTML and increases the readability.</li>
-<li>mixins: mixins are used to include a bunch of properties or group declarations together. It allows for the easy reuse of blocks of code. Use include  to</li>
-<li>Inheritance: extends are useful for sharing a generic definition with selectors rather than copying it in.</li>
-<li>If/Else Statements and loops</li>
-<li>import: separating your codes in small pieces is helpful for expressing your declarations and increasing maintainability and control over the codebase.</li>
-<li>Math operations: can be used for standard arithmetic or unit conversions.</li>
-</ol>
-<h2 id="Box-model"><a href="#Box-model" class="headerlink" title="Box model"></a>Box model</h2><ul>
-<li>block: by default, the width is 100%</li>
-<li>inline: width is decided by Content<h2 id="Position-property"><a href="#Position-property" class="headerlink" title="Position property"></a>Position property</h2></li>
-<li>relative: not change the display property of elements</li>
-<li>absolute: if parents of the elements do not set relative or absolute, the element will locate by the body<ul>
-<li>width of block elements becomes auto</li>
-<li>inline elements’ display will become blocks</li>
-</ul>
-</li>
-<li>using relative and absolute, the elements will cover other elements; but we can set z-index as -1<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2></li>
-<li>The float CSS property specifies that an element should be placed along the left or right side of its container, allowing text and inline elements to wrap around it. The element is removed from the normal flow of the web page, but the element will not cover the content of next elements(only cover the border).</li>
-<li>after setting a float property, the element will become a block</li>
-</ul>
-<h2 id="Clear-float"><a href="#Clear-float" class="headerlink" title="Clear float"></a>Clear float</h2><p>If children set float, the parent will lose height from children. In order to let the parent looks like contain children, we have several method:</p>
-<ol>
-<li>add new tag in the parent element: &lt; br style=”clear:both” /&gt;</li>
-<li>Float (Nearly) Everything</li>
-<li><p>use psedou class after</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-form-row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-form-label"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            ....</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">            <span class="selector-class">.l-form-row</span><span class="selector-pseudo">:after</span> &#123;</span></span><br><span class="line"><span class="undefined">                clear: both;</span></span><br><span class="line"><span class="undefined">                content: "\0020";</span></span><br><span class="line"><span class="undefined">                display: block;</span></span><br><span class="line"><span class="undefined">                height: 0;</span></span><br><span class="line"><span class="undefined">                overflow: hidden</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>set the parent container overflow: hidden,  or overflow: auto;</p>
-</li>
-<li>use clearfix:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after &#123;</span><br><span class="line">  content: &quot; &quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">  height: 0;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class=&quot;clearfix&quot;&gt;</span><br><span class="line">&lt;div class=&quot;floated&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/HTML-CSS-Summary/" data-id="cjnwov9oo0000iwuluzs709ds" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Performance/">Web Performance</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Front-end/" style="font-size: 20px;">Front-end</a> <a href="/tags/Web-Performance/" style="font-size: 10px;">Web Performance</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/10/30/Ways-to-improve-web-performance/">Ways to improve web performance</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/26/HTML-DOM-Key-Concepts/">HTML DOM Key Concepts</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/22/Implement-a-Queue-by-Javascript/">Implement a Queue by Javascript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/21/Inheritance-in-Javascript/">Inheritance in Javascript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/">Small but important stuff about Javascript</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 Lingquan Han<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <!-- toc -->
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 7
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/30</span><a class="archive-post-title" href= "/2018/10/30/Ways-to-improve-web-performance/" >Ways to improve web performance</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span><a class="archive-post-title" href= "/2018/10/26/HTML-DOM-Key-Concepts/" >HTML DOM Key Concepts</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span><a class="archive-post-title" href= "/2018/10/22/Implement-a-Queue-by-Javascript/" >Implement a Queue by Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href= "/2018/10/21/Inheritance-in-Javascript/" >Inheritance in Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/Small-but-important-stuff-about-Javascript/" >Small but important stuff about Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/Javascript-Summary/" >Javascript Summary</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/HTML-CSS-Summary/" >HTML/CSS Summary</a>
+        </li>
+    
+    </div>
   </div>
-</body>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+    
+        <span class="sidebar-tag-name" data-tags="Front-end"><span class="iconfont-archer">&#xe606;</span>Front-end</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web Performance"><span class="iconfont-archer">&#xe606;</span>Web Performance</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Lingquan Han"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
 </html>
+
+
