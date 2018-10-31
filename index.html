@@ -66,6 +66,111 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Ways-to-improve-web-performance" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/30/Ways-to-improve-web-performance/" class="article-date">
+  <time datetime="2018-10-31T04:54:44.000Z" itemprop="datePublished">2018-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/30/Ways-to-improve-web-performance/">Ways to improve web performance</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Yahoo-Ways-to-improve-website-performance"><a href="#Yahoo-Ways-to-improve-website-performance" class="headerlink" title="Yahoo Ways to improve website performance"></a>Yahoo Ways to improve website performance</h2><ul>
+<li><p>Minimize HTTP Requests</p>
+<p>Sites are mainly slow because of too many (or too large) HTTP requests. We can eliminate unnecessary request;</p>
+<ol>
+<li>combined files: js to a file, css to a file</li>
+<li>CSS sprites: CSS Sprites are the preferred method for reducing the number of image requests. Combine your background images into a single image and use the CSS background-image and background-position properties to display the desired image segment.</li>
+</ol>
+</li>
+<li><p>Use a Content Delivery Network</p>
+<p>A CDN is essentially many optimized servers around the world that deliver web content to users based on their geographic location. This means big performance improvements for site users. Because, say, if a person accessing your site in India, they will be retrieving web content from a server nearby</p>
+</li>
+<li><p>Optimize Images:</p>
+<p>image sizes make a huge difference to site speed. The larger content/images, the slower the site. we could:</p>
+<ol>
+<li>Changing the resolution: reducing the “quality” of the image (and thereby the file size)</li>
+<li>Compressing the picture: increasing the efficiency of image data storage</li>
+<li>Cropping the picture: when cropping, you are cutting out unneeded areas and thus making the image smaller in size</li>
+</ol>
+</li>
+<li><p>Put Scripts at the Bottom:</p>
+<p>Javascript files can load after the rest of your page. The simplest solution is to place your external Javascript files at the bottom of your page, just before the close of your body tag. Now more of your site can load before your scripts. Another method that allows even more control is to use the defer or async attributes when placing external .js files on your site.</p>
+<ol>
+<li>Async tags load the scripts while the rest of the page loads, but this means scripts can be loaded out of order. Basically, lighter files load first. This might be fine for some scripts, but can be disastrous for others.</li>
+<li>The defer attribute loads your scripts after your content has finished loading. It also runs the scripts in order. Just make sure your scripts run so late without breaking your site.</li>
+</ol>
+</li>
+<li><p>Add an Expires or a Cache-Control Header</p>
+<p>Web page designs are getting richer and richer, which means more scripts, stylesheets, images, and Flash in the page. A first-time visitor to your page may have to make several HTTP requests, but by using the Expires header you make those components cacheable. This avoids unnecessary HTTP requests on subsequent page views. Expires headers are most often used with images, but they should be used on all components including scripts, stylesheets, and Flash components.</p>
+</li>
+<li><p>Gzip Components</p>
+<p>Compression reduces response times by reducing the size of the HTTP response. Gzipping generally reduces the response size by about 70%.</p>
+</li>
+<li><p>Put Stylesheets at the Top:</p>
+<p>This is because putting stylesheets in the HEAD allows the page to render progressively.</p>
+</li>
+<li>Avoid CSS Expressions</li>
+<li><p>Use GET for AJAX Requests:</p>
+<p>Ajax is that it provides instantaneous feedback to the user because it requests information asynchronously from the backend web server</p>
+</li>
+<li><p>Make JavaScript and CSS External:</p>
+<p>Using external files in the real world generally produces faster pages because the JavaScript and CSS files are cached by the browser. JavaScript and CSS that are inlined in HTML documents get downloaded every time the HTML document is requested. This reduces the number of HTTP requests that are needed, but increases the size of the HTML document. On the other hand, if the JavaScript and CSS are in external files cached by the browser, the size of the HTML document is reduced without increasing the number of HTTP requests.</p>
+</li>
+<li><p>Use get to ajax request:</p>
+<p> POST is implemented in the browsers as a two-step process: sending the headers first, then sending data. So it’s best to use GET, which only takes one TCP packet to send (unless you have a lot of cookies).</p>
+</li>
+<li><p>No 404s:</p>
+<p> HTTP requests are expensive so making an HTTP request and getting a useless response (i.e. 404 Not Found) is totally unnecessary and will slow down the user experience without any benefit.</p>
+</li>
+<li><p>Reduce Cookie Size:</p>
+<p>HTTP cookies are used for a variety of reasons such as authentication and personalization. Information about cookies is exchanged in the HTTP headers between web servers and browsers. It’s important to keep the size of cookies as low as possible to minimize the impact on the user’s response time.</p>
+</li>
+<li>Reduce DNS Lookups</li>
+<li>Minify JavaScript and CSS</li>
+<li>Avoid Redirects</li>
+<li>Remove Duplicate Scripts</li>
+<li>Configure Etags</li>
+<li>Make Ajax Cacheable</li>
+<li>Post-load Components</li>
+<li>Preload Components</li>
+<li>Reduce the Number of DOM Elements</li>
+<li>Minimize the Number of iframes</li>
+<li>Minimize DOM Access</li>
+<li>Optimize CSS Sprites</li>
+<li>Don’t Scale Images in HTML</li>
+<li>Make favicon.ico Small and Cacheable</li>
+<li>Avoid Empty Image src</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/30/Ways-to-improve-web-performance/" data-id="cjnwouc7l0004c0ulg3q02zrz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Performance/">Web Performance</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML-DOM-Key-Concepts" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/26/HTML-DOM-Key-Concepts/" class="article-date">
@@ -120,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/26/HTML-DOM-Key-Concepts/" data-id="cjnr0ycub000a0gulmveab9z8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/26/HTML-DOM-Key-Concepts/" data-id="cjnwouc780000c0ulmsw4agvh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -165,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/22/Implement-a-Queue-by-Javascript/" data-id="cjnr0yctk00010gulsq0d43hk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/22/Implement-a-Queue-by-Javascript/" data-id="cjnwouc7e0001c0uleuvilmz5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li></ul>
@@ -228,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/" data-id="cjnr0yctr00030gulaa9fevwm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/21/Inheritance-in-Javascript/" data-id="cjnwouc7m0005c0ulwuqvac0w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -311,7 +416,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/" data-id="cjnr0ycue000c0gul3irgkz8l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/20/Small-but-important-stuff-about-Javascript/" data-id="cjnwouc7p0008c0ul0gn1ym2y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -568,7 +673,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/Javascript-Summary/" data-id="cjnr0ycua00090gul4i82ljuo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/Javascript-Summary/" data-id="cjnwouc7r000ac0uldi6zqcwp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -701,7 +806,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/18/HTML-CSS-Summary/" data-id="cjnr0yctd00000gulurexc2jc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/18/HTML-CSS-Summary/" data-id="cjnwouc7j0003c0ulwega8r7z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
@@ -726,7 +831,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/">Front-end</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web-Performance/">Web Performance</a></li></ul>
     </div>
   </div>
 
@@ -736,7 +841,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Front-end/" style="font-size: 20px;">Front-end</a>
+      <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Front-end/" style="font-size: 20px;">Front-end</a> <a href="/tags/Web-Performance/" style="font-size: 10px;">Web Performance</a>
     </div>
   </div>
 
@@ -758,6 +863,10 @@
       <ul>
         
           <li>
+            <a href="/2018/10/30/Ways-to-improve-web-performance/">Ways to improve web performance</a>
+          </li>
+        
+          <li>
             <a href="/2018/10/26/HTML-DOM-Key-Concepts/">HTML DOM Key Concepts</a>
           </li>
         
@@ -771,10 +880,6 @@
         
           <li>
             <a href="/2018/10/20/Small-but-important-stuff-about-Javascript/">Small but important stuff about Javascript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/18/Javascript-Summary/">Javascript Summary</a>
           </li>
         
       </ul>
