@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Lingquan Han">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Lingquan Han">
+    
+    <meta name="keywords" content="Lingquan,front-end">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Javascript Summary · Lingquan&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Lingquan | Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Javascript Summary</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Lingquan | Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Javascript Summary
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">2.4k</span>Reading time: <span class="post-count reading-time">15 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/10/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="forEach-VS-map-VS-for-in-VS-for…of"><a href="#forEach-VS-map-VS-for-in-VS-for…of" class="headerlink" title="forEach() VS map() VS (for..in) VS (for…of)"></a>forEach() VS map() VS (for..in) VS (for…of)</h2><ol>
+<li>Both they will  call a provided function on each element in given array. However, the forEach() method doesn’t return anything (undefined), the map() method will return a new Array of  the same size.</li>
+<li>forEach() can be used by map, set and array, map just be used by array</li>
+</ol>
+<h2 id="What-is-a-Closure"><a href="#What-is-a-Closure" class="headerlink" title="What is a Closure?"></a>What is a Closure?</h2><ul>
+<li>A closure is an inner function that has access to the outer function’s variables.</li>
+<li>Why use it?<ol>
+<li>A closure lets us associate some data (the environment) with a function that operates on that data.</li>
+<li>for object data privacy, This has obvious parallels to object oriented programming, where objects allow us to associate some data (the object’s properties) with one or more methods.</li>
+</ol>
+</li>
+<li>sample code:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lazy_sum</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> x + y;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = lazy_sum([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]); <span class="comment">// function sum()</span></span><br><span class="line">f(); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="variable-hoisting–-just-for-no-strict-mode"><a href="#variable-hoisting–-just-for-no-strict-mode" class="headerlink" title="variable hoisting– just for no strict mode"></a>variable hoisting– just for no strict mode</h2><ul>
+<li>A variable declared by ‘var’, can be accessed before its declaration</li>
+<li>Only the declaration hoisted, not the assignment!</li>
+<li>So it is hoisted with a value as ‘undefined’.</li>
+</ul>
+<h2 id="key-features-of-ES6"><a href="#key-features-of-ES6" class="headerlink" title="key features of ES6"></a>key features of ES6</h2><ul>
+<li>block scoping with let keyword</li>
+<li>default parameters</li>
+<li><p>rest parameters: a prefix of three dots (…).  The rest parameter allows us to represent an indefinite number of arguments as an array.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,b,...args</span>) </span>&#123;</span><br><span class="line">   <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Spread Operator: consists three dots (…). The spread operator allows us to spread out elements of an array or a string.</p>
+</li>
+<li><p>Object Literal: The object literal is one of the most popular patterns for creating objects in JavaScript because of its simplicity.</p>
+<ol>
+<li>computed property name</li>
+<li>ES6 allows you to eliminate the duplication when a property of an object is same as the local variable name by including the name without a colon and value.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">createMachine</span>(<span class="params">name, status</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        name,</span><br><span class="line">        status</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>ES6 introduced a new construct for…of that creates a loop iterating over an iterable object such as an Array, a Map, a Set, or an object that implements the iterator.</p>
+</li>
+<li>destructing assignment: that allows us to take an object or an array and destructure it into individual variables.</li>
+<li>Template Literals: a template literal uses backticks , it has the following features:<ol>
+<li>Multiline string: a string that can span multiple lines.</li>
+<li>String formatting: the ability to substitute part of the string for the values of a variable or an expression.</li>
+<li>HTML escaping: the ability to transform a string so that it is safe to include in HTML.</li>
+</ol>
+</li>
+<li>ES6 modules: export variables, functions, classes from a module and reuse them in other modules.  </li>
+<li><p>introduce class and also extends and super key words</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(type) &#123;</span><br><span class="line">        <span class="keyword">this</span>.type = type;</span><br><span class="line">      &#125;</span><br><span class="line">      identify() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(type);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Symbol: ES6 added the Symbol as a new primitive type.</p>
+</li>
+<li>Promise</li>
+<li>Generator</li>
+<li>Iterator</li>
+<li>Map and Set</li>
+<li>Arrow function: Until arrow functions, every new function defined its own this value (based on how function was called)<ul>
+<li>An arrow function does not have its own this; the this value of the enclosing lexical context is used i.e. Arrow functions follow the normal variable lookup rules. So while searching for this  which is not present in current scope they end up finding this from its enclosing scope .</li>
+<li>Since arrow functions do not have their own this, the methods call() or apply() can only pass in parameters. thisArg is ignored.<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">more details about arrow function</a><br><a href="http://www.javascripttutorial.net/es6/" target="_blank" rel="noopener">more details about es6 see here</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="What-is-Promise"><a href="#What-is-Promise" class="headerlink" title="What is Promise?"></a>What is Promise?</h2><p>Since JavaScript is single-thread language, so we need a lot of asynchronous functions. However, sometime we got a bunch of ugly nested code for asynchronous operation. Therefore, we introduce Promise to solve this problem.</p>
+<ul>
+<li>A Promise object serves as a link between the executor(resolve, reject) and the consuming functions, which needs the result or error of executor.resolve and reject are built-in functions in JS</li>
+<li>In executor, we do the asynchronous action. After it is done, we will call the consuming functions.</li>
+<li>When the promise is created, this executor function runs automatically. Since it contains the producing code, that will eventually produce a result(consuming function will use the result)</li>
+<li><p>The resulting promise object has internal properties: state(pending, fulfilled and rejected) and result</p>
+</li>
+<li><p>also, we could use ‘.then’ after a promise, so we can control the sequence of a series of asynchronous action</p>
+</li>
+<li>also, we have promise.all() and promise.race()<h3 id="Promise-useage-example"><a href="#Promise-useage-example" class="headerlink" title="Promise useage example"></a>Promise useage example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    script.src = src;</span><br><span class="line"></span><br><span class="line">    script.onload = <span class="function"><span class="params">()</span> =&gt;</span> resolve(script);</span><br><span class="line">    script.onerror = <span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Script load error: "</span> + src));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">document</span>.head.append(script);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> promise = loadScript(<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"</span>);</span><br><span class="line"></span><br><span class="line">promise.then(</span><br><span class="line">  script =&gt; alert(<span class="string">`<span class="subst">$&#123;script.src&#125;</span> is loaded!`</span>),</span><br><span class="line">  error =&gt; alert(<span class="string">`Error: <span class="subst">$&#123;error.message&#125;</span>`</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">promise.then(<span class="function"><span class="params">script</span> =&gt;</span> alert(<span class="string">'One more handler to do something else!'</span>));</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="https://javascript.info/promise-basics" target="_blank" rel="noopener">more details here</a></p>
+<h2 id="What-is-generator"><a href="#What-is-generator" class="headerlink" title="What is generator?"></a>What is generator?</h2><ul>
+<li>got bunch of nested code when dealing with many asynchronous functions, better then Promise</li>
+<li>generator can be viewed as a special function in ES6, which allows us to control the process of the function</li>
+<li>generator could pause its own process by yield inside and restart it from outside</li>
+<li>we create a generator object to control its process, the generator object is also a iterator object</li>
+</ul>
+<h2 id="Callback"><a href="#Callback" class="headerlink" title="Callback"></a>Callback</h2><p>A callback is a function to be executed after something happended, which is:</p>
+<ol>
+<li>passed as an argument to another function</li>
+<li>is invoked after some kind of event</li>
+<li>once its parent function completes, the function passed as an argument is then called</li>
+<li>not only for ansychronous operations</li>
+</ol>
+<h2 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h2><ul>
+<li><p>see the following code</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = Rx.Observable.create(<span class="function"><span class="keyword">function</span> (<span class="params">observer</span>) </span>&#123;</span><br><span class="line">  observer.next(<span class="number">1</span>);</span><br><span class="line">  observer.next(<span class="number">2</span>);</span><br><span class="line">  observer.next(<span class="number">3</span>);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    observer.next(<span class="number">4</span>);</span><br><span class="line">    observer.complete();</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'just before subscribe'</span>);</span><br><span class="line">observable.subscribe(&#123;</span><br><span class="line">  next: <span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'got value '</span> + x),</span><br><span class="line">  error: <span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(<span class="string">'something wrong occurred: '</span> + err),</span><br><span class="line">  complete: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'done'</span>),</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'just after subscribe'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Which executes as such on the console:</p>
+<blockquote>
+<p>just before subscribe<br>  got value 1<br>  got value 2<br>  got value 3<br>  just after subscribe<br>  got value 4<br>  done</p>
+</blockquote>
+</li>
+<li><p>observable is not just from ayschronous operations  </p>
+</li>
+<li>observable is a function, which can be observed by observer</li>
+<li>observer is a object, which has three callback: next, error, complete</li>
+<li>how to subscribe the observable?<pre><code>observable.subsribe(observer)
+</code></pre></li>
+<li>how to manage the relationships between observable and observer? – subscription<pre><code>var subscription1 = observable.subscribe(observer1);
+</code></pre></li>
+<li>how to unsubscribe?  — subscription1.unsubscribe();</li>
+<li>Subscribing to an Observable is analogous to calling a Function.</li>
+<li>two Observable subscribes trigger two separate side effects. As opposed to EventEmitters which share the side effects and have eager execution regardless of the existence of subscribers, Observables have no shared execution and are lazy.</li>
+<li>observable will not automatically run, which is opposed to promise.</li>
+</ul>
+<h2 id="Event-loop-and-message-Queue"><a href="#Event-loop-and-message-Queue" class="headerlink" title="Event loop and message Queue"></a>Event loop and message Queue</h2><ul>
+<li>JavaScript use event loop and message queue to notify the accomplishment of ayschronous operations</li>
+<li>A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function which gets called in order to handle the message.</li>
+<li>At some point during the event loop, the Js runtime starts handling the messages on the queue, starting with the oldest one. To do so, the message is removed from the queue and its corresponding function is called with the message as an input parameter.<br><a href="https://segmentfault.com/a/1190000004322358" target="_blank" rel="noopener">More details about event loop, message queue, ansychronous and synchronous</a></li>
+</ul>
+<h2 id="Callback-vs-Promises"><a href="#Callback-vs-Promises" class="headerlink" title="Callback vs Promises"></a>Callback vs Promises</h2><ul>
+<li>we must know what to do with the result before loadScript is called. Also, There can be only one callback.</li>
+<li>Promises allow us to do things in the natural order. First, we get our promise object, and .then we write what to do with the result.<br>also, We can call .then on a Promise as many times as we want.</li>
+</ul>
+<h2 id="fetch-VS-AJAX"><a href="#fetch-VS-AJAX" class="headerlink" title="fetch() VS AJAX"></a>fetch() VS AJAX</h2><h2 id="apply-call-bind"><a href="#apply-call-bind" class="headerlink" title="apply(), call(), bind()"></a>apply(), call(), bind()</h2><ul>
+<li>Both these functions are used to bind ‘this’ to functions. JavaScript function has their owner.</li>
+<li>The only difference between apply and call is parameters for them. The call() method takes arguments separately. The apply() method takes arguments as an array.</li>
+<li>bind() will create new function, it will not execute immediately, but call and bind will</li>
+</ul>
+<h2 id="Object-VS-array"><a href="#Object-VS-array" class="headerlink" title="Object VS array"></a>Object VS array</h2><ol>
+<li>array has order, object does not have order</li>
+<li>when delete or add element in array, typically, it will be more expensive</li>
+</ol>
+<h2 id="Map-vs-Object"><a href="#Map-vs-Object" class="headerlink" title="Map vs Object"></a>Map vs Object</h2><ol>
+<li>Key field: in Object, the keys MUST be simple types — either integer or string or symbols.<br>But in Map it can be any data type (an object, an array, etc…).</li>
+<li>Element order: in Map, original order of elements (pairs) is preserved(so iterable), while in Object, it isn’t.</li>
+<li>Inheritance: Map is an instance of Object</li>
+<li>compared with object, map has a lot of convenient method for data operation, such as size(), remove element, forEach</li>
+</ol>
+<h2 id="Array-VS-set"><a href="#Array-VS-set" class="headerlink" title="Array VS set"></a>Array VS set</h2><ol>
+<li>set does not have duplicates, so when we need non-duplicate, we better use set</li>
+<li>array is better  when we need quick access to element by index and do heavy modification<h2 id="The-way-to-judge-the-data-type-in-js"><a href="#The-way-to-judge-the-data-type-in-js" class="headerlink" title="The way to judge the data type in js"></a>The way to judge the data type in js</h2></li>
+<li>Object.prototype.toString.call(), return [Object，type]</li>
+<li>jquery.type();</li>
+</ol>
+<h2 id="splice-vs-slice"><a href="#splice-vs-slice" class="headerlink" title="splice() vs slice()"></a>splice() vs slice()</h2><ol>
+<li>The splice() method adds/removes items to/from an array, and returns the removed item(s).</li>
+<li>slice() of array work likes subString() of string</li>
+</ol>
+<h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><p> A prototype is an internal object from which other objects inherit properties. Its main purpose is to allow multiple instances of an object to share a common property.</p>
+<h2 id="Class-inheritance-VS-prototype-inheritance"><a href="#Class-inheritance-VS-prototype-inheritance" class="headerlink" title="Class inheritance VS prototype inheritance"></a>Class inheritance VS prototype inheritance</h2><p> Class Inheritance:</p>
+<ul>
+<li>instances inherit from classes and create sub-class relationships.</li>
+<li>Instances are typically instantiated via constructor functions with the new keyword.  </li>
+<li>ES6 syntax extending classes is much easier to understand.</li>
+<li>There are two new keywords: extends and super.</li>
+<li>The extends keyword sets up the inheritance relationship between the parent and child classes.</li>
+<li>The super keyword invokes the constructor on the parent class.<br>Prototypal Inheritance:</li>
+<li>instances inherit directly from other objects.</li>
+<li>Instances are typically created via factory functions or Object.create().</li>
+<li>Instances may be composed from many different objects, allowing for easy selective inheritance. We all know that JavaScript doesn’t supports multiple inheritance. But there’s a way to “mimic multiple inheritance” in prototype-based languages. But it cannot be done in class-based languages which does not support multiple inheritance.</li>
+<li>before ES6, we use the following code to inherit a object</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = Parent.prototype;</span><br><span class="line">    Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">    Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unnamed'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">    Student.call(<span class="keyword">this</span>, props);</span><br><span class="line">    <span class="keyword">this</span>.grade = props.grade || <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现原型继承链:</span></span><br><span class="line">inherits(PrimaryStudent, Student);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定其他方法到PrimaryStudent原型:</span></span><br><span class="line">PrimaryStudent.prototype.getGrade = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.grade;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>after ES6, we use the following codes<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    hello() &#123;</span><br><span class="line">        alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrimaryStudent</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, grade) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name); <span class="comment">// 记得用super调用父类的构造方法!</span></span><br><span class="line">        <span class="keyword">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    myGrade() &#123;</span><br><span class="line">        alert(<span class="string">'I am at grade '</span> + <span class="keyword">this</span>.grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Debounce-amp-Throttling"><a href="#Debounce-amp-Throttling" class="headerlink" title="Debounce &amp; Throttling"></a>Debounce &amp; Throttling</h2><ul>
+<li>Debounce: For events like keydown, scroll, we don’t want to trigger event in the middle of it, but only want to trigger after user pause! (ie. we only care the final result)</li>
+<li>Throttling: For events like mouseover, we don’t want to trigger event every for every single move, but only want to trigger it every 200ms if such event happens (ie. we only care sample results)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Debounce</span></span><br><span class="line"><span class="keyword">let</span> textarea = <span class="built_in">document</span>.querySelector(<span class="string">"textarea"</span>);</span><br><span class="line">  <span class="keyword">let</span> timeout;</span><br><span class="line">  textarea.addEventListener(<span class="string">"input"</span>, () =&gt; &#123;</span><br><span class="line">    clearTimeout(timeout);  </span><br><span class="line">    timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">"Typed!"</span>); &#125;, <span class="number">500</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Throttling</span></span><br><span class="line">  <span class="keyword">let</span> scheduled = <span class="literal">true</span>;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">"mousemove"</span>, event =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (scheduled) &#123;</span><br><span class="line">      <span class="built_in">document</span>.body.textContent = <span class="string">`Mouse at <span class="subst">$&#123;event.pageX&#125;</span>, <span class="subst">$&#123;event.pageY&#125;</span>`</span>;</span><br><span class="line">      scheduled = <span class="literal">false</span>;</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; scheduled = <span class="literal">true</span>; &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p><a href="https://caomingkai.github.io/" target="_blank" rel="noopener">From here</a></p>
+<h2 id="Talk-about-‘this’"><a href="#Talk-about-‘this’" class="headerlink" title="Talk about ‘this’"></a>Talk about ‘this’</h2><ul>
+<li>Since JavaScript does not have real class (everything is object),  so functions do not know who is their owner. When a object call a function, it should tell the function that I am the current owner of you  and you should use my properties to execute. This is what this does.</li>
+<li>The this reference ALWAYS refers to (and holds the value of) an object—a singular object—and it is usually used inside a function or a method</li>
+<li>two special condition is constructor and arrow function</li>
+<li>this in arrow function is lexical scoping</li>
+<li>for constructor, this refers the new object</li>
+</ul>
+<h2 id="CommonJS-AMD-RequireJS-ES6-Modules"><a href="#CommonJS-AMD-RequireJS-ES6-Modules" class="headerlink" title="CommonJS, AMD, RequireJS, ES6 Modules"></a>CommonJS, AMD, RequireJS, ES6 Modules</h2><p>All of them are talking about javascript modules.<br>JavaScript Modules refer to a small units of independent, reusable code. They have distinct functionality, allowing them to be added, removed without disrupting the system.</p>
+<ul>
+<li>CommonJS uses the keywords require and exports. require is a function used to import functions from another module. exports is an object where any function put into it will get exported.(we could use nodeJS implmentation)</li>
+<li>Asynchronous Module Definition (AMD): AMD was born since CommonJS wasn’t suited for the browsers early on. As the name implies, it supports asynchronous module loading.</li>
+<li>RequireJS：implements the AMD API. It loads the plain JavaScript files as well as modules by using plain script tags. It includes an optimizing tool which can be run while deploying our code for better performance.</li>
+</ul>
+<h2 id="Common-Js-functions"><a href="#Common-Js-functions" class="headerlink" title="Common Js functions"></a>Common Js functions</h2><ul>
+<li>Array<ul>
+<li>Array.isArray(arr)</li>
+<li>arr.join(“.”)</li>
+<li>push()/pop()</li>
+<li>shift()/unshift()</li>
+<li>reverse()</li>
+<li>sort()</li>
+<li>arr.concat(): arr.concat(“test1”, [“test2”]) return a new arr</li>
+<li>slice():  return a new Array</li>
+<li>splice(): modify the original Array</li>
+<li>indexOf()</li>
+<li>every() / some()</li>
+<li>filter()/ map()/ forEach()</li>
+<li>reduce()</li>
+<li>find():the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.</li>
+</ul>
+</li>
+<li>String<ul>
+<li>charAt()</li>
+<li>indexOf()</li>
+<li>match()</li>
+<li>search()</li>
+<li>replace(): return a new string</li>
+<li>split()</li>
+<li>concat()</li>
+<li>slice()/substring()</li>
+<li>trim()</li>
+<li>escape(string)/unescape(string)</li>
+<li>encodeURI(string)/decodeURI(string)<br><a href="http://realtcg.com/2017/05/13/JavaScript%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93-%E4%B8%80/" target="_blank" rel="noopener">From here</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Some-details-for-Js"><a href="#Some-details-for-Js" class="headerlink" title="Some details for Js"></a>Some details for Js</h2><h3 id="obj-property-vs-obj-property"><a href="#obj-property-vs-obj-property" class="headerlink" title="obj.property vs obj[property]"></a>obj.property vs obj[property]</h3><ul>
+<li>when property is a varible, must be obj[property]<h3 id="if-key-in-object-VS-if-object-hasOwnProperty-key"><a href="#if-key-in-object-VS-if-object-hasOwnProperty-key" class="headerlink" title="if (key in object) VS if (object.hasOwnProperty(key))"></a>if (key in object) VS if (object.hasOwnProperty(key))</h3></li>
+<li>in will also return true if key gets found somewhere in the prototype chain,</li>
+<li>whereas Object.hasOwnProperty (like the name already tells us), will only return true if key is available on that object directly (its “owns” the property).<h3 id="expression-in-js"><a href="#expression-in-js" class="headerlink" title="!!(expression) in js"></a>!!(expression) in js</h3></li>
+<li>it convert expression into boolean<h3 id="Ways-to-judge-if-two-object-are-same"><a href="#Ways-to-judge-if-two-object-are-same" class="headerlink" title="Ways to judge if two object are same"></a>Ways to judge if two object are same</h3></li>
+<li><code>_.isEqual(obj1, obj2)</code> method of lodash.js and underscore.js<br><a href="https://stackoverflow.com/questions/13632999/if-key-in-object-or-ifobject-hasownpropertykey" target="_blank" rel="noopener">from here</a></li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="http://www.hanlingquan.com">Lingquan Han</a>
+            <p>原文链接：<a href="http://www.hanlingquan.com/2018/10/18/Javascript-Summary/">http://www.hanlingquan.com/2018/10/18/Javascript-Summary/</a>
+            <p>发表日期：<a href="http://www.hanlingquan.com/2018/10/18/Javascript-Summary/">October 18th 2018, 5:52:51 pm</a>
+            <p>更新日期：<a href="http://www.hanlingquan.com/2018/10/18/Javascript-Summary/">October 18th 2018, 5:55:53 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/10/20/Small-but-important-stuff-about-Javascript/" title= "Small but important stuff about Javascript">
+                    <div class="nextTitle">Small but important stuff about Javascript</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/10/18/HTML-CSS-Summary/" title= "HTML/CSS Summary">
+                    <div class="prevTitle">HTML/CSS Summary</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:lingquanhan@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Attriumph" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="//www.linkedin.com/in/lingquanhan/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
+            
+        
+    
+        
+            
+                <a href="//www.facebook.com/Lingquan.Han" class="iconfont-archer facebook" target="_blank" title=facebook></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#forEach-VS-map-VS-for-in-VS-for…of"><span class="toc-number">1.</span> <span class="toc-text">forEach() VS map() VS (for..in) VS (for…of)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-a-Closure"><span class="toc-number">2.</span> <span class="toc-text">What is a Closure?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#variable-hoisting–-just-for-no-strict-mode"><span class="toc-number">3.</span> <span class="toc-text">variable hoisting– just for no strict mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#key-features-of-ES6"><span class="toc-number">4.</span> <span class="toc-text">key features of ES6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Promise"><span class="toc-number">5.</span> <span class="toc-text">What is Promise?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-useage-example"><span class="toc-number">5.1.</span> <span class="toc-text">Promise useage example</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-generator"><span class="toc-number">6.</span> <span class="toc-text">What is generator?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Callback"><span class="toc-number">7.</span> <span class="toc-text">Callback</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observable"><span class="toc-number">8.</span> <span class="toc-text">Observable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Event-loop-and-message-Queue"><span class="toc-number">9.</span> <span class="toc-text">Event loop and message Queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Callback-vs-Promises"><span class="toc-number">10.</span> <span class="toc-text">Callback vs Promises</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch-VS-AJAX"><span class="toc-number">11.</span> <span class="toc-text">fetch() VS AJAX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply-call-bind"><span class="toc-number">12.</span> <span class="toc-text">apply(), call(), bind()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-VS-array"><span class="toc-number">13.</span> <span class="toc-text">Object VS array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map-vs-Object"><span class="toc-number">14.</span> <span class="toc-text">Map vs Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-VS-set"><span class="toc-number">15.</span> <span class="toc-text">Array VS set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-way-to-judge-the-data-type-in-js"><span class="toc-number">16.</span> <span class="toc-text">The way to judge the data type in js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#splice-vs-slice"><span class="toc-number">17.</span> <span class="toc-text">splice() vs slice()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prototype"><span class="toc-number">18.</span> <span class="toc-text">Prototype</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Class-inheritance-VS-prototype-inheritance"><span class="toc-number">19.</span> <span class="toc-text">Class inheritance VS prototype inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debounce-amp-Throttling"><span class="toc-number">20.</span> <span class="toc-text">Debounce &amp; Throttling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Talk-about-‘this’"><span class="toc-number">21.</span> <span class="toc-text">Talk about ‘this’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CommonJS-AMD-RequireJS-ES6-Modules"><span class="toc-number">22.</span> <span class="toc-text">CommonJS, AMD, RequireJS, ES6 Modules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Js-functions"><span class="toc-number">23.</span> <span class="toc-text">Common Js functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-details-for-Js"><span class="toc-number">24.</span> <span class="toc-text">Some details for Js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#obj-property-vs-obj-property"><span class="toc-number">24.1.</span> <span class="toc-text">obj.property vs obj[property]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-key-in-object-VS-if-object-hasOwnProperty-key"><span class="toc-number">24.2.</span> <span class="toc-text">if (key in object) VS if (object.hasOwnProperty(key))</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#expression-in-js"><span class="toc-number">24.3.</span> <span class="toc-text">!!(expression) in js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ways-to-judge-if-two-object-are-same"><span class="toc-number">24.4.</span> <span class="toc-text">Ways to judge if two object are same</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 7
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/30</span><a class="archive-post-title" href= "/2018/10/30/Ways-to-improve-web-performance/" >Ways to improve web performance</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span><a class="archive-post-title" href= "/2018/10/26/HTML-DOM-Key-Concepts/" >HTML DOM Key Concepts</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span><a class="archive-post-title" href= "/2018/10/22/Implement-a-Queue-by-Javascript/" >Implement a Queue by Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href= "/2018/10/21/Inheritance-in-Javascript/" >Inheritance in Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/Small-but-important-stuff-about-Javascript/" >Small but important stuff about Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/Javascript-Summary/" >Javascript Summary</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/HTML-CSS-Summary/" >HTML/CSS Summary</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Front-end"><span class="iconfont-archer">&#xe606;</span>Front-end</span>
+    
+        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web Performance"><span class="iconfont-archer">&#xe606;</span>Web Performance</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Lingquan Han"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
