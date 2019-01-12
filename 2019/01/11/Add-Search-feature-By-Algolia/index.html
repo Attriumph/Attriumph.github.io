@@ -22,7 +22,7 @@
     <meta name="description" content="韩灵全的个人博客">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Lingquan&#39;s Blog</title>
+    <title>Add Search feature By Algolia · Lingquan&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -218,12 +218,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Lingquan | Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Add Search feature By Algolia</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Lingquan | Blog</a>
 </header>
@@ -235,24 +246,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Add Search feature By Algolia
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">234</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/01/11</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -353,164 +408,70 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/26/HTML-DOM-Key-Concepts/" >
-            
-                <span>HTML DOM Key Concepts</span>
-        </a>
-        <div class="abstract-content">
-            classlist of dom node1234567function addClass(selector, className)&#123;   var elm = document.querySelector(selector);   if (elm)&#123;      elm.classList.add(className);      //elm.classList.remove(className);   &#125;&#125;
-innerHTML, innerText， textContent1&lt;p id="test"&gt;    This element  ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/21/Inheritance-in-Javascript/" >
-            
-                <span>Inheritance in Javascript</span>
-        </a>
-        <div class="abstract-content">
-            Inheritance in JavaScriptJavaScript is an object-based language based on prototypes, rather than being class-based.some sentence need to keep in mind
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Add-Search-Feature-By-Algolia-in-Hexo-Blog"><a href="#Add-Search-Feature-By-Algolia-in-Hexo-Blog" class="headerlink" title="Add Search Feature By Algolia in Hexo Blog"></a>Add Search Feature By Algolia in Hexo Blog</h1><p>It is pretty sample to add feature by using third-party. Algolia is one of them.</p>
+<h2 id="1-Sign-up-Algolia"><a href="#1-Sign-up-Algolia" class="headerlink" title="1.Sign up Algolia"></a>1.Sign up Algolia</h2><p>  Get an account in Algolia, which can be done by Github account. We can use all<br>  features for free in 14 days and we get 100,000 free operations every month.It is<br>  enough for personal use.</p>
+<h2 id="2-Create-a-index"><a href="#2-Create-a-index" class="headerlink" title="2. Create a index"></a>2. Create a index</h2><p>   Give a name for your new index. We will use it for search.</p>
+<h2 id="3-Install-Algolia"><a href="#3-Install-Algolia" class="headerlink" title="3. Install Algolia"></a>3. Install Algolia</h2><p>   Use the following code to install Algolia in root path of your blog folder.</p>
+<pre><code>npm install --save hexo-algolia
+</code></pre><h2 id="4-Get-the-necessary-Keys"><a href="#4-Get-the-necessary-Keys" class="headerlink" title="4. Get the necessary Keys"></a>4. Get the necessary Keys</h2><pre><code>Find your Application Id, Serch-Only API key and Admin API key under API keys Tab.
+</code></pre><h2 id="5-Modify-configuration-file-of-hexo-blog"><a href="#5-Modify-configuration-file-of-hexo-blog" class="headerlink" title="5. Modify configuration file of hexo blog"></a>5. Modify configuration file of hexo blog</h2><p>   We need add the following fields in our _config file.<br>        algolia:<br>            applicationID: ‘your applicationID’<br>            apiKey: ‘your apiKey’<br>            indexName: ‘your index name’<br>            chunkSize: 5000</p>
+<h2 id="6-Update-Index"><a href="#6-Update-Index" class="headerlink" title="6. Update Index"></a>6. Update Index</h2><pre><code>Run the following code in root path of Hexo Blog
 
-Every object has a proto object property (except Object);
-every function has a prototype object property.
-Because an object has a single associate...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
-    
-</div>
-            
-        </div>
+    $ export (in windows is set) HEXO_ALGOLIA_INDEXING_KEY=&apos;apiKey&apos;
+    $ hexo algolia
+</code></pre><h2 id="7-MOdify-the-configure-file-of-your-Theme"><a href="#7-MOdify-the-configure-file-of-your-Theme" class="headerlink" title="7. MOdify the configure file of your Theme"></a>7. MOdify the configure file of your Theme</h2><pre><code>For example, in the theme I used, I changed the following configuration.
+
+    algolia_search:
+        enable: true
+        hits:
+         per_page: 10
+        labels:
+            input_placeholder: Search for Posts
+            hits_empty: &quot;We did not find any results for the search: ${query}&quot;
+            hits_stats: &quot;${hits} results found in ${time} ms&quot;
+</code></pre><p>Then you are done! Try it.</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/20/Small-but-important-stuff-about-Javascript/" >
-            
-                <span>Small but important stuff about Javascript</span>
-        </a>
-        <div class="abstract-content">
-            if (key in object) VS if (object.hasOwnProperty(key))
-in will also return true if key gets found somewhere in the prototype chain,
-whereas Object.hasOwnProperty (like the name already tells us), will only return true if key is available on that object directly (its “owns” the property).!!(express...
+        <div class="license-wrapper">
+            <p>Author：<a href="http://www.hanlingquan.com">Lingquan Han</a>
+            <p>原文链接：<a href="http://www.hanlingquan.com/2019/01/11/Add-Search-feature-By-Algolia/">http://www.hanlingquan.com/2019/01/11/Add-Search-feature-By-Algolia/</a>
+            <p>发表日期：<a href="http://www.hanlingquan.com/2019/01/11/Add-Search-feature-By-Algolia/">January 11th 2019, 9:56:01 pm</a>
+            <p>更新日期：<a href="http://www.hanlingquan.com/2019/01/11/Add-Search-feature-By-Algolia/">January 11th 2019, 10:10:37 pm</a>
+            <p>版权声明：<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/Javascript-Summary/" >
-            
-                <span>Javascript Summary</span>
-        </a>
-        <div class="abstract-content">
-            forEach() VS map() VS (for..in) VS (for…of)
-Both they will  call a provided function on each element in given array. However, the forEach() method doesn’t return anything (undefined), the map() method will return a new Array of  the same size.
-forEach() can be used by map, set and array, map just...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/18/HTML-CSS-Summary/" >
-            
-                <span>HTML/CSS Summary</span>
-        </a>
-        <div class="abstract-content">
-            HTMLHTML SemanticSemantic HTML is HTML that introduces meaning to the web page rather than just presentation. For example, a  tag indicates that the enclosed text is a paragraph. This is both semantic and presentational, because people know what paragraphs are and browsers know how to display the...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Front-end">Front-end</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/10/30/Ways-to-improve-web-performance/" title= "Ways to improve web performance">
+                    <div class="prevTitle">Ways to improve web performance</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -600,6 +561,24 @@ forEach() can be used by map, set and array, map just...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Add-Search-Feature-By-Algolia-in-Hexo-Blog"><span class="toc-number">1.</span> <span class="toc-text">Add Search Feature By Algolia in Hexo Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Sign-up-Algolia"><span class="toc-number">1.1.</span> <span class="toc-text">1.Sign up Algolia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Create-a-index"><span class="toc-number">1.2.</span> <span class="toc-text">2. Create a index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Install-Algolia"><span class="toc-number">1.3.</span> <span class="toc-text">3. Install Algolia</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Get-the-necessary-Keys"><span class="toc-number">1.4.</span> <span class="toc-text">4. Get the necessary Keys</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Modify-configuration-file-of-hexo-blog"><span class="toc-number">1.5.</span> <span class="toc-text">5. Modify configuration file of hexo blog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Update-Index"><span class="toc-number">1.6.</span> <span class="toc-text">6. Update Index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-MOdify-the-configure-file-of-your-Theme"><span class="toc-number">1.7.</span> <span class="toc-text">7. MOdify the configure file of your Theme</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -857,6 +836,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
