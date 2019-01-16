@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2019-01-13T19:45:45.070Z</updated>
+  <updated>2019-01-16T22:47:55.549Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Differece between rebase and merge in Git</title>
+    <link href="http://www.hanlingquan.com/2019/01/16/Differece-between-rebase-and-merge-in-Git/"/>
+    <id>http://www.hanlingquan.com/2019/01/16/Differece-between-rebase-and-merge-in-Git/</id>
+    <published>2019-01-16T22:28:24.000Z</published>
+    <updated>2019-01-16T22:47:55.549Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="When-to-merge"><a href="#When-to-merge" class="headerlink" title="When to merge?"></a>When to merge?</h2><p>We need merge branch with master when we finish new features or modificatin in our own braches.We can use <span style="border: 1px solid black; background-color: green;">git  merge</span> and <span style="border: 1px solid black; background-color: green;">git  rebase</span>.</p><h2 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h2><ol><li>git log will  be different: merge will not remain the commits in branch.</li><li><p>git operation and effect is different:   </p><p>If we use git merge, after we solve the confilct, then we use  <span style="border: 1px solid black; background-color: green;">git add .</span> and <span style="border: 1px solid black; background-color: green;">git commit - m “fix confilct”</span> .A commit will be produce to record the merge.</p><p><br></p><p>If we use git rebase,, after we solve confilcts, then we then we use  <span style="border: 1px solid black; background-color: green;">git add .</span> and <span style="border: 1px solid black; background-color: green;">git rebase –continue</span> . No extra commit is produced, which makes log more clean. However, if branch has many commits, we need to fix conflict for serveral times.(Threrfore, a better way is to use <span style="border: 1px solid black; background-color: green;">git commit –amend </span> to use one commit.);</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;When-to-merge&quot;&gt;&lt;a href=&quot;#When-to-merge&quot; class=&quot;headerlink&quot; title=&quot;When to merge?&quot;&gt;&lt;/a&gt;When to merge?&lt;/h2&gt;&lt;p&gt;We need merge branch wit
+      
+    
+    </summary>
+    
+    
+      <category term="Git/Github" scheme="http://www.hanlingquan.com/tags/Git-Github/"/>
+    
+  </entry>
   
   <entry>
     <title>Add Search feature By Algolia</title>
