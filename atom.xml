@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2019-01-16T22:57:01.574Z</updated>
+  <updated>2019-01-19T03:18:54.340Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://www.hanlingquan.com/2019/01/18/Layout%20by%20Flexbox:CSS%20Grid/"/>
+    <id>http://www.hanlingquan.com/2019/01/18/Layout by Flexbox:CSS Grid/</id>
+    <published>2019-01-19T03:10:52.907Z</published>
+    <updated>2019-01-19T03:18:54.340Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Layout-by-Flexbox-and-CSS-Grid"><a href="#Layout-by-Flexbox-and-CSS-Grid" class="headerlink" title="Layout by Flexbox and CSS Grid"></a>Layout by Flexbox and CSS Grid</h1><p><style type="text/css"><br>span {<br>  border: 1px solid black; background-color: #ffedc6; border-radius:5px; padding: 3px;<br>}</p><p> </style></p><h2 id="Flexbox"><a href="#Flexbox" class="headerlink" title="Flexbox"></a>Flexbox</h2><h3 id="1-For-Container"><a href="#1-For-Container" class="headerlink" title="1. For Container:"></a>1. For Container:</h3><ul><li>float, clear, vertical-align for the items inside flexbox will become invalid</li><li>display: inline-flex vs display: flex:—-only apply to flex container, to make it display as inline or block won’t affect flex items<br>inside</li><li>prosperities:<ol><li><span>flex-direction: row | row-reverse | column | column-reverse</span></li><li><span>flex-wrap: break new line or not when exceeding it container<br>   nowrap | wrap | wrap-reverse;</span></li><li><span>flex-flow: combination of the first two<br>​     <flex-direction> || <flex-wrap>;</flex-wrap></flex-direction></span></li><li>align-items: where flex items sit on the cross axis<br>   flex-start | flex-end | center | baseline | stretch;</li><li>justify-content: where the flex items sit on the main axis<br>   flex-start | flex-end | center | space-between | space-around<h3 id="2-For-flex-items"><a href="#2-For-flex-items" class="headerlink" title="2. For flex items:"></a>2. For flex items:</h3></li></ol></li><li>flex: 1 1 20px: three attributes: flex-grow flex-shrink flex-basis</li><li>order: 3: like the smaller will be put in front</li><li>align-self: override its container’s align-items layout, update position of itself</li></ul><p><a href="http://flexboxfroggy.com/" target="_blank" rel="noopener">Good website to pratice it</a></p><h2 id="CSS-Grid"><a href="#CSS-Grid" class="headerlink" title="CSS Grid"></a>CSS Grid</h2><ol><li>Common properties for container:<br> use “display: grid;” in container<ul><li>grid-gap: 20px;</li><li>grid-template-columns: 300px 300px 300px;</li><li>grid-template-columns: 300px 300px 300px;</li><li>grid-template-columns: 300px 300px 1fr;</li><li>grid-template-columns: 300px 1fr 1fr;</li><li>grid-template-columns: 1fr 1fr 1fr;</li><li>grid-template-columns: repeat(3, 1fr); /<em>how many times to repeat what</em>/</li><li>grid-template-columns: auto 1fr 1fr; /<em>auto = max size of content</em>/</li><li>grid-template-rows: 1fr 1fr 1fr;</li><li>grid-template-columns: repeat(auto-fill, 200px); </li><li>grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</li><li>justify-items: end;</li><li>align-items: end;</li></ul></li><li><p>Common properties for chidren</p><ul><li>grid-column: span 2; /<em>high number will cause it to create extra grids even if we didn’t tell it</em>/</li><li>grid-row: span 2;</li><li>grid-column-start: 2;</li><li>grid-column-end: 4;</li><li>grid-column: 2 / 4;</li><li>grid-column: 2 / -1; /<em> span it to the last track </em>/</li><li>grid-row: 2 / -1; /<em>but you need to define rows in the container</em>/</li><li>justify-self: end;</li><li>align-self: end;</li></ul></li></ol><p><a href="http://grid.malven.co/" target="_blank" rel="noopener">Good link to learn more</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Layout-by-Flexbox-and-CSS-Grid&quot;&gt;&lt;a href=&quot;#Layout-by-Flexbox-and-CSS-Grid&quot; class=&quot;headerlink&quot; title=&quot;Layout by Flexbox and CSS Grid&quot;&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Differece between rebase and merge in Git</title>

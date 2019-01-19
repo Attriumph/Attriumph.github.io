@@ -218,12 +218,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Lingquan | Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name"></a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Lingquan | Blog</a>
 </header>
@@ -235,24 +246,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            [Untitled Post]
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">337</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/01/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -353,44 +408,111 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/10/30/Ways-to-improve-web-performance/" >
-            
-                <span>Ways to improve web performance</span>
-        </a>
-        <div class="abstract-content">
-            Yahoo Ways to improve website performance
-Minimize HTTP Requests
-Sites are mainly slow because of too many (or too large) HTTP requests. We can eliminate unnecessary request;
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="Layout-by-Flexbox-and-CSS-Grid"><a href="#Layout-by-Flexbox-and-CSS-Grid" class="headerlink" title="Layout by Flexbox and CSS Grid"></a>Layout by Flexbox and CSS Grid</h1><p><style type="text/css"><br>span {<br>  border: 1px solid black; background-color: #ffedc6; border-radius:5px; padding: 3px;<br>}</p>
+<p> </style></p>
+<h2 id="Flexbox"><a href="#Flexbox" class="headerlink" title="Flexbox"></a>Flexbox</h2><h3 id="1-For-Container"><a href="#1-For-Container" class="headerlink" title="1. For Container:"></a>1. For Container:</h3><ul>
+<li>float, clear, vertical-align for the items inside flexbox will become invalid</li>
+<li>display: inline-flex vs display: flex:—-only apply to flex container, to make it display as inline or block won’t affect flex items<br>inside</li>
+<li>prosperities:<ol>
+<li><span>flex-direction: row | row-reverse | column | column-reverse</span></li>
+<li><span>flex-wrap: break new line or not when exceeding it container<br>   nowrap | wrap | wrap-reverse;</span></li>
+<li><span>flex-flow: combination of the first two<br>​     <flex-direction> || <flex-wrap>;</flex-wrap></flex-direction></span></li>
+<li>align-items: where flex items sit on the cross axis<br>   flex-start | flex-end | center | baseline | stretch;</li>
+<li>justify-content: where the flex items sit on the main axis<br>   flex-start | flex-end | center | space-between | space-around<h3 id="2-For-flex-items"><a href="#2-For-flex-items" class="headerlink" title="2. For flex items:"></a>2. For flex items:</h3></li>
+</ol>
+</li>
+<li>flex: 1 1 20px: three attributes: flex-grow flex-shrink flex-basis</li>
+<li>order: 3: like the smaller will be put in front</li>
+<li>align-self: override its container’s align-items layout, update position of itself</li>
+</ul>
+<p><a href="http://flexboxfroggy.com/" target="_blank" rel="noopener">Good website to pratice it</a></p>
+<h2 id="CSS-Grid"><a href="#CSS-Grid" class="headerlink" title="CSS Grid"></a>CSS Grid</h2><ol>
+<li>Common properties for container:<br> use “display: grid;” in container<ul>
+<li>grid-gap: 20px;</li>
+<li>grid-template-columns: 300px 300px 300px;</li>
+<li>grid-template-columns: 300px 300px 300px;</li>
+<li>grid-template-columns: 300px 300px 1fr;</li>
+<li>grid-template-columns: 300px 1fr 1fr;</li>
+<li>grid-template-columns: 1fr 1fr 1fr;</li>
+<li>grid-template-columns: repeat(3, 1fr); /<em>how many times to repeat what</em>/</li>
+<li>grid-template-columns: auto 1fr 1fr; /<em>auto = max size of content</em>/</li>
+<li>grid-template-rows: 1fr 1fr 1fr;</li>
+<li>grid-template-columns: repeat(auto-fill, 200px); </li>
+<li>grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</li>
+<li>justify-items: end;</li>
+<li>align-items: end;</li>
+</ul>
+</li>
+<li><p>Common properties for chidren</p>
+<ul>
+<li>grid-column: span 2; /<em>high number will cause it to create extra grids even if we didn’t tell it</em>/</li>
+<li>grid-row: span 2;</li>
+<li>grid-column-start: 2;</li>
+<li>grid-column-end: 4;</li>
+<li>grid-column: 2 / 4;</li>
+<li>grid-column: 2 / -1; /<em> span it to the last track </em>/</li>
+<li>grid-row: 2 / -1; /<em>but you need to define rows in the container</em>/</li>
+<li>justify-self: end;</li>
+<li>align-self: end;</li>
+</ul>
+</li>
+</ol>
+<p><a href="http://grid.malven.co/" target="_blank" rel="noopener">Good link to learn more</a></p>
 
-combined files: js to a file, css to a file
-CSS sprites: CSS Sprites are the preferred method for reducing the number of ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Web Performance">Web Performance</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/01/16/Differece-between-rebase-and-merge-in-Git/" title= "Differece between rebase and merge in Git">
+                    <div class="prevTitle">Differece between rebase and merge in Git</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        
+        var disqus_config = function () {
+        this.page.url = "http://www.hanlingquan.com/2019/01/18/Layout by Flexbox:CSS Grid/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = ""; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hanlingquan-com-1.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -480,6 +602,24 @@ CSS sprites: CSS Sprites are the preferred method for reducing the number of ...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Layout-by-Flexbox-and-CSS-Grid"><span class="toc-number">1.</span> <span class="toc-text">Layout by Flexbox and CSS Grid</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Flexbox"><span class="toc-number">1.1.</span> <span class="toc-text">Flexbox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-For-Container"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. For Container:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-For-flex-items"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. For flex items:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-Grid"><span class="toc-number">1.2.</span> <span class="toc-text">CSS Grid</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -791,6 +931,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
