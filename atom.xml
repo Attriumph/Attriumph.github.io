@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2019-01-31T00:49:28.909Z</updated>
+  <updated>2019-02-02T20:57:21.135Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Understand and Use SSL</title>
+    <link href="http://www.hanlingquan.com/2019/02/02/Understand-and-Use-SSL/"/>
+    <id>http://www.hanlingquan.com/2019/02/02/Understand-and-Use-SSL/</id>
+    <published>2019-02-02T20:53:06.000Z</published>
+    <updated>2019-02-02T20:57:21.135Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-What-is-SSL"><a href="#1-What-is-SSL" class="headerlink" title="1. What is SSL?"></a>1. What is SSL?</h2><p>SSL (Secure Sockets Layer) is a standard security protocol for establishing encrypted links between a web server and a browser in an online communication.<br>The usage of SSL technology ensures that all data transmitted between the web server and browser remains encrypted.</p><h2 id="2-What-is-SSL-TLS-Certificate"><a href="#2-What-is-SSL-TLS-Certificate" class="headerlink" title="2. What is SSL/TLS Certificate?"></a>2. What is SSL/TLS Certificate?</h2><p>SSL or TLS (Transport Layer Security) certificates are data files that bind a cryptographic key to the details of an organization. An SSL certificate is necessary to create SSL connection. You would need to give all details about the identity of your website and your company as and when you choose to activate SSL on your web server. When SSL/TLS certificate is installed on a web server, it enables a secure connection between the web server and the browser that connects to it. The website’s URL is prefixed with “https” instead of “http” and a padlock is shown on the address bar. If the website uses an extended validation (EV) certificate, then the browser may also show a green address bar.</p><h2 id="3-Why-do-we-need-SSL-certificate"><a href="#3-Why-do-we-need-SSL-certificate" class="headerlink" title="3. Why do we need SSL certificate?"></a>3. Why do we need SSL certificate?</h2><p>The internet has spawned new global business opportunities for enterprises conducting online commerce. However, that growth has also attracted fraudsters and cyber criminals who are ready to exploit any opportunity to steal consumer bank account numbers and card details. Any moderately skilled hacker can easily intercept and read the traffic unless the connection between a client (e.g. internet browser) and a web server is encrypted.</p><h2 id="4-How-Does-SSL-Work"><a href="#4-How-Does-SSL-Work" class="headerlink" title="4. How Does SSL Work?"></a>4. How Does SSL Work?</h2><h2 id="5-How-do-I-implement-SSL-on-my-website"><a href="#5-How-do-I-implement-SSL-on-my-website" class="headerlink" title="5. How do I implement SSL on my website?"></a>5. How do I implement SSL on my website?</h2><p>Reference: <a href="https://www.instantssl.com/ssl.html" target="_blank" rel="noopener">Here</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-What-is-SSL&quot;&gt;&lt;a href=&quot;#1-What-is-SSL&quot; class=&quot;headerlink&quot; title=&quot;1. What is SSL?&quot;&gt;&lt;/a&gt;1. What is SSL?&lt;/h2&gt;&lt;p&gt;SSL (Secure Sockets La
+      
+    
+    </summary>
+    
+    
+      <category term="Network" scheme="http://www.hanlingquan.com/tags/Network/"/>
+    
+  </entry>
   
   <entry>
     <title>NPM and Useful Packages</title>

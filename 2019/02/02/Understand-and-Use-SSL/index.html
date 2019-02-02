@@ -22,7 +22,7 @@
     <meta name="description" content="韩灵全的个人博客">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Differece between rebase and merge in Git · Lingquan | Blog</title>
+    <title>Understand and Use SSL · Lingquan | Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/" >Lingquan | Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Differece between rebase and merge in Git</a>
+                <a href="#" class="post-name">Understand and Use SSL</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Differece between rebase and merge in Git
+            Understand and Use SSL
             <!-- 404 -->
             
         </h1>
@@ -281,18 +281,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Git/Github">Git/Github</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Network">Network</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">136</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">264</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/01/16</span>
+                    <span class="post-intro-time">2019/02/02</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -416,20 +416,10 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="When-to-merge"><a href="#When-to-merge" class="headerlink" title="When to merge?"></a>When to merge?</h2><p>We need merge branch with master when we finish new features or modificatin in our own braches.We can use <span style="border: 1px solid black; background-color: #ffedc6; border-radius:5px; padding: 3px;">git  merge</span> and <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git  rebase</span>.</p>
-<h2 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h2><ol>
-<li>git log will  be different: merge will not remain the commits in branch.</li>
-<li><p>git operation and effect is different:   </p>
-<ul>
-<li>If we use git merge:</li>
-</ul>
-<p>After we solve the confilct, then we use  <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git add .</span> and <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git commit - m “fix confilct”</span> .A commit will be produce to record the merge.</p>
-<ul>
-<li>If we use git rebase:</li>
-</ul>
-<p>After we solve confilcts, then we then we use  <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git add .</span> and <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git rebase –continue</span> . No extra commit is produced, which makes log more clean. However, if branch has many commits, we need to fix conflict for serveral times.Therefore, a better way is to use <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git commit –amend </span> to use one commit.</p>
-</li>
-</ol>
+        <h2 id="1-What-is-SSL"><a href="#1-What-is-SSL" class="headerlink" title="1. What is SSL?"></a>1. What is SSL?</h2><p>SSL (Secure Sockets Layer) is a standard security protocol for establishing encrypted links between a web server and a browser in an online communication.<br>The usage of SSL technology ensures that all data transmitted between the web server and browser remains encrypted.</p>
+<h2 id="2-What-is-SSL-TLS-Certificate"><a href="#2-What-is-SSL-TLS-Certificate" class="headerlink" title="2. What is SSL/TLS Certificate?"></a>2. What is SSL/TLS Certificate?</h2><p>SSL or TLS (Transport Layer Security) certificates are data files that bind a cryptographic key to the details of an organization. An SSL certificate is necessary to create SSL connection. You would need to give all details about the identity of your website and your company as and when you choose to activate SSL on your web server. When SSL/TLS certificate is installed on a web server, it enables a secure connection between the web server and the browser that connects to it. The website’s URL is prefixed with “https” instead of “http” and a padlock is shown on the address bar. If the website uses an extended validation (EV) certificate, then the browser may also show a green address bar.</p>
+<h2 id="3-Why-do-we-need-SSL-certificate"><a href="#3-Why-do-we-need-SSL-certificate" class="headerlink" title="3. Why do we need SSL certificate?"></a>3. Why do we need SSL certificate?</h2><p>The internet has spawned new global business opportunities for enterprises conducting online commerce. However, that growth has also attracted fraudsters and cyber criminals who are ready to exploit any opportunity to steal consumer bank account numbers and card details. Any moderately skilled hacker can easily intercept and read the traffic unless the connection between a client (e.g. internet browser) and a web server is encrypted.</p>
+<h2 id="4-How-Does-SSL-Work"><a href="#4-How-Does-SSL-Work" class="headerlink" title="4. How Does SSL Work?"></a>4. How Does SSL Work?</h2><h2 id="5-How-do-I-implement-SSL-on-my-website"><a href="#5-How-do-I-implement-SSL-on-my-website" class="headerlink" title="5. How do I implement SSL on my website?"></a>5. How do I implement SSL on my website?</h2><p>Reference: <a href="https://www.instantssl.com/ssl.html" target="_blank" rel="noopener">Here</a></p>
 
     </article>
     <!-- license  -->
@@ -438,17 +428,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/01/18/Layout by Flexbox:CSS Grid/" title= "Layout by Flexbox and CSS Grid">
-                    <div class="nextTitle">Layout by Flexbox and CSS Grid</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/01/11/Add-Search-feature-By-Algolia/" title= "Add Search feature By Algolia">
-                    <div class="prevTitle">Add Search feature By Algolia</div>
+                <a href= "/2019/01/27/NPM-and-Useful-Packages/" title= "NPM and Useful Packages">
+                    <div class="prevTitle">NPM and Useful Packages</div>
                 </a>
             
         </li>
@@ -465,8 +450,8 @@ height:50vh;
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
         var disqus_config = function () {
-        this.page.url = "http://www.hanlingquan.com/2019/01/16/Differece-between-rebase-and-merge-in-Git/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "Differece between rebase and merge in Git"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://www.hanlingquan.com/2019/02/02/Understand-and-Use-SSL/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "Understand and Use SSL"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -593,7 +578,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-merge"><span class="toc-number">1.</span> <span class="toc-text">When to merge?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Difference"><span class="toc-number">2.</span> <span class="toc-text">Difference</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-What-is-SSL"><span class="toc-number">1.</span> <span class="toc-text">1. What is SSL?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-What-is-SSL-TLS-Certificate"><span class="toc-number">2.</span> <span class="toc-text">2. What is SSL/TLS Certificate?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Why-do-we-need-SSL-certificate"><span class="toc-number">3.</span> <span class="toc-text">3. Why do we need SSL certificate?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-How-Does-SSL-Work"><span class="toc-number">4.</span> <span class="toc-text">4. How Does SSL Work?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-How-do-I-implement-SSL-on-my-website"><span class="toc-number">5.</span> <span class="toc-text">5. How do I implement SSL on my website?</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
