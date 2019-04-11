@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.hanlingquan.com/2019/01/18/Layout%20by%20Flexbox:CSS%20Grid/</loc>
+    
+    <lastmod>2019-04-11T17:39:12.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.hanlingquan.com/2019/01/11/Add-Search-feature-By-Algolia/</loc>
+    
+    <lastmod>2019-04-11T17:37:04.899Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.hanlingquan.com/2019/02/17/Host-a-website-by-AWS-S3-with-Namecheap-domin/</loc>
     
     <lastmod>2019-04-09T20:51:07.343Z</lastmod>
@@ -33,20 +47,6 @@
     <loc>http://www.hanlingquan.com/2019/01/27/NPM-and-Useful-Packages/</loc>
     
     <lastmod>2019-01-31T00:49:28.909Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.hanlingquan.com/2019/01/18/Layout%20by%20Flexbox:CSS%20Grid/</loc>
-    
-    <lastmod>2019-01-25T07:32:42.076Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.hanlingquan.com/2019/01/11/Add-Search-feature-By-Algolia/</loc>
-    
-    <lastmod>2019-01-18T00:29:12.171Z</lastmod>
     
   </url>
   

@@ -22,7 +22,7 @@
     <meta name="description" content="韩灵全的个人博客，南加州大学计算机科学专业研究生。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Ways to improve web performance · Lingquan Han|Blog</title>
+    <title>Lingquan Han|Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -218,23 +218,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Lingquan | Blog</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Ways to improve web performance</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Lingquan | Blog</a>
 </header>
@@ -246,74 +235,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Ways to improve web performance
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Web Performance">Web Performance</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">773</span>Reading time: <span class="post-count reading-time">4 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/10/30</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -414,133 +353,46 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h2 id="Yahoo-Ways-to-improve-website-performance"><a href="#Yahoo-Ways-to-improve-website-performance" class="headerlink" title="Yahoo Ways to improve website performance"></a>Yahoo Ways to improve website performance</h2><ul>
-<li><p>Minimize HTTP Requests</p>
-<p>Sites are mainly slow because of too many (or too large) HTTP requests. We can eliminate unnecessary request;</p>
-<ol>
-<li>combined files: js to a file, css to a file</li>
-<li>CSS sprites: CSS Sprites are the preferred method for reducing the number of image requests. Combine your background images into a single image and use the CSS background-image and background-position properties to display the desired image segment.</li>
-</ol>
-</li>
-<li><p>Use a Content Delivery Network</p>
-<p>A CDN is essentially many optimized servers around the world that deliver web content to users based on their geographic location. This means big performance improvements for site users. Because, say, if a person accessing your site in India, they will be retrieving web content from a server nearby</p>
-</li>
-<li><p>Optimize Images:</p>
-<p>image sizes make a huge difference to site speed. The larger content/images, the slower the site. we could:</p>
-<ol>
-<li>Changing the resolution: reducing the “quality” of the image (and thereby the file size)</li>
-<li>Compressing the picture: increasing the efficiency of image data storage</li>
-<li>Cropping the picture: when cropping, you are cutting out unneeded areas and thus making the image smaller in size</li>
-</ol>
-</li>
-<li><p>Put Scripts at the Bottom:</p>
-<p>Javascript files can load after the rest of your page. The simplest solution is to place your external Javascript files at the bottom of your page, just before the close of your body tag. Now more of your site can load before your scripts. Another method that allows even more control is to use the defer or async attributes when placing external .js files on your site.</p>
-<ol>
-<li>Async tags load the scripts while the rest of the page loads, but this means scripts can be loaded out of order. Basically, lighter files load first. This might be fine for some scripts, but can be disastrous for others.</li>
-<li>The defer attribute loads your scripts after your content has finished loading. It also runs the scripts in order. Just make sure your scripts run so late without breaking your site.</li>
-</ol>
-</li>
-<li><p>Add an Expires or a Cache-Control Header</p>
-<p>Web page designs are getting richer and richer, which means more scripts, stylesheets, images, and Flash in the page. A first-time visitor to your page may have to make several HTTP requests, but by using the Expires header you make those components cacheable. This avoids unnecessary HTTP requests on subsequent page views. Expires headers are most often used with images, but they should be used on all components including scripts, stylesheets, and Flash components.</p>
-</li>
-<li><p>Gzip Components</p>
-<p>Compression reduces response times by reducing the size of the HTTP response. Gzipping generally reduces the response size by about 70%.</p>
-</li>
-<li><p>Put Stylesheets at the Top:</p>
-<p>This is because putting stylesheets in the HEAD allows the page to render progressively.</p>
-</li>
-<li>Avoid CSS Expressions</li>
-<li><p>Use GET for AJAX Requests:</p>
-<p>Ajax is that it provides instantaneous feedback to the user because it requests information asynchronously from the backend web server</p>
-</li>
-<li><p>Make JavaScript and CSS External:</p>
-<p>Using external files in the real world generally produces faster pages because the JavaScript and CSS files are cached by the browser. JavaScript and CSS that are inlined in HTML documents get downloaded every time the HTML document is requested. This reduces the number of HTTP requests that are needed, but increases the size of the HTML document. On the other hand, if the JavaScript and CSS are in external files cached by the browser, the size of the HTML document is reduced without increasing the number of HTTP requests.</p>
-</li>
-<li><p>Use get to ajax request:</p>
-<p> POST is implemented in the browsers as a two-step process: sending the headers first, then sending data. So it’s best to use GET, which only takes one TCP packet to send (unless you have a lot of cookies).</p>
-</li>
-<li><p>No 404s:</p>
-<p> HTTP requests are expensive so making an HTTP request and getting a useless response (i.e. 404 Not Found) is totally unnecessary and will slow down the user experience without any benefit.</p>
-</li>
-<li><p>Reduce Cookie Size:</p>
-<p>HTTP cookies are used for a variety of reasons such as authentication and personalization. Information about cookies is exchanged in the HTTP headers between web servers and browsers. It’s important to keep the size of cookies as low as possible to minimize the impact on the user’s response time.</p>
-</li>
-<li>Reduce DNS Lookups</li>
-<li>Minify JavaScript and CSS</li>
-<li>Avoid Redirects</li>
-<li>Remove Duplicate Scripts</li>
-<li>Configure Etags</li>
-<li>Make Ajax Cacheable</li>
-<li>Post-load Components</li>
-<li>Preload Components</li>
-<li>Reduce the Number of DOM Elements</li>
-<li>Minimize the Number of iframes</li>
-<li>Minimize DOM Access</li>
-<li>Optimize CSS Sprites</li>
-<li>Don’t Scale Images in HTML</li>
-<li>Make favicon.ico Small and Cacheable</li>
-<li>Avoid Empty Image src</li>
-</ul>
-
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/18/Layout by Flexbox:CSS Grid/" >
+            
+                <span>Layout by Flexbox and CSS Grid</span>
+        </a>
+        <div class="abstract-content">
+            Layout by Flexbox and CSS Grid  .stress {border: 1px solid black;background-color: #ffedc6; border-radius:5px;padding: 3px;display: inline-block;margin:2px;}
+Flexbox1. For Container:
+float, clear, vertical-align for the items inside flexbox will become invalid
+display: inline-flex vs display: fle...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Layout">Layout</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Flexbox">Flexbox</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CSS Grid">CSS Grid</a>
+    
+</div>
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/01/11/Add-Search-feature-By-Algolia/" title= "Add Search feature By Algolia">
-                    <div class="nextTitle">Add Search feature By Algolia</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/10/26/HTML-DOM-Key-Concepts/" title= "HTML DOM Key Concepts">
-                    <div class="prevTitle">HTML DOM Key Concepts</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        
-        var disqus_config = function () {
-        this.page.url = "http://www.hanlingquan.com/2018/10/30/Ways-to-improve-web-performance/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "Ways to improve web performance"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://hanlingquan-com-1.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -634,24 +486,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Yahoo-Ways-to-improve-website-performance"><span class="toc-number">1.</span> <span class="toc-text">Yahoo Ways to improve website performance</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1037,8 +871,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
