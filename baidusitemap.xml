@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.hanlingquan.com/2018/10/26/HTML-DOM-Key-Concepts/</loc>
+    <lastmod>2019-05-04</lastmod>
+  </url>  <url>
     <loc>http://www.hanlingquan.com/2019/01/18/Layout%20by%20Flexbox:CSS%20Grid/</loc>
     <lastmod>2019-04-11</lastmod>
   </url>  <url>
@@ -36,9 +39,6 @@
   </url>  <url>
     <loc>http://www.hanlingquan.com/2018/10/30/Ways-to-improve-web-performance/</loc>
     <lastmod>2018-10-31</lastmod>
-  </url>  <url>
-    <loc>http://www.hanlingquan.com/2018/10/26/HTML-DOM-Key-Concepts/</loc>
-    <lastmod>2018-10-27</lastmod>
   </url>  <url>
     <loc>http://www.hanlingquan.com/2018/10/18/HTML-CSS-Summary/</loc>
     <lastmod>2018-10-19</lastmod>
