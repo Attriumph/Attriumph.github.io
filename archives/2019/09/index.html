@@ -22,7 +22,7 @@
     <meta name="description" content="韩灵全的个人博客，南加州大学计算机科学专业研究生。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Differece between rebase and merge in Git · Lingquan Han|Blog</title>
+    <title>Lingquan Han|Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -218,23 +218,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Lingquan | Blog</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Differece between rebase and merge in Git</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Lingquan | Blog</a>
 </header>
@@ -246,74 +235,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Differece between rebase and merge in Git
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Git/Github">Git/Github</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">136</span>Reading time: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/01/16</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -414,80 +353,34 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h2 id="When-to-merge"><a href="#When-to-merge" class="headerlink" title="When to merge?"></a>When to merge?</h2><p>We need merge branch with master when we finish new features or modificatin in our own braches.We can use <span style="border: 1px solid black; background-color: #ffedc6; border-radius:5px; padding: 3px;">git  merge</span> and <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git  rebase</span>.</p>
-<h2 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h2><ol>
-<li>git log will  be different: merge will not remain the commits in branch.</li>
-<li><p>git operation and effect is different:   </p>
-<ul>
-<li>If we use git merge:</li>
-</ul>
-<p>After we solve the confilct, then we use  <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git add .</span> and <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git commit - m “fix confilct”</span> .A commit will be produce to record the merge.</p>
-<ul>
-<li>If we use git rebase:</li>
-</ul>
-<p>After we solve confilcts, then we then we use  <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git add .</span> and <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git rebase –continue</span> . No extra commit is produced, which makes log more clean. However, if branch has many commits, we need to fix conflict for serveral times.Therefore, a better way is to use <span style="border: 1px solid black; background-color: #ffedc6;border-radius:5px; padding: 3px;">git commit –amend </span> to use one commit.</p>
-</li>
-</ol>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/21/internship/" >
+            
+                <span>internship</span>
+        </a>
+        <div class="abstract-content">
+            
 
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/21</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/01/18/Layout by Flexbox:CSS Grid/" title= "Layout by Flexbox and CSS Grid">
-                    <div class="nextTitle">Layout by Flexbox and CSS Grid</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/01/11/Add-Search-feature-By-Algolia/" title= "Add Search feature By Algolia">
-                    <div class="prevTitle">Add Search feature By Algolia</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        
-        var disqus_config = function () {
-        this.page.url = "http://www.hanlingquan.com/2019/01/16/Differece-between-rebase-and-merge-in-Git/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "Differece between rebase and merge in Git"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://hanlingquan-com-1.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -581,24 +474,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#When-to-merge"><span class="toc-number">1.</span> <span class="toc-text">When to merge?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Difference"><span class="toc-number">2.</span> <span class="toc-text">Difference</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1010,8 +885,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
