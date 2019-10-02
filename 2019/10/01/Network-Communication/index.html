@@ -22,7 +22,7 @@
     <meta name="description" content="韩灵全的个人博客，南加州大学计算机科学专业研究生。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Layered Architecture of Network · Lingquan Han|Blog</title>
+    <title>Network-Communication · Lingquan Han|Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/" >Lingquan | Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Layered Architecture of Network</a>
+                <a href="#" class="post-name">Network-Communication</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Layered Architecture of Network
+            Network-Communication
             <!-- 404 -->
             
         </h1>
@@ -279,20 +279,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "computer network">computer network</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">133</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">176</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/09/25</span>
+                    <span class="post-intro-time">2019/10/01</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -416,16 +410,20 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <div style="text-align: center;"><br>  <img src="/images/layer.png" width="100%"><br></div>
-
-<p>If a client wants to send somthing to a server, the sequece is this:</p>
+        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>If a client wants to send somthing to a server, the sequece is this:</p>
 <ol>
 <li>He needs to know its own IP address using DHCP</li>
 <li>He need to know server’s IP address using DNS</li>
 <li>He need to see if the server is in the same network with him via comparing the net id of their IP address;<br>If yes, it will not need the help of routers<br>If no, it will need the help of routers</li>
 <li>Either situation of 3, it <strong>firstly</strong> need to find the mac address of a router or the server, which need ARP</li>
-<li>If it need the help of router, the router will look up its routing table. If the router does not contain the IP address of the requested router, the router will find which next router could help.</li>
+<li>If its need the help of router, the router will look up its routing table. If the router does not contain the IP address of the requested router, the router will find which next router could help.</li>
 </ol>
+<h2 id="ARP"><a href="#ARP" class="headerlink" title="ARP:"></a>ARP:</h2><ul>
+<li>ARP packet<div style="text-align: center;"><br><img src="/images/arp.png" width="100%"><br></div></li>
+<li>ARP is located in bottom of the lay-3, providing help for IP module </li>
+<li>ARP request is broadcast, but the ARP reply is unicast.</li>
+<li>After getting ARP request, the send get the MAC address and tell it to IP modular.</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -434,17 +432,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/10/01/Network-Communication/" title= "Network-Communication">
-                    <div class="nextTitle">Network-Communication</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/09/25/Network Performance Measures/" title= "Network Performance Measures">
-                    <div class="prevTitle">Network Performance Measures</div>
+                <a href= "/2019/09/25/Layered-Architecture-of-Network/" title= "Layered Architecture of Network">
+                    <div class="prevTitle">Layered Architecture of Network</div>
                 </a>
             
         </li>
@@ -461,8 +454,8 @@ height:50vh;
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
         var disqus_config = function () {
-        this.page.url = "http://www.hanlingquan.com/2019/09/25/Layered-Architecture-of-Network/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "Layered Architecture of Network"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://www.hanlingquan.com/2019/10/01/Network-Communication/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "Network-Communication"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -593,7 +586,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP"><span class="toc-number">2.</span> <span class="toc-text">ARP:</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

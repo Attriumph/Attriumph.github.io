@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2019-09-26T04:31:16.956Z</updated>
+  <updated>2019-10-02T05:06:22.023Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Network-Communication</title>
+    <link href="http://www.hanlingquan.com/2019/10/01/Network-Communication/"/>
+    <id>http://www.hanlingquan.com/2019/10/01/Network-Communication/</id>
+    <published>2019-10-02T04:58:36.000Z</published>
+    <updated>2019-10-02T05:06:22.023Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>If a client wants to send somthing to a server, the sequece is this:</p><ol><li>He needs to know its own IP address using DHCP</li><li>He need to know server’s IP address using DNS</li><li>He need to see if the server is in the same network with him via comparing the net id of their IP address;<br>If yes, it will not need the help of routers<br>If no, it will need the help of routers</li><li>Either situation of 3, it <strong>firstly</strong> need to find the mac address of a router or the server, which need ARP</li><li>If its need the help of router, the router will look up its routing table. If the router does not contain the IP address of the requested router, the router will find which next router could help.</li></ol><h2 id="ARP"><a href="#ARP" class="headerlink" title="ARP:"></a>ARP:</h2><ul><li>ARP packet<div style="text-align: center;"><br><img src="/images/arp.png" width="100%"><br></div></li><li>ARP is located in bottom of the lay-3, providing help for IP module </li><li>ARP request is broadcast, but the ARP reply is unicast.</li><li>After getting ARP request, the send get the MAC address and tell it to IP modular.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;If a client wants to send somthing to a server
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Layered Architecture of Network</title>
     <link href="http://www.hanlingquan.com/2019/09/25/Layered-Architecture-of-Network/"/>
     <id>http://www.hanlingquan.com/2019/09/25/Layered-Architecture-of-Network/</id>
     <published>2019-09-26T03:42:10.000Z</published>
-    <updated>2019-09-26T04:31:16.956Z</updated>
+    <updated>2019-10-02T04:47:46.311Z</updated>
     
-    <content type="html"><![CDATA[<div style="text-align: center;"><br>  <img src="/images/layer.png" width="100%"><br></div><p>If a client wants to send somthing to server, the sequece is this:</p><ol><li>He needs to know its own IP address using DHCP</li><li>He need to know server’s IP address using DNS</li><li>He need to see if the server is in the same network with him via comparing the net id of their IP address;<br>If yes, it will not need the help of routers<br>If no, it will need the help of routers</li><li>Either situation of 3, it need to find the mac address of a router or the server, which need<br>ARP</li></ol>]]></content>
+    <content type="html"><![CDATA[<div style="text-align: center;"><br>  <img src="/images/layer.png" width="100%"><br></div><p>If a client wants to send somthing to a server, the sequece is this:</p><ol><li>He needs to know its own IP address using DHCP</li><li>He need to know server’s IP address using DNS</li><li>He need to see if the server is in the same network with him via comparing the net id of their IP address;<br>If yes, it will not need the help of routers<br>If no, it will need the help of routers</li><li>Either situation of 3, it <strong>firstly</strong> need to find the mac address of a router or the server, which need ARP</li><li>If it need the help of router, the router will look up its routing table. If the router does not contain the IP address of the requested router, the router will find which next router could help.</li></ol>]]></content>
     
     <summary type="html">
     
@@ -31,7 +52,7 @@
       
         &lt;div style=&quot;text-align: center;&quot;&gt;&lt;br&gt;  &lt;img src=&quot;/images/layer.png&quot; width=&quot;100%&quot;&gt;&lt;br&gt;&lt;/div&gt;
 
-&lt;p&gt;If a client wants to send somthing to server
+&lt;p&gt;If a client wants to send somthing to a serv
       
     
     </summary>
