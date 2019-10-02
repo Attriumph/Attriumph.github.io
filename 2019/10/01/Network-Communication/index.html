@@ -281,7 +281,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">176</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">258</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -423,6 +423,16 @@ height:50vh;
 <li>ARP is located in bottom of the lay-3, providing help for IP module </li>
 <li>ARP request is broadcast, but the ARP reply is unicast.</li>
 <li>After getting ARP request, the send get the MAC address and tell it to IP modular.</li>
+</ul>
+<h2 id="DNS："><a href="#DNS：" class="headerlink" title="DNS："></a>DNS：</h2><ul>
+<li>Only for host, not for router</li>
+</ul>
+<h2 id="DHCP："><a href="#DHCP：" class="headerlink" title="DHCP："></a>DHCP：</h2><ul>
+<li>DHCP is a client/server application designed to provide a centralized approach to configuring and maintaining IP addresses</li>
+<li>DHCP server does not have to exist in every network and one network can have several DHCP server</li>
+<li>DHCP is a exception since its port number in client and server side are well-know; For other protocal, only the port numbers of server side are well-know.</li>
+<li>DHCP runs over UDP, it is on lay-5<div style="text-align: center;"><br><img src="/images/dhcp.png" width="100%"><br></div>
+</li>
 </ul>
 
     </article>
@@ -586,7 +596,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP"><span class="toc-number">2.</span> <span class="toc-text">ARP:</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP"><span class="toc-number">2.</span> <span class="toc-text">ARP:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS："><span class="toc-number">3.</span> <span class="toc-text">DNS：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DHCP："><span class="toc-number">4.</span> <span class="toc-text">DHCP：</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -599,10 +609,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -933,27 +939,27 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="Javascript"><span class="iconfont-archer">&#xe606;</span>Javascript</span>
+    
         <span class="sidebar-tag-name" data-tags="Website/Search"><span class="iconfont-archer">&#xe606;</span>Website/Search</span>
     
         <span class="sidebar-tag-name" data-tags="Algolia"><span class="iconfont-archer">&#xe606;</span>Algolia</span>
-    
-        <span class="sidebar-tag-name" data-tags="Javascript"><span class="iconfont-archer">&#xe606;</span>Javascript</span>
     
         <span class="sidebar-tag-name" data-tags="Git/Github"><span class="iconfont-archer">&#xe606;</span>Git/Github</span>
     
         <span class="sidebar-tag-name" data-tags="Front-end"><span class="iconfont-archer">&#xe606;</span>Front-end</span>
     
-        <span class="sidebar-tag-name" data-tags="AWS S3"><span class="iconfont-archer">&#xe606;</span>AWS S3</span>
-    
-        <span class="sidebar-tag-name" data-tags="Namecheap"><span class="iconfont-archer">&#xe606;</span>Namecheap</span>
-    
-        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+        <span class="sidebar-tag-name" data-tags="Javascirpt"><span class="iconfont-archer">&#xe606;</span>Javascirpt</span>
     
         <span class="sidebar-tag-name" data-tags="HTML DOM"><span class="iconfont-archer">&#xe606;</span>HTML DOM</span>
     
-        <span class="sidebar-tag-name" data-tags="Javascirpt"><span class="iconfont-archer">&#xe606;</span>Javascirpt</span>
-    
         <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
+    
+        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+    
+        <span class="sidebar-tag-name" data-tags="AWS S3"><span class="iconfont-archer">&#xe606;</span>AWS S3</span>
+    
+        <span class="sidebar-tag-name" data-tags="Namecheap"><span class="iconfont-archer">&#xe606;</span>Namecheap</span>
     
         <span class="sidebar-tag-name" data-tags="Layout"><span class="iconfont-archer">&#xe606;</span>Layout</span>
     
@@ -1006,9 +1012,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Web-Development"><span class="iconfont-archer">&#xe60a;</span>Web-Development</span>
     
-        <span class="sidebar-category-name" data-categories="Front-end"><span class="iconfont-archer">&#xe60a;</span>Front-end</span>
-    
         <span class="sidebar-category-name" data-categories="Computer-Network"><span class="iconfont-archer">&#xe60a;</span>Computer-Network</span>
+    
+        <span class="sidebar-category-name" data-categories="Front-end"><span class="iconfont-archer">&#xe60a;</span>Front-end</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
