@@ -281,7 +281,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">258</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">356</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -426,13 +426,23 @@ height:50vh;
 </ul>
 <h2 id="DNS："><a href="#DNS：" class="headerlink" title="DNS："></a>DNS：</h2><ul>
 <li>Only for host, not for router</li>
+<li>DNS is a client/server application, over UDP</li>
+<li>well-know port #: 53</li>
+<li>DNS client（resolver）：will check the cache if contain the IP address</li>
+<li>DNS server: local DNS server(firstly), then two methods:<ol>
+<li>recursive DNS<div style="text-align: center;"><br><img src="/images/recursive_dns.png" width="100%"><br></div> </li>
+<li>iterative DNS<div style="text-align: center;"><br><img src="/images/iter_dns.png" width="100%"><br></div>
+
+</li>
+</ol>
+</li>
 </ul>
 <h2 id="DHCP："><a href="#DHCP：" class="headerlink" title="DHCP："></a>DHCP：</h2><ul>
 <li>DHCP is a client/server application designed to provide a centralized approach to configuring and maintaining IP addresses</li>
 <li>DHCP server does not have to exist in every network and one network can have several DHCP server</li>
 <li>DHCP is a exception since its port number in client and server side are well-know; For other protocal, only the port numbers of server side are well-know.</li>
-<li>DHCP runs over UDP, it is on lay-5<div style="text-align: center;"><br><img src="/images/dhcp.png" width="100%"><br></div>
-</li>
+<li>DHCP runs over UDP, it is on lay-5<div style="text-align: center;"><br><img src="/images/dhcp.png" width="100%"><br></div></li>
+<li>If a machine in a network that does not have a DHCP server, then the router plays a DHCP relay agent (relay means that pass on).The router knows the ip address of DHCP server(s) and tell the DHCP server(s) its own IP address on the side of machine. Then, it will unicast or broadcast the DHCP discover message</li>
 </ul>
 
     </article>
