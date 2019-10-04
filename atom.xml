@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2019-10-04T00:02:44.598Z</updated>
+  <updated>2019-10-04T00:07:42.294Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -17,33 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Network——Socket</title>
+    <title>Introducation to Socket</title>
     <link href="http://www.hanlingquan.com/2019/10/03/Network-Socket/"/>
     <id>http://www.hanlingquan.com/2019/10/03/Network-Socket/</id>
     <published>2019-10-03T22:55:18.000Z</published>
-    <updated>2019-10-04T00:02:44.598Z</updated>
+    <updated>2019-10-04T00:07:42.294Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><ul><li>We can regard socket as a door of a room.</li><li>A socket is an abstract representation of a communication endpoint.</li><li>A socket is uniquely identified by the IP address, Port number and the underlying transport layerprotocol</li><li>Type: Stream socket(TCP), Datagram socket(UDP), and others</li></ul><h2 id="TCP-Socket"><a href="#TCP-Socket" class="headerlink" title="TCP Socket"></a>TCP Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/TCP_socket.png" width="100%"><br>  </div><h2 id="UPD-Socket"><a href="#UPD-Socket" class="headerlink" title="UPD Socket"></a>UPD Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/UDP_socket.png" width="100%"><br>  </div>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-Concept"><a href="#1-Concept" class="headerlink" title="1. Concept"></a>1. Concept</h2><ul><li>In order to better understand, if we view rooms as applications, we can regard a<br>socket as a door of a room, which is used to communicate with other rooms. </li><li>A socket is an abstract representation of a communication endpoint.</li><li>A socket is uniquely identified by the <strong>IP address, Port number and the underlying transport layerprotocol</strong>. Port number is the door number, IP address is the bulding address.</li><li>Type: Stream socket(TCP), Datagram socket(UDP), and others</li></ul><h2 id="2-TCP-Socket"><a href="#2-TCP-Socket" class="headerlink" title="2. TCP Socket"></a>2. TCP Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/TCP_socket.png" width="100%"><br>  </div><h2 id="3-UPD-Socket"><a href="#3-UPD-Socket" class="headerlink" title="3. UPD Socket"></a>3. UPD Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/UDP_socket.png" width="100%"><br>  </div>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Concept&quot;&gt;&lt;a href=&quot;#Concept&quot; class=&quot;headerlink&quot; title=&quot;Concept&quot;&gt;&lt;/a&gt;Concept&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;We can regard socket as a door of a room.&lt;/l
+        &lt;h2 id=&quot;1-Concept&quot;&gt;&lt;a href=&quot;#1-Concept&quot; class=&quot;headerlink&quot; title=&quot;1. Concept&quot;&gt;&lt;/a&gt;1. Concept&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;In order to better understand, if 
       
     
     </summary>
     
     
+      <category term="computer network" scheme="http://www.hanlingquan.com/tags/computer-network/"/>
+    
   </entry>
   
   <entry>
-    <title>Network-Communication</title>
+    <title>ARP, DNS and DHCP</title>
     <link href="http://www.hanlingquan.com/2019/10/01/Network-Communication/"/>
     <id>http://www.hanlingquan.com/2019/10/01/Network-Communication/</id>
     <published>2019-10-02T04:58:36.000Z</published>
-    <updated>2019-10-03T03:54:56.451Z</updated>
+    <updated>2019-10-04T00:08:18.009Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>If a client wants to send somthing to a server, the sequece is this:</p><ol><li>He needs to know its own IP address using DHCP</li><li>He need to know server’s IP address using DNS</li><li>He need to see if the server is in the same network with him via comparing the net id of their IP address;<br>If yes, it will not need the help of routers<br>If no, it will need the help of routers</li><li>Either situation of 3, it <strong>firstly</strong> need to find the mac address of a router or the server, which need ARP</li><li>If its need the help of router, the router will look up its routing table. If the router does not contain the IP address of the requested router, the router will find which next router could help.</li></ol><h2 id="ARP"><a href="#ARP" class="headerlink" title="ARP:"></a>ARP:</h2><ul><li>ARP packet<div style="text-align: center;"><br><img src="/images/arp.png" width="100%"><br></div></li><li>ARP is located in bottom of the lay-3, providing help for IP module </li><li>ARP request is broadcast, but the ARP reply is unicast.</li><li>After getting ARP request, the send get the MAC address and tell it to IP modular.</li></ul><h2 id="DNS："><a href="#DNS：" class="headerlink" title="DNS："></a>DNS：</h2><ul><li>Only for host, not for router</li><li>DNS is a client/server application, over UDP</li><li>well-know port #: 53</li><li>DNS client（resolver）：will check the cache if contain the IP address</li><li>DNS server: local DNS server(firstly), then two methods:<ol><li>recursive DNS<div style="text-align: center;"><br><img src="/images/recursive_dns.png" width="100%"><br></div> </li><li>iterative DNS<div style="text-align: center;"><br><img src="/images/iter_dns.png" width="100%"><br></div></li></ol></li></ul><h2 id="DHCP："><a href="#DHCP：" class="headerlink" title="DHCP："></a>DHCP：</h2><ul><li>DHCP is a client/server application designed to provide a centralized approach to configuring and maintaining IP addresses</li><li>DHCP server does not have to exist in every network and one network can have several DHCP server</li><li>DHCP is a exception since its port number in client and server side are well-know; For other protocal, only the port numbers of server side are well-know.</li><li>DHCP runs over UDP, it is on lay-5<div style="text-align: center;"><br><img src="/images/dhcp.png" width="100%"><br></div></li><li>If a machine in a network that does not have a DHCP server, then the router plays a DHCP relay agent (relay means that pass on).The router knows the ip address of DHCP server(s) and tell the DHCP server(s) its own IP address on the side of machine. Then, it will unicast or broadcast the DHCP discover message</li></ul>]]></content>
     
@@ -56,6 +58,8 @@
     
     </summary>
     
+    
+      <category term="computer network" scheme="http://www.hanlingquan.com/tags/computer-network/"/>
     
   </entry>
   

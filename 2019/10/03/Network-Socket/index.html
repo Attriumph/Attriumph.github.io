@@ -22,7 +22,7 @@
     <meta name="description" content="韩灵全的个人博客，南加州大学计算机科学专业研究生。">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Network——Socket · Lingquan Han|Blog</title>
+    <title>Introducation to Socket · Lingquan Han|Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/" >Lingquan | Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Network——Socket</a>
+                <a href="#" class="post-name">Introducation to Socket</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Network——Socket
+            Introducation to Socket
             <!-- 404 -->
             
         </h1>
@@ -279,9 +279,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "computer network">computer network</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">50</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">84</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -410,15 +416,15 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h2><ul>
-<li>We can regard socket as a door of a room.</li>
+        <h2 id="1-Concept"><a href="#1-Concept" class="headerlink" title="1. Concept"></a>1. Concept</h2><ul>
+<li>In order to better understand, if we view rooms as applications, we can regard a<br>socket as a door of a room, which is used to communicate with other rooms. </li>
 <li>A socket is an abstract representation of a communication endpoint.</li>
-<li>A socket is uniquely identified by the IP address, Port number and the underlying transport layerprotocol</li>
+<li>A socket is uniquely identified by the <strong>IP address, Port number and the underlying transport layerprotocol</strong>. Port number is the door number, IP address is the bulding address.</li>
 <li>Type: Stream socket(TCP), Datagram socket(UDP), and others</li>
 </ul>
-<h2 id="TCP-Socket"><a href="#TCP-Socket" class="headerlink" title="TCP Socket"></a>TCP Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/TCP_socket.png" width="100%"><br>  </div>
+<h2 id="2-TCP-Socket"><a href="#2-TCP-Socket" class="headerlink" title="2. TCP Socket"></a>2. TCP Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/TCP_socket.png" width="100%"><br>  </div>
 
-<h2 id="UPD-Socket"><a href="#UPD-Socket" class="headerlink" title="UPD Socket"></a>UPD Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/UDP_socket.png" width="100%"><br>  </div>
+<h2 id="3-UPD-Socket"><a href="#3-UPD-Socket" class="headerlink" title="3. UPD Socket"></a>3. UPD Socket</h2>  <div style="text-align: center;"><br>  <img src="/images/UDP_socket.png" width="100%"><br>  </div>
 
     </article>
     <!-- license  -->
@@ -431,8 +437,8 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/10/01/Network-Communication/" title= "Network-Communication">
-                    <div class="prevTitle">Network-Communication</div>
+                <a href= "/2019/10/01/Network-Communication/" title= "ARP, DNS and DHCP">
+                    <div class="prevTitle">ARP, DNS and DHCP</div>
                 </a>
             
         </li>
@@ -450,7 +456,7 @@ height:50vh;
         
         var disqus_config = function () {
         this.page.url = "http://www.hanlingquan.com/2019/10/03/Network-Socket/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "Network——Socket"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.identifier = "Introducation to Socket"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function () { // DON'T EDIT BELOW THIS LINE
@@ -581,7 +587,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Concept"><span class="toc-number">1.</span> <span class="toc-text">Concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-Socket"><span class="toc-number">2.</span> <span class="toc-text">TCP Socket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UPD-Socket"><span class="toc-number">3.</span> <span class="toc-text">UPD Socket</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Concept"><span class="toc-number">1.</span> <span class="toc-text">1. Concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-TCP-Socket"><span class="toc-number">2.</span> <span class="toc-text">2. TCP Socket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-UPD-Socket"><span class="toc-number">3.</span> <span class="toc-text">3. UPD Socket</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -594,6 +600,8 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -835,12 +843,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Network-Socket/" >Network——Socket</a>
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Network-Socket/" >Introducation to Socket</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2019/10/01/Network-Communication/" >Network-Communication</a>
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2019/10/01/Network-Communication/" >ARP, DNS and DHCP</a>
         </li>
     
     
@@ -954,21 +962,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="HTML DOM"><span class="iconfont-archer">&#xe606;</span>HTML DOM</span>
     
-        <span class="sidebar-tag-name" data-tags="Javascirpt"><span class="iconfont-archer">&#xe606;</span>Javascirpt</span>
-    
         <span class="sidebar-tag-name" data-tags="AWS S3"><span class="iconfont-archer">&#xe606;</span>AWS S3</span>
     
         <span class="sidebar-tag-name" data-tags="Namecheap"><span class="iconfont-archer">&#xe606;</span>Namecheap</span>
     
         <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
     
+        <span class="sidebar-tag-name" data-tags="Javascirpt"><span class="iconfont-archer">&#xe606;</span>Javascirpt</span>
+    
+        <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
+    
         <span class="sidebar-tag-name" data-tags="Layout"><span class="iconfont-archer">&#xe606;</span>Layout</span>
     
         <span class="sidebar-tag-name" data-tags="Flexbox"><span class="iconfont-archer">&#xe606;</span>Flexbox</span>
     
         <span class="sidebar-tag-name" data-tags="CSS Grid"><span class="iconfont-archer">&#xe606;</span>CSS Grid</span>
-    
-        <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
     
         <span class="sidebar-tag-name" data-tags="Backend"><span class="iconfont-archer">&#xe606;</span>Backend</span>
     
@@ -1015,9 +1023,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Web-Development"><span class="iconfont-archer">&#xe60a;</span>Web-Development</span>
     
-        <span class="sidebar-category-name" data-categories="Computer-Network"><span class="iconfont-archer">&#xe60a;</span>Computer-Network</span>
-    
         <span class="sidebar-category-name" data-categories="Front-end"><span class="iconfont-archer">&#xe60a;</span>Front-end</span>
+    
+        <span class="sidebar-category-name" data-categories="Computer-Network"><span class="iconfont-archer">&#xe60a;</span>Computer-Network</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
