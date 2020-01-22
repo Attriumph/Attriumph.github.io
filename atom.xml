@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2019-10-04T00:07:42.294Z</updated>
+  <updated>2020-01-22T06:08:46.183Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>个人理财学习（一）</title>
+    <link href="http://www.hanlingquan.com/2020/01/21/Introducation-To-Finance/"/>
+    <id>http://www.hanlingquan.com/2020/01/21/Introducation-To-Finance/</id>
+    <published>2020-01-22T05:18:56.000Z</published>
+    <updated>2020-01-22T06:08:46.183Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="宏观方面："><a href="#宏观方面：" class="headerlink" title="宏观方面："></a>宏观方面：</h2><ol><li><p>主动学习积累一些理财投资方面的知识，提高自己财商。如果说之前英语和电脑是必备技能，那新一代年轻人必备技能是财务知识（俗话说，你不理财，财不理你）。不管中美，贫富差距都会越来越大，可以用马太效应解释。（马太效应：两极分化严重，投资回报率远超劳动回报率。用资本来赚钱，时代对你会友善一些。）此外，个人理财，也可以试着考一下 CFP（Certified Financial Planner），“国际金融理财师”的简称。</p></li><li><p>从现在开始，给自己定一个理财目标。重要的切实可行，可以量化。比如，一年之内攒多少钱，跳一跳够得着的，可以 review。计划赶不上变化，没错，但是和完全没有计划完全不一样。至少有了一个方向，即使老了变化，也可以及时应对。</p></li><li><p>第一桶金之后要用起来，投放在自己最喜欢的投资类别里。<br>国外：考虑购买综合股指，10%左右单股。<br>国内：房地产</p></li><li><p>理财规划和职业规划联系起来一起考虑。从来不分家，一般收入两大来源： 资本性收入（理财）和劳动性（职业发展）收入。考虑劳动收入的可持续性，是否可以通过资本收入补贴劳动收入</p></li></ol><h2 id="细节方面："><a href="#细节方面：" class="headerlink" title="细节方面："></a>细节方面：</h2><ol><li>合理节省：合理分配房租</li><li>合理节省：不买不需要、不必要的东西，不要受 coupon 优惠诱惑（对空间，时间，精力都是浪费）。 为幸福感做一个预算，看看自己最需要的，最能提供幸福的是什么。</li><li>Pay yourself first,发工资先分开存起来管理（必须开销 ，非必需开销），奖金可以立刻存起来。<br>Create a savings strategy. Once you’ve found the money you need to pay yourself first, it’s important to find a smart way to save those funds until they’re needed. You can start by moving money into a savings account once a month. There are two easy ways to do this. One, split your direct deposit so that an amount or a percentage goes directly into your savings account before you can spend it. Or, set up an automatic transfer for each payday, regularly sending money from your checking account to your savings account.</li><li>免费的午餐不能不拿，比如 401k 美国企业退休金计划<br>好处在于税收优惠，养老金每月从税前工资中扣除。除此之外，401K 账户中的投资收益还享受延迟纳税，在退休取出时才统一交税，各州还有不同的优惠政策。</li><li>和自己另一半在钱、理财、消费方面沟通好达成共识</li></ol><p>总结自<a href="https://www.youtube.com/watch?v=Ob8LQnwxSLQ" target="_blank" rel="noopener">给 20 几岁年轻人的 10 个理财规划建议</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;宏观方面：&quot;&gt;&lt;a href=&quot;#宏观方面：&quot; class=&quot;headerlink&quot; title=&quot;宏观方面：&quot;&gt;&lt;/a&gt;宏观方面：&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;主动学习积累一些理财投资方面的知识，提高自己财商。如果说之前英语和电脑是必备技能，那新一代年轻人必
+      
+    
+    </summary>
+    
+    
+      <category term="Personal Finance" scheme="http://www.hanlingquan.com/tags/Personal-Finance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Advanced-Javascript</title>
+    <link href="http://www.hanlingquan.com/2020/01/04/Advanced-Javascript/"/>
+    <id>http://www.hanlingquan.com/2020/01/04/Advanced-Javascript/</id>
+    <published>2020-01-05T03:47:21.000Z</published>
+    <updated>2020-01-05T06:22:44.509Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="How-Javascript-works"><a href="#How-Javascript-works" class="headerlink" title="How Javascript works"></a>How Javascript works</h2><ol><li>Excution Context:<br>Dedualt: Global execuation context(associated with a global object) in brower is window.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> lastname == <span class="built_in">window</span>.lastname</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;How-Javascript-works&quot;&gt;&lt;a href=&quot;#How-Javascript-works&quot; class=&quot;headerlink&quot; title=&quot;How Javascript works&quot;&gt;&lt;/a&gt;How Javascript works&lt;/h2&gt;&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Introducation to Socket</title>
@@ -441,29 +486,6 @@
     
     
       <category term="Javascirpt" scheme="http://www.hanlingquan.com/tags/Javascirpt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML/CSS Summary</title>
-    <link href="http://www.hanlingquan.com/2018/10/18/HTML-CSS-Summary/"/>
-    <id>http://www.hanlingquan.com/2018/10/18/HTML-CSS-Summary/</id>
-    <published>2018-10-19T00:35:04.000Z</published>
-    <updated>2018-10-19T00:45:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="HTML-Semantic"><a href="#HTML-Semantic" class="headerlink" title="HTML Semantic"></a>HTML Semantic</h2><p>Semantic HTML is HTML that introduces meaning to the web page rather than just presentation. For example, a </p><p> tag indicates that the enclosed text is a paragraph. This is both semantic and presentational, because people know what paragraphs are and browsers know how to display them. In HTML4, tags like &lt; b &gt; and &lt; i &gt; are not semantic, because they define only how the text should look (bold or italic) and do not provide any additional meaning.<br>Examples of semantic HTML tags include the header tags ‘&lt; h1 &gt; through &lt; h6 &gt;, &lt; blockquote &gt;, &lt; code &gt; and &lt; em &gt;’. There are many more semantic HTML tags.</p><h3 id="Why-Semantic-HTML-is-Important"><a href="#Why-Semantic-HTML-is-Important" class="headerlink" title="Why Semantic HTML is Important"></a>Why Semantic HTML is Important</h3><ol><li>semantic code aids accessibility. Specially, many people whose eyes are not good rely on speech browsers to read pages to them. These programs cannot interpret pages very well unless they are clearly explained.</li><li>Help Search engines to better understand pages.  Search engine need to understand what your content is about when rank you properly on search engines. Semantic code tends to improve your placement on search engines, as it is easier for the “search engine spiders” to understand.</li><li>It’s easier to read and edit, which saves time and money during maintenance.</li></ol><h2 id="What-is-Iframe"><a href="#What-is-Iframe" class="headerlink" title="What is Iframe?"></a>What is Iframe?</h2><ul><li>An IFrame (Inline Frame) is an HTML document embedded inside another HTML document on a website.</li><li>The IFrame HTML element is often used to insert content from another source, such as an advertisement, into a Web page.<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"http://www.w3schools.com"</span>&gt;</span>不支持 iframe 的浏览器<span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="Meta-tag"><a href="#Meta-tag" class="headerlink" title="Meta tag"></a>Meta tag</h2><ul><li>The tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.</li><li>Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.</li><li>The metadata can be used by browsers (how to display content or reload page), search engines (keywords), or other web services.</li></ul><h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="CSS-preprocessor"><a href="#CSS-preprocessor" class="headerlink" title="CSS preprocessor"></a>CSS preprocessor</h2><p>CSS preprocessors take code written in the preprocessed language and then convert that code into the same old css. 3 of the more popular css preprocessors are Sass(用过), LESS, and Stylus</p><h3 id="CSS-preprocessor-Pros-and-cons"><a href="#CSS-preprocessor-Pros-and-cons" class="headerlink" title="CSS preprocessor Pros and cons:"></a>CSS preprocessor Pros and cons:</h3><ul><li>Pros:<ol><li>Nested syntax</li><li>Ability to define variables</li><li>Ability to define mixins</li><li>Mathematical functions</li><li>Operational functions (such as “lighten” and “darken”)</li><li>Joining of multiple files</li></ol></li><li><p>Cons:</p><ol><li><p>Debugging is harder</p><ul><li>Due to having a compilation step, the browser is not interpreting the source files, meaning the CSS line numbers are now irrelevant when trying to debug. This makes debugging a lot harder.</li></ul></li><li><p>Maintainance</p></li><li><p>Compilation time slows down development</p><ul><li>Compilation times can be painfully slow, even when using the fastest techniques on a cutting edge machine.</li></ul></li><li>Performance is compromised<ul><li>Source files may be small, but the generated CSS could be huge. And it’s the generated CSS that counts.</li></ul></li></ol></li></ul><h2 id="pt-px-em-rem"><a href="#pt-px-em-rem" class="headerlink" title="pt, px, em, rem"></a>pt, px, em, rem</h2><ul><li>pt are absolute length, 1 pt = 1/72 inch</li><li>px are relative length, different resolution is different length</li><li>em is also relative length, which depends its parents length</li><li>rem is also relative length, which depends root length of HTML</li></ul><h3 id="CSS3-to-make-shape"><a href="#CSS3-to-make-shape" class="headerlink" title="CSS3 to make shape"></a>CSS3 to make shape</h3><ul><li>use transform(traslate, rotate)</li><li><p>use border</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="selector-id">#triangle-up</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-left</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">50px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">100px</span> solid red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><a href="http://www.jqhtml.com/8045.html" target="_blank" rel="noopener">See more details here</a></p></li></ul><h2 id="SASS-basic-concepts"><a href="#SASS-basic-concepts" class="headerlink" title="SASS basic concepts"></a>SASS basic concepts</h2><ol><li>Variables: Variables in SASS start with $ sign</li><li>Nesting: CSS lacks visual hierarchy while working with child selectors. You have to write selectors and their combinations in separate lines. Nesting provides a visual hierarchy as in the HTML and increases the readability.</li><li>mixins: mixins are used to include a bunch of properties or group declarations together. It allows for the easy reuse of blocks of code. Use include  to</li><li>Inheritance: extends are useful for sharing a generic definition with selectors rather than copying it in.</li><li>If/Else Statements and loops</li><li>import: separating your codes in small pieces is helpful for expressing your declarations and increasing maintainability and control over the codebase.</li><li>Math operations: can be used for standard arithmetic or unit conversions.</li></ol><h2 id="Box-model"><a href="#Box-model" class="headerlink" title="Box model"></a>Box model</h2><ul><li>block: by default, the width is 100%</li><li>inline: width is decided by Content<h2 id="Position-property"><a href="#Position-property" class="headerlink" title="Position property"></a>Position property</h2></li><li>relative: not change the display property of elements</li><li>absolute: if parents of the elements do not set relative or absolute, the element will locate by the body<ul><li>width of block elements becomes auto</li><li>inline elements’ display will become blocks</li></ul></li><li>using relative and absolute, the elements will cover other elements; but we can set z-index as -1<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2></li><li>The float CSS property specifies that an element should be placed along the left or right side of its container, allowing text and inline elements to wrap around it. The element is removed from the normal flow of the web page, but the element will not cover the content of next elements(only cover the border).</li><li>after setting a float property, the element will become a block</li></ul><h2 id="Clear-float"><a href="#Clear-float" class="headerlink" title="Clear float"></a>Clear float</h2><p>If children set float, the parent will lose height from children. In order to let the parent looks like contain children, we have several method:</p><ol><li>add new tag in the parent element: &lt; br style=”clear:both” /&gt;</li><li>Float (Nearly) Everything</li><li><p>use psedou class after</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-form-row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"l-form-label"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            ....</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">            <span class="selector-class">.l-form-row</span><span class="selector-pseudo">:after</span> &#123;</span></span><br><span class="line"><span class="undefined">                clear: both;</span></span><br><span class="line"><span class="undefined">                content: "\0020";</span></span><br><span class="line"><span class="undefined">                display: block;</span></span><br><span class="line"><span class="undefined">                height: 0;</span></span><br><span class="line"><span class="undefined">                overflow: hidden</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>set the parent container overflow: hidden,  or overflow: auto;</p></li><li>use clearfix:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after &#123;</span><br><span class="line">  content: &quot; &quot;;</span><br><span class="line">  display: block;</span><br><span class="line">  clear: both;</span><br><span class="line">  height: 0;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix &#123;</span><br><span class="line">  zoom: 1;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div class=&quot;clearfix&quot;&gt;</span><br><span class="line">&lt;div class=&quot;floated&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;h2 id=&quot;HTML-Semantic&quot;&gt;&lt;a href=&quot;#HTML-Semantic&quot; class=&quot;headerlink
-      
-    
-    </summary>
-    
-    
-      <category term="Front-end" scheme="http://www.hanlingquan.com/tags/Front-end/"/>
     
   </entry>
   
