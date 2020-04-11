@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2020-04-11T22:56:30.564Z</updated>
+  <updated>2020-04-11T22:59:09.772Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://www.hanlingquan.com/2020/04/11/family-tip/"/>
     <id>http://www.hanlingquan.com/2020/04/11/family-tip/</id>
     <published>2020-04-11T22:45:31.000Z</published>
-    <updated>2020-04-11T22:56:30.564Z</updated>
+    <updated>2020-04-11T22:59:09.772Z</updated>
     
-    <content type="html"><![CDATA[<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://www.youtube.com/watch?v=WFmRKx3D0KI"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+    <content type="html"><![CDATA[<iframe width="1280" height="720" src="https://www.youtube.com/embed/WFmRKx3D0KI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;div id=&quot;dplayer0&quot; class=&quot;dplayer hexo-tag-dplayer-mark&quot; style=&quot;margin-bottom: 20px;&quot;&gt;&lt;/div&gt;&lt;script&gt;(function(){var player = new DPlayer({&quot;c
+        &lt;iframe width=&quot;1280&quot; height=&quot;720&quot; src=&quot;https://www.youtube.com/embed/WFmRKx3D0KI&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-
       
     
     </summary>
