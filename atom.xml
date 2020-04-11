@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2020-04-11T22:55:32.359Z</updated>
+  <updated>2020-04-11T22:56:30.564Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.hanlingquan.com/2020/04/11/family-tip/"/>
     <id>http://www.hanlingquan.com/2020/04/11/family-tip/</id>
     <published>2020-04-11T22:45:31.000Z</published>
-    <updated>2020-04-11T22:55:32.359Z</updated>
+    <updated>2020-04-11T22:56:30.564Z</updated>
     
-    <content type="html"><![CDATA[<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://www.youtube.com/watch?v=WFmRKx3D0KI","pic":"http://home.ustc.edu.cn/~mmmwhy/GEM.jpg"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
+    <content type="html"><![CDATA[<div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"theme":"#FADFA3","loop":true,"video":{"url":"https://www.youtube.com/watch?v=WFmRKx3D0KI"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script>]]></content>
     
     <summary type="html">
     
