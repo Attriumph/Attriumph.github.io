@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.hanlingquan.com/"/>
-  <updated>2020-08-15T23:55:13.033Z</updated>
+  <updated>2020-08-16T00:00:06.900Z</updated>
   <id>http://www.hanlingquan.com/</id>
   
   <author>
@@ -17,19 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《从点子到产品》读书感悟 —— Part I</title>
+    <title>《从点子到产品》读书感悟 — Part I</title>
     <link href="http://www.hanlingquan.com/2020/08/15/From-an-idea-to-a-product-i/"/>
     <id>http://www.hanlingquan.com/2020/08/15/From-an-idea-to-a-product-i/</id>
     <published>2020-08-15T22:23:40.000Z</published>
-    <updated>2020-08-15T23:55:13.033Z</updated>
+    <updated>2020-08-16T00:00:06.900Z</updated>
     
-    <content type="html"><![CDATA[<p>戴雨森说“不懂当 CEO 的产品经理不是好的创业者”。创业者，CEO 和产品经理是当下互联网时代经常被放到一起的一些词。似乎产品经理是我们刚踏入职场最可能快速积累创业技能的一个岗位，带着这种疑问，一直想仔细了解一下产品经理。最近趁着 WFH，读了刘飞的《从点子到产品》，里面从需求分析到产品原型，再到产品管理，多维度向我们展示了一个优秀的产品经理的工作和能力要求。让我对产品经理有了更深刻的理解，同时书中很多工作中的技能，我想也对自己当下的工作也非常有帮助。想通过写一遍读书笔记，把感悟整合巩固一下，也方便自己以后温习，如果还能帮助到大家，那真的是极好的～</p><div style="text-align: center;"><br>  <img src="/images/idea to prod.jpg" width="80%"><br></div><p>主要按照章节结构，提取一些感触最深的一些观点。PartI 是产品价值和用户痛点，给我们介绍了产品初期从设计到 MVP 的一些关键点。</p><h2 id="第一章-点子与方案"><a href="#第一章-点子与方案" class="headerlink" title="第一章 点子与方案"></a>第一章 点子与方案</h2><p>1.考虑产品模型的设计是否合理，可以从市场/需求/用户是否存在，产品满足用户需求的逻辑是否合理（是否高效，是否降低原有成本等）两个角度考虑</p><ol start="2"><li>产品的商业模式的盈利方式是否合理，任何产品都要实实在在的考虑“怎么赚钱”的问题。目前赚钱的方式大致可以分为：广告，售卖，增值特权服务，抽成/佣金，企业服务几类。</li><li>产品在未来是否就有拓展合理性，考虑产品的天花板，好的产品应该在时间和空间上具有延展性。</li><li>考虑实施合理性。除了以上的点，我们还要对团队能力有一个清晰的认识，我们是不是一个合适的团队去做它。</li></ol><div style="text-align: center;"><br>  <img src="/images/prod reasonable.jpeg" width="100%"><br></div><h2 id="第二章-找到产品的核心价值"><a href="#第二章-找到产品的核心价值" class="headerlink" title="第二章 找到产品的核心价值"></a>第二章 找到产品的核心价值</h2><ol><li>核心价值是战略层里面包含的目标，也是最基本的底层支撑。要设计的功能，都要给予这个价值去做。</li><li>核心价值的建立有助于 1）选择综合考量下来最有的功能，对公司最有利 2）产品逻辑统一，让价值产生增益 3）让用户对产品产生认知</li><li>核心价值的定义是，离开里它，产品就不能真正解决用户的实际问题。所以核心价值是产品一开始提出要解决的问题</li><li>“用完即走”并不是不要粘性，而是培养了用户的一种习惯。</li><li>“Better to have a 100 people who love you than a million people who sort of like you” – Paul Graham(Airbnb 创始人)</li><li>当下互联网市场，想要产品优秀，不能单纯的能解决问题，要用超预期的方式解决</li></ol><h2 id="第三章-MVP（Minimum-Viable-Product）与痛点"><a href="#第三章-MVP（Minimum-Viable-Product）与痛点" class="headerlink" title="第三章 MVP（Minimum Viable Product）与痛点"></a>第三章 MVP（Minimum Viable Product）与痛点</h2><ol><li>MVP 的目的是验证两件事：一是产品满足了用户的需求，二是产品能创造商业价值。</li><li>从核心价值从发，设计 mvp，快速投放到市场，再次验证产品的合理性（降低试错成本）</li><li>设计 MVP 的要求是：达到可用和最小成本的平衡。</li><li>设计 MVP 方法有：奥卡姆剃刀法（类似拆积木），用户访谈，去掉可人工处理的功能</li><li>运用 MVP 的方法：广告，假 MVP，线下实现</li><li>实现 MVP 的方式：选择平台（甚至微信公众号），选择技术实现方案，外包最后的选择</li><li>如何找到用户的痛点： 数据（用户数据和商业数据），用户反馈</li><li>解决了用户的痛点，才是让用户实现我们产品的最主要因素，以及体现了产品价值的关键点</li><li>“People don’t know what they want until you show it to them” - Jobs</li><li>产品模型和对核心功能的设计是指导思想，而 MVP 是实践的方法论</li></ol><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol><li>点子落地前，一定要“纸上谈兵”，分析产品的合理性</li><li>明确产品的核心价值，解决用户的痛点</li><li>产品初期设计多做减法，不用太在整体产品跑通是不是用互联网的方式。</li><li>尽早投放在市场上，实践来检验“纸上谈兵”的产品模型是不是“真理”。</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>戴雨森说“不懂当 CEO 的产品经理不是好的创业者”。创业者，CEO 和产品经理是当下互联网时代经常被放到一起的一些词。似乎产品经理是我们刚踏入职场最可能快速积累创业技能的一个岗位，带着这种疑问，一直想仔细了解一下产品经理。最近趁着 WFH，拜读了刘飞的《从点子到产品》，里面从需求分析到产品原型，再到产品管理，多维度向我们展示了一个优秀的产品经理的工作和能力要求。让我对产品经理有了更深刻的理解，同时书中很多工作中的技能，我想也对自己当下的工作也非常有帮助。想通过写一遍读书笔记，把感悟整合巩固一下，也方便自己以后温习，如果还能帮助到大家，那真的是极好的～</p><div style="text-align: center;"><br>  <img src="/images/idea to prod.jpg" width="80%"><br></div><p>主要按照章节结构，提取一些感触最深的一些观点。PartI 是产品价值和用户痛点，给我们介绍了产品初期从设计到 MVP 的一些关键点。</p><h2 id="第一章-点子与方案"><a href="#第一章-点子与方案" class="headerlink" title="第一章 点子与方案"></a>第一章 点子与方案</h2><ol><li>考虑产品模型的设计是否合理，可以从<strong>市场/需求/用户是否存在，产品满足用户需求的逻辑是否合理（是否高效，是否降低原有成本等）</strong>两个角度考虑</li><li>产品的商业模式的盈利方式是否合理，任何产品都要实实在在的考虑“怎么赚钱”的问题。目前赚钱的方式大致可以分为：广告，售卖，增值特权服务，抽成/佣金，企业服务几类。</li><li>产品在未来是否就有拓展合理性，考虑产品的天花板，好的产品应该在时间和空间上具有延展性。</li><li>考虑实施合理性。除了以上的点，我们还要对团队能力有一个清晰的认识，我们是不是一个合适的团队去做它。</li></ol><div style="text-align: center;"><br>  <img src="/images/prod reasonable.jpeg" width="100%"><br></div><h2 id="第二章-找到产品的核心价值"><a href="#第二章-找到产品的核心价值" class="headerlink" title="第二章 找到产品的核心价值"></a>第二章 找到产品的核心价值</h2><ol><li>核心价值是战略层里面包含的目标，也是最基本的底层支撑。要设计的功能，都要给予这个价值去做。</li><li>核心价值的建立有助于 1）选择综合考量下来最有的功能，对公司最有利 2）产品逻辑统一，让价值产生增益 3）让用户对产品产生认知</li><li><strong>核心价值的定义是，离开里它，产品就不能真正解决用户的实际问题。所以核心价值是产品一开始提出要解决的问题</strong></li><li>“用完即走”并不是不要粘性，而是培养了用户的一种习惯。</li><li>“Better to have a 100 people who love you than a million people who sort of like you” – Paul Graham(Airbnb 创始人)</li><li>当下互联网市场，想要产品优秀，不能单纯的能解决问题，要用超预期的方式解决</li></ol><h2 id="第三章-MVP（Minimum-Viable-Product）与痛点"><a href="#第三章-MVP（Minimum-Viable-Product）与痛点" class="headerlink" title="第三章 MVP（Minimum Viable Product）与痛点"></a>第三章 MVP（Minimum Viable Product）与痛点</h2><ol><li>MVP 的目的是验证两件事：一是产品满足了用户的需求，二是产品能创造商业价值。</li><li>从核心价值从发，设计 mvp，快速投放到市场，再次验证产品的合理性（降低试错成本）</li><li>设计 MVP 的要求是：达到可用和最小成本的平衡。</li><li>设计 MVP 方法有：奥卡姆剃刀法（类似拆积木），用户访谈，去掉可人工处理的功能</li><li>运用 MVP 的方法：广告，假 MVP，线下实现</li><li>实现 MVP 的方式：选择平台（甚至微信公众号），选择技术实现方案，外包最后的选择</li><li>如何找到用户的痛点： 数据（用户数据和商业数据），用户反馈</li><li>解决了用户的痛点，才是让用户实现我们产品的最主要因素，以及体现了产品价值的关键点</li><li>“People don’t know what they want until you show it to them” - Jobs</li><li>产品模型和对核心功能的设计是指导思想，而 MVP 是实践的方法论</li></ol><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol><li>点子落地前，一定要“纸上谈兵”，分析产品的合理性</li><li>明确产品的核心价值，解决用户的痛点</li><li>产品初期设计多做减法，不用太在整体产品跑通是不是用互联网的方式。</li><li>尽早投放在市场上，实践来检验“纸上谈兵”的产品模型是不是“真理”。</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;戴雨森说“不懂当 CEO 的产品经理不是好的创业者”。创业者，CEO 和产品经理是当下互联网时代经常被放到一起的一些词。似乎产品经理是我们刚踏入职场最可能快速积累创业技能的一个岗位，带着这种疑问，一直想仔细了解一下产品经理。最近趁着 WFH，读了刘飞的《从点子到产品》，里面
+        &lt;p&gt;戴雨森说“不懂当 CEO 的产品经理不是好的创业者”。创业者，CEO 和产品经理是当下互联网时代经常被放到一起的一些词。似乎产品经理是我们刚踏入职场最可能快速积累创业技能的一个岗位，带着这种疑问，一直想仔细了解一下产品经理。最近趁着 WFH，拜读了刘飞的《从点子到产品》，里
       
     
     </summary>
