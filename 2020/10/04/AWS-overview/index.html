@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="Lingquan Han">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="Lingquan Han">
+    
+    <meta name="keywords" content="Lingquan Han,Lingquan,韩灵全,Web development">
+    
+    <meta name="description" content="韩灵全的个人博客，南加州大学计算机科学专业研究生。">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>AWS概述 · Lingquan Han|Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+        <!-- algolia -->
+        <script>
+            
+            var hits = JSON.parse('{"per_page":10}')
+            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
+
+            var algolia = {
+                applicationID: 'IWQHK040D1',
+                apiKey: '1f0be65970a603f60c21aa5de3639193',
+                indexName: 'blog_search',
+                hits: hits,
+                labels: labels
+            }
+        </script>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Lingquan | Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">AWS概述</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Lingquan | Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            AWS概述
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "AWS">AWS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Cloud">Cloud</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">3.4k</span>Reading time: <span class="post-count reading-time">12 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/10/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>云计算可以看做一个计算网络，其由一组硬件主机作为服务器，然后通过通讯网络连接，从而给其他用户提供各种各样的服务。</p>
+<h2 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h2><p>云计算提供的服务可以分为三层，第一层是基础设施（Infrastructure）,第二层是平台（Platform）,第三层是应用软件（Application）。基础设置的服务包括虚拟或实体计算机、块级存储、网络设施（如负载均衡，内容交付网络，DNS 解析）等，平台的服务包括对象存储、认证服务和访问服务、各种程序的运行时、队列服务、数据库服务等，而应用软件的服务则包括的多了，比如邮件服务、代码托管服务等等。用户可以通过台式电脑、手提电脑、手机、平板等各种互联网终端设备访问和使用这些服务。<br>其实这三层就是我们常说的 IaaS（Infrastructure as a Service）、PaaS（Platform as a Service）、SaaS(Software as a Service)。</p>
+<div style="text-align: center;"><br>  <img src="/images/3ass.png" width="100%"><br>  <span style="text-size:0.8rem">Iaas，Paas，Sass</span><br></div>
+
+<h2 id="云计算部署模型"><a href="#云计算部署模型" class="headerlink" title="云计算部署模型"></a>云计算部署模型</h2><p>云， 混合， 私有云（本地）</p>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>资本支出变成灵活支出</li>
+<li>从大范围规模经济中受益</li>
+<li>不需要猜测容量需求</li>
+<li>提高速度和敏捷性</li>
+<li>无需运营和维护沉重的数据中心</li>
+<li>快速的实现全球化部署</li>
+</ul>
+<h2 id="学习方向："><a href="#学习方向：" class="headerlink" title="学习方向："></a>学习方向：</h2><div style="text-align: center;"><br>  <img src="/images/aws cert.jpeg" width="100%"><br>  <span style="text-size:0.8rem">AWS相关证书</span><br></div>
+
+<h1 id="AWS-网络服务"><a href="#AWS-网络服务" class="headerlink" title="AWS 网络服务"></a>AWS 网络服务</h1><h2 id="AWS-Compute"><a href="#AWS-Compute" class="headerlink" title="AWS Compute"></a>AWS Compute</h2><h3 id="Amazon-EC2-Amazon-Elastic-Compute-Cloud-Amazon-EC2"><a href="#Amazon-EC2-Amazon-Elastic-Compute-Cloud-Amazon-EC2" class="headerlink" title="Amazon EC2 Amazon Elastic Compute Cloud (Amazon EC2)"></a>Amazon EC2 Amazon Elastic Compute Cloud (Amazon EC2)</h3><ul>
+<li>是一种 Web 服务，在云中提供安全、大小可 调的计算容量。</li>
+<li>弹性 Web 规模级计算：有了 Amazon EC2，您可以在几分钟（而不是几小时或几天）内增加或减少容量。您可以 同时管理一个、数百个，甚至数千个服务器实例。由于这全部通过 Web 服务 API 控制， 因此您的应用程序可根据其自身需要自动扩展和缩减。</li>
+<li>完全控制：您可以完全控制您的 Amazon EC2 实例。</li>
+<li>灵活的云托管服务：您可以从多种实例类型、操作系统和软件包中进行选择。有了 Amazon EC2，您可以为您 所选择的操作系统和应用程序选取理想的内存、CPU、实例存储和启动分区大小配置。</li>
+<li>集成：Amazon EC2 与 Amazon Simple Storage Service (Amazon S3)、Amazon Relational Database Service (Amazon RDS) 和 Amazon - Virtual Private Cloud (Amazon VPC) 等大多数 AWS 服务集 成，为多种应用程序提供完整、安全的计算、查询处理和云存储解决方案。</li>
+<li>可靠：Amazon EC2 提供了一个高度可靠的环境，替代实例可以在其中以可预见的方式快速启 动。该服务在成熟的 Amazon 网络基本架构和数据中心中运行。Amazon EC2 服务等级协 议 (SLA) 的承诺是为每个区域提供 99.95% 的可用性。</li>
+<li>安全：Amazon EC2 与 Amazon VPC 配合工作，为您的计算资源提供安全及强大的联网功能。</li>
+</ul>
+<h3 id="Amazon-Lightsail"><a href="#Amazon-Lightsail" class="headerlink" title="Amazon Lightsail"></a>Amazon Lightsail</h3><ul>
+<li>旨在为使用 AWS 启动和管理虚拟专用服务器提供一种最简单的方法。</li>
+<li>Lightsail 计划包括以较低的可预测价格快速启动您的项目所需的一切资源 — 虚拟机、基 于 SSD 的存储、数据传输、DNS 管理和静态 IP 地址。</li>
+</ul>
+<h3 id="AWS-Lambda"><a href="#AWS-Lambda" class="headerlink" title="AWS Lambda"></a>AWS Lambda</h3><ul>
+<li>适用于后端 Web 开发的零管理计算平台</li>
+<li>在 AWS 直接运行后端代码，从而提供基于 AWS 基础架构的高可用、安全性、性能和可伸缩性</li>
+</ul>
+<h3 id="AWS-Elastic-Benstalk"><a href="#AWS-Elastic-Benstalk" class="headerlink" title="AWS Elastic Benstalk"></a>AWS Elastic Benstalk</h3><ul>
+<li>在 AWS 上部署 Web 应用的最快捷最简单的方式</li>
+<li>直接上传代码而由 AWS 自行对资源进行调配</li>
+</ul>
+<h3 id="Auto-Scaling"><a href="#Auto-Scaling" class="headerlink" title="Auto Scaling"></a>Auto Scaling</h3><ul>
+<li>可以根据定义的条件自动扩展 Amazon EC2 容量。</li>
+<li>通过使用 Auto Scaling，您可以确保所使用的 Amazon EC2 实例数量在需求峰值期实现无缝增长以保持性能，也可以在需求平淡期自动减少， 将成本降至最低。</li>
+<li>Auto Scaling 特别适合每小时、每天或每周使用率都不同的应用程序。</li>
+<li>Auto Scaling 通过 Amazon CloudWatch 启用，除了 Amazon CloudWatch 费用外，无需支付其他任何费用。</li>
+</ul>
+<h3 id="Elastic-Load-Balancing"><a href="#Elastic-Load-Balancing" class="headerlink" title="Elastic Load Balancing"></a>Elastic Load Balancing</h3><ul>
+<li>在多个 Amazon EC2 实例间自动分配应用程序的传入流量</li>
+<li>Elastic Load Balancing 可以检测出不健全的实例，并自动更改路由，使其指向健全的实例，直到不健全的实例恢复为止</li>
+</ul>
+<h2 id="AWS-存储"><a href="#AWS-存储" class="headerlink" title="AWS 存储"></a>AWS 存储</h2><h3 id="S3"><a href="#S3" class="headerlink" title="S3"></a>S3</h3><ul>
+<li>托管的对象存储解决方案</li>
+<li>无缝任意扩展的存储池</li>
+<li>可以通过 AWS 控制台或者第三方 API 访问 S3</li>
+<li>对象的变化可以触发通知、流程、脚本</li>
+<li>动态数据和静态数据可自动进行加密</li>
+<li>为使用量 GB、跨域复制、PUT/COPY 等请求进行付费，主要适用于非频繁访问的数据</li>
+<li>支持包括 HTML、源代码、图像和加密数据等格式</li>
+<li>支持备份和恢复、近线归档、大数据分析、灾难恢复、云应用和内容分发提供经济高效的对象存储</li>
+</ul>
+<h3 id="S3-Glacier"><a href="#S3-Glacier" class="headerlink" title="S3 Glacier"></a>S3 Glacier</h3><ul>
+<li>数据归档服务，适用于不太访问的数据</li>
+<li>安全性、持久性和极低成本</li>
+<li>支持静态和动态的 SSL/TLS 加密</li>
+<li>数据检索通常需要好几个小时</li>
+</ul>
+<h3 id="AWS-Storage-Gateway"><a href="#AWS-Storage-Gateway" class="headerlink" title="AWS Storage Gateway"></a>AWS Storage Gateway</h3><ul>
+<li>在内部部署软件设备与基于云的存储器相连接的服务</li>
+<li>用户在本地数据中心维护经常访问的数据缓存，同时为存储在 S3 或 Glacier 中的所有数据提供低延迟的访问</li>
+</ul>
+<h3 id="EBS-EFS-存储"><a href="#EBS-EFS-存储" class="headerlink" title="EBS/EFS 存储"></a>EBS/EFS 存储</h3><ul>
+<li>能够创建单独的数据卷并挂载在 EC2</li>
+</ul>
+<h2 id="AWS-数据库"><a href="#AWS-数据库" class="headerlink" title="AWS 数据库"></a>AWS 数据库</h2><h3 id="Amazon-Aurora"><a href="#Amazon-Aurora" class="headerlink" title="Amazon Aurora"></a>Amazon Aurora</h3><ul>
+<li>Amazon customized relational database</li>
+<li>Severless vs sever</li>
+</ul>
+<h3 id="DynamoDB"><a href="#DynamoDB" class="headerlink" title="DynamoDB"></a>DynamoDB</h3><ul>
+<li>完全托管的 NoSQL 数据库</li>
+<li>任意规模上实现低于 10ms 的低延迟，完全运行在 SSD</li>
+<li>支持文档和键值存储模式</li>
+<li>非常适合移动、web、游戏、广告和 IOT</li>
+</ul>
+<h3 id="RDS"><a href="#RDS" class="headerlink" title="RDS"></a>RDS</h3><ul>
+<li>关系型数据库托管服务</li>
+<li>可以通过 AWS 控制台、RDS 命令行和 API 进行调用</li>
+<li>可扩展、支持自动冗余和备份</li>
+<li>支持 SQL、Oracle 等数据</li>
+</ul>
+<h3 id="ElastiCache"><a href="#ElastiCache" class="headerlink" title="ElastiCache"></a>ElastiCache</h3><ul>
+<li>采用 Web 服务来简化云中的内存缓存的部署操作和扩展</li>
+<li>支持 Memcached 和 Redis 缓存引擎</li>
+</ul>
+<h3 id="Neptune"><a href="#Neptune" class="headerlink" title="Neptune"></a>Neptune</h3><ul>
+<li>Graph database</li>
+<li>复杂数据关系</li>
+</ul>
+<h2 id="Migration"><a href="#Migration" class="headerlink" title="Migration"></a>Migration</h2><h3 id="AWS-Application-Discovery-Service"><a href="#AWS-Application-Discovery-Service" class="headerlink" title="AWS Application Discovery Service"></a>AWS Application Discovery Service</h3><ul>
+<li>能够自动识别在本地数据中心里运行的应用程序及其关 联的依赖项和性能配置文件，帮助系统集成商快速、可靠地规划应用程序迁移项目</li>
+</ul>
+<h3 id="AWS-Database-Migration-Service"><a href="#AWS-Database-Migration-Service" class="headerlink" title="AWS Database Migration Service"></a>AWS Database Migration Service</h3><ul>
+<li>帮助您轻松、安全地将数据库迁移到 AWS47。源数据库可 在迁移过程中仍全面运行，从而最大程度地为依赖该数据库的应用程序减少停机时间。</li>
+</ul>
+<h3 id="AWS-Server-Migration-Service-SMS"><a href="#AWS-Server-Migration-Service-SMS" class="headerlink" title="AWS Server Migration Service (SMS"></a>AWS Server Migration Service (SMS</h3><ul>
+<li>是一种无代理服务，让您能够更方便、快捷地将成千 上万种本地工作负载迁移到 AWS48。</li>
+</ul>
+<h3 id="AWS-Snowball"><a href="#AWS-Snowball" class="headerlink" title="AWS Snowball"></a>AWS Snowball</h3><ul>
+<li>是一种 PB 级数据传输解决方案，它利用安全设备将大量数据传入和传出 AWS49。</li>
+</ul>
+<h2 id="Networking-amp-Content-Delivery"><a href="#Networking-amp-Content-Delivery" class="headerlink" title="Networking &amp; Content Delivery"></a>Networking &amp; Content Delivery</h2><h3 id="VPC"><a href="#VPC" class="headerlink" title="VPC"></a>VPC</h3><ul>
+<li>VPC 与虚拟网络是逻辑隔离的<br>可以轻松自定义 VPC 的网络配置。例如，您可以为可访问 Internet 的 Web 服务器创 建公有子网，而将数据库或应用程序服务器等后端系统放在不能访问 Internet 的私有子 网中。</li>
+<li>VPC 主要属性：IP 范围，路由，网关，安全设置</li>
+</ul>
+<h3 id="Direct-Connect"><a href="#Direct-Connect" class="headerlink" title="Direct Connect"></a>Direct Connect</h3><ul>
+<li>用户数据中心到 AWS 的专用网络连接</li>
+<li>在高吞吐的情况下可以降低网络成本、增加带宽吞吐能力</li>
+</ul>
+<h3 id="Route53"><a href="#Route53" class="headerlink" title="Route53"></a>Route53</h3><ul>
+<li>是一种可用性高、可扩展性强的域名系统 (DNS) Web 云服务 54。它的目 的是为开发人员和企业提供一种非常可靠且经济高效的方式，把人类可读的名称（如 <a href="http://www.example.com）转换为计算机用于互相连接的数字" target="_blank" rel="noopener">www.example.com）转换为计算机用于互相连接的数字</a> IP 地址（如 192.0.2.1），从而将 最终用户路由到 Internet 应用程序</li>
+</ul>
+<h3 id="CloudFront"><a href="#CloudFront" class="headerlink" title="CloudFront"></a>CloudFront</h3><ul>
+<li>内容交付 Web 服务，提供低延迟、高速和最低使用承诺的全球 CDN 业务</li>
+<li>利用全球的边缘网络提供整个网站的访问，包括动态、静态、流媒体和交互式内容</li>
+<li>AWS 上存储的文件生命周期策略</li>
+</ul>
+<h3 id="API-Gatway"><a href="#API-Gatway" class="headerlink" title="API Gatway"></a>API Gatway</h3><ul>
+<li>用于 restuufl api</li>
+<li>完全托管的服务</li>
+<li>创建、发布、维护、监控和保护各种规模的 API</li>
+<li>可以接受和处理最大数十万个并发的 API 调用</li>
+<li>支持包括流量管理、授权和访问控制、监控及 API 版本管理</li>
+</ul>
+<h2 id="Developer-Tool"><a href="#Developer-Tool" class="headerlink" title="Developer Tool"></a>Developer Tool</h2><h3 id="AWS-CodeCommit-AWS-CodeCommit"><a href="#AWS-CodeCommit-AWS-CodeCommit" class="headerlink" title="AWS CodeCommit AWS CodeCommit"></a>AWS CodeCommit AWS CodeCommit</h3><ul>
+<li>是一项完全托管式源代码控制服务，让公司能够轻松托管安全且高度 可扩展的私有 Git 存储库 59。借助 AWS CodeCommit，您无需运营自己的源代码控制系 统，也不用操心其基础设施的扩展。您可以使用 AWS CodeCommit 将源代码中的内容安 全地存储到二进制文件中，它可与您现有的 Git 工具无缝协作。</li>
+</ul>
+<h3 id="AWS-CodeBuild"><a href="#AWS-CodeBuild" class="headerlink" title="AWS CodeBuild"></a>AWS CodeBuild</h3><ul>
+<li>AWS CodeBuild 是一项完全托管的持续集成服务，可编译源代码、运行测试以及生成可供部署的软件包。</li>
+<li>使用 CodeBuild，您无需预置、管理和扩展自己的构建服务器。</li>
+</ul>
+<h3 id="CodeBuild"><a href="#CodeBuild" class="headerlink" title="CodeBuild"></a>CodeBuild</h3><ul>
+<li>可以持续扩展并同时处理多项构建任务，因此您的构建任务不会在队列中等待。</li>
+<li>您可以使用预先打包的构建环境快速开始，也可以创建使用您自己的构建工具的自定义构建环境。使用 CodeBuild，您将按使用计算资源的分钟数付费。</li>
+</ul>
+<h3 id="AWS-CodeDeploy"><a href="#AWS-CodeDeploy" class="headerlink" title="AWS CodeDeploy"></a>AWS CodeDeploy</h3><ul>
+<li>AWS CodeDeploy 是一项将软件自动部署到各种计算服务（例如 Amazon EC2、AWS Fargate、AWS Lambda 和本地服务器）的完全托管的部署服务。</li>
+<li>借助 AWS CodeDeploy，您可以更轻松地快速发布新功能，避免在应用程序部署过程中出现停机，并简化应用程序的更新工作。</li>
+<li>您可以使用 AWS CodeDeploy 自动执行软件部署，而无需执行容易出错的手动操作。服务根据您的部署需求进行扩展。</li>
+</ul>
+<h2 id="Management-amp-Governance"><a href="#Management-amp-Governance" class="headerlink" title="Management &amp; Governance"></a>Management &amp; Governance</h2><h3 id="Amazon-CloudWatch"><a href="#Amazon-CloudWatch" class="headerlink" title="Amazon CloudWatch"></a>Amazon CloudWatch</h3><ul>
+<li>云资源和云应用程序的监控服务</li>
+<li>搜集跟踪指标、收集和监视日志文件并设置告警</li>
+<li>获取全系统的资源利用率和程序性能及运行状况的可见性</li>
+</ul>
+<h3 id="AWS-CloudFormation"><a href="#AWS-CloudFormation" class="headerlink" title="AWS CloudFormation"></a>AWS CloudFormation</h3><ul>
+<li>对 AWS 资源以有序和可预测的方式进行配置和更新</li>
+<li>定义一种基于 JSON 和 YAML 的模板语言</li>
+</ul>
+<h3 id="AWS-CloudTrail"><a href="#AWS-CloudTrail" class="headerlink" title="AWS CloudTrail"></a>AWS CloudTrail</h3><ul>
+<li>记录账户的 API 调用并提供日志文件供审计和审查 log</li>
+<li>信息包括 API 调用者身份，调用时间，源 IP 地址、请求参数以及服务返回响应值</li>
+</ul>
+<h2 id="Security，Identity"><a href="#Security，Identity" class="headerlink" title="Security，Identity"></a>Security，Identity</h2><h3 id="AWS-Identity-and-Access-Management-AWS-Identity-and-Access-Management-IAM"><a href="#AWS-Identity-and-Access-Management-AWS-Identity-and-Access-Management-IAM" class="headerlink" title="AWS Identity and Access Management AWS Identity and Access Management (IAM)"></a>AWS Identity and Access Management AWS Identity and Access Management (IAM)</h3><ul>
+<li>有效安全的组织用户对 AWS 服务和资源的访问- control access</li>
+<li>创建和管理 AWS 用户、组以及角色，并使用权限管理允许或拒绝</li>
+<li>使您能够安全地控制用户对 AWS 服务和资源 的访问权限 77。您可以使用 IAM 创建和管理 AWS 用户和组，并使用各种权限来允许或拒 绝他们对 AWS 资源的访问。</li>
+</ul>
+<h3 id="AWS-Cognito"><a href="#AWS-Cognito" class="headerlink" title="AWS Cognito"></a>AWS Cognito</h3><ul>
+<li>也是 access right， 但是 face to client, 涉及 authentitation and authroization</li>
+</ul>
+<h3 id="AWS-Certificate-Manager"><a href="#AWS-Certificate-Manager" class="headerlink" title="AWS Certificate Manager"></a>AWS Certificate Manager</h3><ul>
+<li>配置和管理及部署 SSL/TLS 证书以用于 AWS 云服务</li>
+<li>支持快速申请</li>
+</ul>
+<h3 id="AWS-WAF-Web-应用程序防火墙"><a href="#AWS-WAF-Web-应用程序防火墙" class="headerlink" title="AWS WAF Web 应用程序防火墙"></a>AWS WAF Web 应用程序防火墙</h3><ul>
+<li>用于帮助 Web 应用程序防御常见病毒</li>
+<li>通过定制 Web 安全规则，为组织控制允许或组织其 Web 应用程序的流量</li>
+</ul>
+<h2 id="Analytics"><a href="#Analytics" class="headerlink" title="Analytics"></a>Analytics</h2><h3 id="Amazon-Athena"><a href="#Amazon-Athena" class="headerlink" title="Amazon Athena"></a>Amazon Athena</h3><ul>
+<li>是一种交互式查询服务，可使用此服务通过标准 SQL 在 Amazon S3 中 轻松分析数据</li>
+<li>Athena 没有服务器，因此您无需管理任何基础设施，且只需为您运行 的查询付费。</li>
+<li>Athena 简单易用。只需指向您存储在 Amazon S3 中的数据，</li>
+</ul>
+<h3 id="QuickSight"><a href="#QuickSight" class="headerlink" title="QuickSight"></a>QuickSight</h3><ul>
+<li>分析数据，draw chart，查看数据</li>
+</ul>
+<h2 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h2><h3 id="Amazon-SageMaker"><a href="#Amazon-SageMaker" class="headerlink" title="Amazon SageMaker"></a>Amazon SageMaker</h3><ul>
+<li>Managed service</li>
+<li>自己 input/clean data， run 算法，训练 model</li>
+</ul>
+<h3 id="Amazon-Lex"><a href="#Amazon-Lex" class="headerlink" title="Amazon Lex"></a>Amazon Lex</h3><ul>
+<li>是一项可在任何使用语音和文本的应用程序内构建对话接口的服务</li>
+<li>可用于 Chat bot</li>
+</ul>
+<h3 id="Amazon-Rekognition"><a href="#Amazon-Rekognition" class="headerlink" title="Amazon Rekognition"></a>Amazon Rekognition</h3><ul>
+<li>图像识别 model</li>
+<li>可用于检测 image content</li>
+</ul>
+<h3 id="Amazon-Translate"><a href="#Amazon-Translate" class="headerlink" title="Amazon Translate"></a>Amazon Translate</h3><h2 id="Media-service"><a href="#Media-service" class="headerlink" title="Media service"></a>Media service</h2><h3 id="Amazon-Elastic-Transcoder-弹性转码器"><a href="#Amazon-Elastic-Transcoder-弹性转码器" class="headerlink" title="Amazon Elastic Transcoder 弹性转码器"></a>Amazon Elastic Transcoder 弹性转码器</h3><ul>
+<li>在 AWS 进行云中的媒体转码</li>
+<li>将媒体文件从其源格式转换成可在智能手机、平板电脑和 PC 等设备上播放的格式</li>
+</ul>
+<h2 id="Front-end-Web-amp-Mobile"><a href="#Front-end-Web-amp-Mobile" class="headerlink" title="Front-end Web &amp; Mobile"></a>Front-end Web &amp; Mobile</h2><h3 id="Mobile-Hub"><a href="#Mobile-Hub" class="headerlink" title="Mobile Hub"></a>Mobile Hub</h3><ul>
+<li>简易整合中心。</li>
+<li>类似 firebase</li>
+</ul>
+<h3 id="AWS-AppSync"><a href="#AWS-AppSync" class="headerlink" title="AWS AppSync"></a>AWS AppSync</h3><ul>
+<li>用于 graphQL service</li>
+</ul>
+<h3 id="Device-Farm"><a href="#Device-Farm" class="headerlink" title="Device Farm"></a>Device Farm</h3><ul>
+<li>Room of mobile</li>
+</ul>
+<h2 id="Application-Integration"><a href="#Application-Integration" class="headerlink" title="Application Integration"></a>Application Integration</h2><h3 id="Amazon-SNS-简单通知服务"><a href="#Amazon-SNS-简单通知服务" class="headerlink" title="Amazon SNS 简单通知服务"></a>Amazon SNS 简单通知服务</h3><ul>
+<li>管理向收件人发送消息或邮件的 Web 服务</li>
+<li>支持两种角色： 发布者和订阅者</li>
+<li>Amazon Simple Queue Service</li>
+<li>完全托管的、可靠和可扩展的消息队列服务</li>
+<li>适用于任何吞吐量级别、传输任何数据而不会丢失消息且要求其他服务始终可用通过发布者向订阅者发送消息实现异步通信</li>
+</ul>
+<h2 id="Other-Common-Service"><a href="#Other-Common-Service" class="headerlink" title="Other Common Service"></a>Other Common Service</h2><h3 id="Amazon-SES-简单电子邮件服务"><a href="#Amazon-SES-简单电子邮件服务" class="headerlink" title="Amazon SES 简单电子邮件服务"></a>Amazon SES 简单电子邮件服务</h3><ul>
+<li>利用 SES 向客户发送交易、营销信息及其他内容电子邮件</li>
+<li>一种应用场景： 通过 SES 接受消息，传递到 S3，触发 Lambda，再发布通知到 SNS</li>
+</ul>
+<h3 id="Amazon-Connect"><a href="#Amazon-Connect" class="headerlink" title="Amazon Connect"></a>Amazon Connect</h3><ul>
+<li>Call manage center， still need people</li>
+</ul>
+<h3 id="Amazon-pinpoint"><a href="#Amazon-pinpoint" class="headerlink" title="Amazon pinpoint"></a>Amazon pinpoint</h3><ul>
+<li>连接 analytics，发送 email or newsletter to regiester members</li>
+</ul>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/08/15/From-an-idea-to-a-product-i/" title= "《从点子到产品》读书感悟 — Part I">
+                    <div class="prevTitle">《从点子到产品》读书感悟 — Part I</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        
+        var disqus_config = function () {
+        this.page.url = "http://www.hanlingquan.com/2020/10/04/AWS-overview/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "AWS概述"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hanlingquan-com-1.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:lingquanhan@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Attriumph" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <a href="//www.linkedin.com/in/lingquanhan/" class="iconfont-archer linkedin" target="_blank" title=linkedin></a>
+            
+        
+    
+        
+            
+                <a href="//www.facebook.com/Lingquan.Han" class="iconfont-archer facebook" target="_blank" title=facebook></a>
+            
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//www.instagram.com/lawrence_hanlq/?hl=en" class="iconfont-archer instagram" target="_blank" title=instagram></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#云计算"><span class="toc-number">1.</span> <span class="toc-text">云计算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义："><span class="toc-number">1.1.</span> <span class="toc-text">定义：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类："><span class="toc-number">1.2.</span> <span class="toc-text">分类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云计算部署模型"><span class="toc-number">1.3.</span> <span class="toc-text">云计算部署模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优势"><span class="toc-number">1.4.</span> <span class="toc-text">优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习方向："><span class="toc-number">1.5.</span> <span class="toc-text">学习方向：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#AWS-网络服务"><span class="toc-number">2.</span> <span class="toc-text">AWS 网络服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Compute"><span class="toc-number">2.1.</span> <span class="toc-text">AWS Compute</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-EC2-Amazon-Elastic-Compute-Cloud-Amazon-EC2"><span class="toc-number">2.1.1.</span> <span class="toc-text">Amazon EC2 Amazon Elastic Compute Cloud (Amazon EC2)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Lightsail"><span class="toc-number">2.1.2.</span> <span class="toc-text">Amazon Lightsail</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Lambda"><span class="toc-number">2.1.3.</span> <span class="toc-text">AWS Lambda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Elastic-Benstalk"><span class="toc-number">2.1.4.</span> <span class="toc-text">AWS Elastic Benstalk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Auto-Scaling"><span class="toc-number">2.1.5.</span> <span class="toc-text">Auto Scaling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Elastic-Load-Balancing"><span class="toc-number">2.1.6.</span> <span class="toc-text">Elastic Load Balancing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-存储"><span class="toc-number">2.2.</span> <span class="toc-text">AWS 存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#S3"><span class="toc-number">2.2.1.</span> <span class="toc-text">S3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Glacier"><span class="toc-number">2.2.2.</span> <span class="toc-text">S3 Glacier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Storage-Gateway"><span class="toc-number">2.2.3.</span> <span class="toc-text">AWS Storage Gateway</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EBS-EFS-存储"><span class="toc-number">2.2.4.</span> <span class="toc-text">EBS/EFS 存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-数据库"><span class="toc-number">2.3.</span> <span class="toc-text">AWS 数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Aurora"><span class="toc-number">2.3.1.</span> <span class="toc-text">Amazon Aurora</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DynamoDB"><span class="toc-number">2.3.2.</span> <span class="toc-text">DynamoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDS"><span class="toc-number">2.3.3.</span> <span class="toc-text">RDS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElastiCache"><span class="toc-number">2.3.4.</span> <span class="toc-text">ElastiCache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neptune"><span class="toc-number">2.3.5.</span> <span class="toc-text">Neptune</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Migration"><span class="toc-number">2.4.</span> <span class="toc-text">Migration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Application-Discovery-Service"><span class="toc-number">2.4.1.</span> <span class="toc-text">AWS Application Discovery Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Database-Migration-Service"><span class="toc-number">2.4.2.</span> <span class="toc-text">AWS Database Migration Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Server-Migration-Service-SMS"><span class="toc-number">2.4.3.</span> <span class="toc-text">AWS Server Migration Service (SMS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Snowball"><span class="toc-number">2.4.4.</span> <span class="toc-text">AWS Snowball</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Networking-amp-Content-Delivery"><span class="toc-number">2.5.</span> <span class="toc-text">Networking &amp; Content Delivery</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VPC"><span class="toc-number">2.5.1.</span> <span class="toc-text">VPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Direct-Connect"><span class="toc-number">2.5.2.</span> <span class="toc-text">Direct Connect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Route53"><span class="toc-number">2.5.3.</span> <span class="toc-text">Route53</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CloudFront"><span class="toc-number">2.5.4.</span> <span class="toc-text">CloudFront</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-Gatway"><span class="toc-number">2.5.5.</span> <span class="toc-text">API Gatway</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Developer-Tool"><span class="toc-number">2.6.</span> <span class="toc-text">Developer Tool</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeCommit-AWS-CodeCommit"><span class="toc-number">2.6.1.</span> <span class="toc-text">AWS CodeCommit AWS CodeCommit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeBuild"><span class="toc-number">2.6.2.</span> <span class="toc-text">AWS CodeBuild</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CodeBuild"><span class="toc-number">2.6.3.</span> <span class="toc-text">CodeBuild</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CodeDeploy"><span class="toc-number">2.6.4.</span> <span class="toc-text">AWS CodeDeploy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Management-amp-Governance"><span class="toc-number">2.7.</span> <span class="toc-text">Management &amp; Governance</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-CloudWatch"><span class="toc-number">2.7.1.</span> <span class="toc-text">Amazon CloudWatch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CloudFormation"><span class="toc-number">2.7.2.</span> <span class="toc-text">AWS CloudFormation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-CloudTrail"><span class="toc-number">2.7.3.</span> <span class="toc-text">AWS CloudTrail</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security，Identity"><span class="toc-number">2.8.</span> <span class="toc-text">Security，Identity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Identity-and-Access-Management-AWS-Identity-and-Access-Management-IAM"><span class="toc-number">2.8.1.</span> <span class="toc-text">AWS Identity and Access Management AWS Identity and Access Management (IAM)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Cognito"><span class="toc-number">2.8.2.</span> <span class="toc-text">AWS Cognito</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-Certificate-Manager"><span class="toc-number">2.8.3.</span> <span class="toc-text">AWS Certificate Manager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-WAF-Web-应用程序防火墙"><span class="toc-number">2.8.4.</span> <span class="toc-text">AWS WAF Web 应用程序防火墙</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Analytics"><span class="toc-number">2.9.</span> <span class="toc-text">Analytics</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Athena"><span class="toc-number">2.9.1.</span> <span class="toc-text">Amazon Athena</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QuickSight"><span class="toc-number">2.9.2.</span> <span class="toc-text">QuickSight</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Machine-Learning"><span class="toc-number">2.10.</span> <span class="toc-text">Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-SageMaker"><span class="toc-number">2.10.1.</span> <span class="toc-text">Amazon SageMaker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Lex"><span class="toc-number">2.10.2.</span> <span class="toc-text">Amazon Lex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Rekognition"><span class="toc-number">2.10.3.</span> <span class="toc-text">Amazon Rekognition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Translate"><span class="toc-number">2.10.4.</span> <span class="toc-text">Amazon Translate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Media-service"><span class="toc-number">2.11.</span> <span class="toc-text">Media service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Elastic-Transcoder-弹性转码器"><span class="toc-number">2.11.1.</span> <span class="toc-text">Amazon Elastic Transcoder 弹性转码器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Front-end-Web-amp-Mobile"><span class="toc-number">2.12.</span> <span class="toc-text">Front-end Web &amp; Mobile</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mobile-Hub"><span class="toc-number">2.12.1.</span> <span class="toc-text">Mobile Hub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-AppSync"><span class="toc-number">2.12.2.</span> <span class="toc-text">AWS AppSync</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Device-Farm"><span class="toc-number">2.12.3.</span> <span class="toc-text">Device Farm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-Integration"><span class="toc-number">2.13.</span> <span class="toc-text">Application Integration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-SNS-简单通知服务"><span class="toc-number">2.13.1.</span> <span class="toc-text">Amazon SNS 简单通知服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Common-Service"><span class="toc-number">2.14.</span> <span class="toc-text">Other Common Service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-SES-简单电子邮件服务"><span class="toc-number">2.14.1.</span> <span class="toc-text">Amazon SES 简单电子邮件服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-Connect"><span class="toc-number">2.14.2.</span> <span class="toc-text">Amazon Connect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Amazon-pinpoint"><span class="toc-number">2.14.3.</span> <span class="toc-text">Amazon pinpoint</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 25
+        </div>
+        <!-- search  -->
+        
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/04</span><a class="archive-post-title" href= "/2020/10/04/AWS-overview/" >AWS概述</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/15</span><a class="archive-post-title" href= "/2020/08/15/From-an-idea-to-a-product-i/" >《从点子到产品》读书感悟 — Part I</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href= "/2020/06/27/Rich-Dad/" >《富爸爸穷爸爸》读书总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/11</span><a class="archive-post-title" href= "/2020/04/11/California-State-Route-1/" >旅行杂记｜加州一号公路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2020/01/26/Introducation-To-Common-Fix-Income/" >个人理财学习 | 常见的固定收益</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/22</span><a class="archive-post-title" href= "/2020/01/22/Introducation-To-Stock/" >个人理财学习 | 股市入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span><a class="archive-post-title" href= "/2020/01/21/Introducation-To-Finance/" >个人理财学习 | 提早规划</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2019/10/03/Network-Socket/" >Introducation to Socket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2019/10/01/Network-Communication/" >ARP, DNS and DHCP</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2019/09/25/Layered-Architecture-of-Network/" >Layered Architecture of Network</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/21</span><a class="archive-post-title" href= "/2019/09/21/internship/" >A perfect internship at LinkedIn</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2019/04/02/Delete-duplicates-of-arrays-with-Javascript/" >Array Deduplicate in Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/17</span><a class="archive-post-title" href= "/2019/02/17/Host-a-website-by-AWS-S3-with-Namecheap-domin/" >Host a website by AWS S3 with Namecheap domin</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/02</span><a class="archive-post-title" href= "/2019/02/02/Understand-and-Use-SSL/" >Understand and Use SSL</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/27</span><a class="archive-post-title" href= "/2019/01/27/NPM-and-Useful-Packages/" >NPM and Useful Packages</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/18</span><a class="archive-post-title" href= "/2019/01/18/Layout by Flexbox:CSS Grid/" >Layout by Flexbox and CSS Grid</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/16</span><a class="archive-post-title" href= "/2019/01/16/Differece-between-rebase-and-merge-in-Git/" >Differece between rebase and merge in Git</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/11</span><a class="archive-post-title" href= "/2019/01/11/Add-Search-feature-By-Algolia/" >Add Search feature By Algolia</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/30</span><a class="archive-post-title" href= "/2018/10/30/Ways-to-improve-web-performance/" >Ways to improve web performance</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span><a class="archive-post-title" href= "/2018/10/26/HTML-DOM-Key-Concepts/" >HTML DOM Key Concepts</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span><a class="archive-post-title" href= "/2018/10/22/Implement-a-Queue-by-Javascript/" >Implement a Queue by Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href= "/2018/10/21/Inheritance-in-Javascript/" >Inheritance in Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2018/10/20/Small-but-important-stuff-about-Javascript/" >Small but important stuff about Javascript</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/HTML-CSS-Summary/" >HTML/CSS Summary</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2018/10/18/Javascript-Summary/" >Javascript Summary</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="AWS"><span class="iconfont-archer">&#xe606;</span>AWS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Cloud"><span class="iconfont-archer">&#xe606;</span>Cloud</span>
+    
+        <span class="sidebar-tag-name" data-tags="Roadtrip"><span class="iconfont-archer">&#xe606;</span>Roadtrip</span>
+    
+        <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
+    
+        <span class="sidebar-tag-name" data-tags="Javascript"><span class="iconfont-archer">&#xe606;</span>Javascript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Website/Search"><span class="iconfont-archer">&#xe606;</span>Website/Search</span>
+    
+        <span class="sidebar-tag-name" data-tags="Algolia"><span class="iconfont-archer">&#xe606;</span>Algolia</span>
+    
+        <span class="sidebar-tag-name" data-tags="product"><span class="iconfont-archer">&#xe606;</span>product</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git/Github"><span class="iconfont-archer">&#xe606;</span>Git/Github</span>
+    
+        <span class="sidebar-tag-name" data-tags="AWS S3"><span class="iconfont-archer">&#xe606;</span>AWS S3</span>
+    
+        <span class="sidebar-tag-name" data-tags="Namecheap"><span class="iconfont-archer">&#xe606;</span>Namecheap</span>
+    
+        <span class="sidebar-tag-name" data-tags="Front-end"><span class="iconfont-archer">&#xe606;</span>Front-end</span>
+    
+        <span class="sidebar-tag-name" data-tags="HTML DOM"><span class="iconfont-archer">&#xe606;</span>HTML DOM</span>
+    
+        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+    
+        <span class="sidebar-tag-name" data-tags="Javascirpt"><span class="iconfont-archer">&#xe606;</span>Javascirpt</span>
+    
+        <span class="sidebar-tag-name" data-tags="personal Finance"><span class="iconfont-archer">&#xe606;</span>personal Finance</span>
+    
+        <span class="sidebar-tag-name" data-tags="Personal Finance"><span class="iconfont-archer">&#xe606;</span>Personal Finance</span>
+    
+        <span class="sidebar-tag-name" data-tags="Personal Financex"><span class="iconfont-archer">&#xe606;</span>Personal Financex</span>
+    
+        <span class="sidebar-tag-name" data-tags="computer network"><span class="iconfont-archer">&#xe606;</span>computer network</span>
+    
+        <span class="sidebar-tag-name" data-tags="Backend"><span class="iconfont-archer">&#xe606;</span>Backend</span>
+    
+        <span class="sidebar-tag-name" data-tags="Network"><span class="iconfont-archer">&#xe606;</span>Network</span>
+    
+        <span class="sidebar-tag-name" data-tags="Layout"><span class="iconfont-archer">&#xe606;</span>Layout</span>
+    
+        <span class="sidebar-tag-name" data-tags="Flexbox"><span class="iconfont-archer">&#xe606;</span>Flexbox</span>
+    
+        <span class="sidebar-tag-name" data-tags="CSS Grid"><span class="iconfont-archer">&#xe606;</span>CSS Grid</span>
+    
+        <span class="sidebar-tag-name" data-tags="Web Performance"><span class="iconfont-archer">&#xe606;</span>Web Performance</span>
+    
+        <span class="sidebar-tag-name" data-tags="Work and Life"><span class="iconfont-archer">&#xe606;</span>Work and Life</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="Tools"><span class="iconfont-archer">&#xe60a;</span>Tools</span>
+    
+        <span class="sidebar-category-name" data-categories="Web-Development"><span class="iconfont-archer">&#xe60a;</span>Web-Development</span>
+    
+        <span class="sidebar-category-name" data-categories="Front-end"><span class="iconfont-archer">&#xe60a;</span>Front-end</span>
+    
+        <span class="sidebar-category-name" data-categories="Life"><span class="iconfont-archer">&#xe60a;</span>Life</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Lingquan Han"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+        <div class="site-search">
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="iconfont-archer">&#xe609;</i>
+    </span>
+  </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
+        <script src="/scripts/search.js" defer></script>
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
